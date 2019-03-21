@@ -23,4 +23,19 @@
         Me.Close()
         Login.Show()
     End Sub
+
+    Private Sub btnInventario_Click(sender As Object, e As EventArgs) Handles btnInventario.Click
+        loadForm(Inventario)
+        lblTitulo.Text = "INVENTARIOS"
+    End Sub
+
+    Private Sub btnVentas_Click(sender As Object, e As EventArgs) Handles btnVentas.Click
+        loadForm(ventas)
+        lblTitulo.Text = "VENTAS"
+    End Sub
+
+    Private Sub btnReportes_Click(sender As Object, e As EventArgs) Handles btnReportes.Click
+        loadForm(Reportes)
+        lblTitulo.Text = "REPORTES"
+    End Sub
 End Class

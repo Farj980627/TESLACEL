@@ -78,11 +78,29 @@
   <ItemGroup>
     <Compile Include="Clases\conexion.vb" />
     <Compile Include="Clases\consultas.vb" />
+    <Compile Include="Formularios\Eliminar_Prod.Designer.vb">
+      <DependentUpon>Eliminar_Prod.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Eliminar_Prod.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Formularios\Form1.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Formularios\Form1.Designer.vb">
       <DependentUpon>Form1.vb</DependentUpon>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Insertar_Prod.Designer.vb">
+      <DependentUpon>Insertar_Prod.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Insertar_Prod.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Inventario.Designer.vb">
+      <DependentUpon>Inventario.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Inventario.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Formularios\Principal.Designer.vb">
@@ -91,10 +109,22 @@
     <Compile Include="Formularios\Principal.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Formularios\Reportes.Designer.vb">
+      <DependentUpon>Reportes.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Reportes.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Formularios\usuarios.Designer.vb">
       <DependentUpon>usuarios.vb</DependentUpon>
     </Compile>
     <Compile Include="Formularios\usuarios.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\ventas.Designer.vb">
+      <DependentUpon>ventas.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\ventas.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
@@ -114,14 +144,29 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Formularios\Eliminar_Prod.resx">
+      <DependentUpon>Eliminar_Prod.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Form1.resx">
       <DependentUpon>Form1.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Insertar_Prod.resx">
+      <DependentUpon>Insertar_Prod.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Inventario.resx">
+      <DependentUpon>Inventario.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Principal.resx">
       <DependentUpon>Principal.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Reportes.resx">
+      <DependentUpon>Reportes.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Formularios\usuarios.resx">
       <DependentUpon>usuarios.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\ventas.resx">
+      <DependentUpon>ventas.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
@@ -162,6 +207,33 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\salir color.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\suma color.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\carro mas color.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\carro menos color.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mostrar todo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\eliminar color.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\buscar color.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\vender color.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\comprar color.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\reporte color.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

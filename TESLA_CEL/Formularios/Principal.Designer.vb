@@ -25,8 +25,8 @@ Partial Class Principal
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Principal))
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
         Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
-        Me.contenedor = New System.Windows.Forms.Panel()
         Me.lblTitulo = New System.Windows.Forms.Label()
+        Me.contenedor = New System.Windows.Forms.Panel()
         Me.btnSalir = New System.Windows.Forms.Button()
         Me.btnVentas = New System.Windows.Forms.Button()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
@@ -81,15 +81,6 @@ Partial Class Principal
         Me.TableLayoutPanel2.Size = New System.Drawing.Size(1069, 43)
         Me.TableLayoutPanel2.TabIndex = 1
         '
-        'contenedor
-        '
-        Me.contenedor.BackColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(247, Byte), Integer), CType(CType(249, Byte), Integer))
-        Me.contenedor.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.contenedor.Location = New System.Drawing.Point(236, 43)
-        Me.contenedor.Name = "contenedor"
-        Me.contenedor.Size = New System.Drawing.Size(1069, 609)
-        Me.contenedor.TabIndex = 2
-        '
         'lblTitulo
         '
         Me.lblTitulo.AutoSize = True
@@ -102,6 +93,15 @@ Partial Class Principal
         Me.lblTitulo.TabIndex = 1
         Me.lblTitulo.Text = "ACCESO AL SISTEMA"
         Me.lblTitulo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'contenedor
+        '
+        Me.contenedor.BackColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(247, Byte), Integer), CType(CType(249, Byte), Integer))
+        Me.contenedor.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.contenedor.Location = New System.Drawing.Point(236, 43)
+        Me.contenedor.Name = "contenedor"
+        Me.contenedor.Size = New System.Drawing.Size(1069, 609)
+        Me.contenedor.TabIndex = 2
         '
         'btnSalir
         '

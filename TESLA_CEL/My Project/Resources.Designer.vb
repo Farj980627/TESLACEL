@@ -63,9 +63,59 @@ Namespace My.Resources
         '''<summary>
         '''  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         '''</summary>
+        Friend ReadOnly Property buscar_color() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("buscar color", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property carro_mas_color() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("carro mas color", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property carro_menos_color() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("carro menos color", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property comprar_color() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("comprar color", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        '''</summary>
         Friend ReadOnly Property dinero_color() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("dinero color", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property eliminar_color() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("eliminar color", resourceCulture)
                 Return CType(obj,System.Drawing.Bitmap)
             End Get
         End Property
@@ -103,6 +153,26 @@ Namespace My.Resources
         '''<summary>
         '''  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         '''</summary>
+        Friend ReadOnly Property mostrar_todo() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("mostrar todo", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property reporte_color() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("reporte color", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        '''</summary>
         Friend ReadOnly Property salir_color() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("salir color", resourceCulture)
@@ -123,9 +193,29 @@ Namespace My.Resources
         '''<summary>
         '''  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         '''</summary>
+        Friend ReadOnly Property suma_color() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("suma color", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        '''</summary>
         Friend ReadOnly Property usuarios_color() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("usuarios color", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property vender_color() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("vender color", resourceCulture)
                 Return CType(obj,System.Drawing.Bitmap)
             End Get
         End Property

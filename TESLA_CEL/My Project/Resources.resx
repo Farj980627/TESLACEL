@@ -118,8 +118,14 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="soporte color" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\soporte color.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="buscar color" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\buscar color.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="vender color" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\vender color.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="suma color" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\suma color.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="inventario color" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\inventario color.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -127,16 +133,37 @@
   <data name="salir color" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\salir color.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="logo nuevo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\logo nuevo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="carro mas color" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\carro mas color.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="dinero color" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\dinero color.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="guardar color" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\guardar color.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="soporte color" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\soporte color.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="eliminar color" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\eliminar color.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="usuarios color" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\usuarios color.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="logo nuevo" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\logo nuevo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="comprar color" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\comprar color.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="guardar color" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\guardar color.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="carro menos color" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\carro menos color.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="mostrar todo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\mostrar todo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="reporte color" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\reporte color.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
