@@ -55,11 +55,12 @@ Partial Class Insertar_Prod
         '
         Me.txtDescripcion.BackColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(247, Byte), Integer), CType(CType(249, Byte), Integer))
         Me.txtDescripcion.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.txtDescripcion.Font = New System.Drawing.Font("Berlin Sans FB", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtDescripcion.Font = New System.Drawing.Font("Berlin Sans FB", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtDescripcion.ForeColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(77, Byte), Integer), CType(CType(111, Byte), Integer))
         Me.txtDescripcion.Location = New System.Drawing.Point(601, 112)
+        Me.txtDescripcion.Multiline = True
         Me.txtDescripcion.Name = "txtDescripcion"
-        Me.txtDescripcion.Size = New System.Drawing.Size(286, 30)
+        Me.txtDescripcion.Size = New System.Drawing.Size(286, 66)
         Me.txtDescripcion.TabIndex = 3
         Me.txtDescripcion.Text = "DESCRIPCIÓN"
         Me.txtDescripcion.TextAlign = System.Windows.Forms.HorizontalAlignment.Center

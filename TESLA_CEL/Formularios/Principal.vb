@@ -1,6 +1,17 @@
 ﻿Public Class Principal
+    Public Shared userLevel, username As String
     Private Sub Principal_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
+        Me.ActiveControl = PictureBox1
+        If userLevel = "3" Then
+            btnInventario.Enabled = False
+            btnReportes.Enabled = False
+            btnUsuarios.Enabled = False
+        ElseIf userLevel = "4" Then
+            btnInventario.Enabled = False
+            btnReportes.Enabled = False
+            btnUsuarios.Enabled = False
+            btnVentas.Enabled = False
+        End If
     End Sub
     Sub loadForm(ByVal form As Object)
         If Me.contenedor.Controls.Count > 0 Then

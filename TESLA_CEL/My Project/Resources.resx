@@ -139,6 +139,9 @@
   <data name="carro mas color" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\carro mas color.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="reporte color" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\reporte color.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="dinero color" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\dinero color.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -154,16 +157,16 @@
   <data name="usuarios color" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\usuarios color.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="comprar color" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\comprar color.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="carro menos color" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\carro menos color.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="comprar color" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\comprar color.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="mostrar todo" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\mostrar todo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="reporte color" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\reporte color.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="actualizar color" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\actualizar color.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

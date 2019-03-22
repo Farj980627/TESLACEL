@@ -235,5 +235,8 @@
   <ItemGroup>
     <None Include="Resources\reporte color.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\actualizar color.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

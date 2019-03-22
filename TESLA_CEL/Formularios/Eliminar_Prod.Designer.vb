@@ -27,6 +27,7 @@ Partial Class Eliminar_Prod
         Me.cbProducto = New System.Windows.Forms.ComboBox()
         Me.btnEliminar = New System.Windows.Forms.Button()
         Me.bntSalir = New System.Windows.Forms.PictureBox()
+        Me.Label2 = New System.Windows.Forms.Label()
         CType(Me.bntSalir, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -91,12 +92,26 @@ Partial Class Eliminar_Prod
         Me.bntSalir.TabIndex = 17
         Me.bntSalir.TabStop = False
         '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Font = New System.Drawing.Font("Berlin Sans FB", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(247, Byte), Integer), CType(CType(249, Byte), Integer))
+        Me.Label2.Location = New System.Drawing.Point(184, 150)
+        Me.Label2.Name = "Label2"
+        Me.Label2.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me.Label2.Size = New System.Drawing.Size(171, 31)
+        Me.Label2.TabIndex = 18
+        Me.Label2.Text = "PROVEEDOR"
+        Me.Label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
         'Eliminar_Prod
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(77, Byte), Integer), CType(CType(111, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(1069, 609)
+        Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.bntSalir)
         Me.Controls.Add(Me.btnEliminar)
         Me.Controls.Add(Me.cbProducto)
@@ -116,4 +131,5 @@ Partial Class Eliminar_Prod
     Friend WithEvents cbProducto As ComboBox
     Friend WithEvents btnEliminar As Button
     Friend WithEvents bntSalir As PictureBox
+    Friend WithEvents Label2 As Label
 End Class
