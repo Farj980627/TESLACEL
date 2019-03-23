@@ -27,14 +27,14 @@ Partial Class Insertar_Prod
         Me.txtCantidad = New System.Windows.Forms.TextBox()
         Me.txtPrecio = New System.Windows.Forms.TextBox()
         Me.txtMinimo = New System.Windows.Forms.TextBox()
-        Me.cbCategora = New System.Windows.Forms.ComboBox()
         Me.txtCodigo = New System.Windows.Forms.TextBox()
         Me.dtpFecha = New System.Windows.Forms.DateTimePicker()
-        Me.btnCancelar = New System.Windows.Forms.Button()
-        Me.btnAgregar = New System.Windows.Forms.Button()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.cbProveedor = New System.Windows.Forms.ComboBox()
+        Me.txtCategoria = New System.Windows.Forms.TextBox()
         Me.bntSalir = New System.Windows.Forms.PictureBox()
+        Me.btnAgregar = New System.Windows.Forms.Button()
+        Me.btnCancelar = New System.Windows.Forms.Button()
         CType(Me.bntSalir, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -104,18 +104,6 @@ Partial Class Insertar_Prod
         Me.txtMinimo.Text = "MINIMO"
         Me.txtMinimo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
-        'cbCategora
-        '
-        Me.cbCategora.BackColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(247, Byte), Integer), CType(CType(249, Byte), Integer))
-        Me.cbCategora.Font = New System.Drawing.Font("Berlin Sans FB", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cbCategora.ForeColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(77, Byte), Integer), CType(CType(111, Byte), Integer))
-        Me.cbCategora.FormattingEnabled = True
-        Me.cbCategora.Location = New System.Drawing.Point(601, 256)
-        Me.cbCategora.Name = "cbCategora"
-        Me.cbCategora.Size = New System.Drawing.Size(286, 38)
-        Me.cbCategora.TabIndex = 7
-        Me.cbCategora.Text = "CATEGORIA"
-        '
         'txtCodigo
         '
         Me.txtCodigo.BackColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(247, Byte), Integer), CType(CType(249, Byte), Integer))
@@ -140,34 +128,6 @@ Partial Class Insertar_Prod
         Me.dtpFecha.Size = New System.Drawing.Size(286, 37)
         Me.dtpFecha.TabIndex = 9
         Me.dtpFecha.Value = New Date(2019, 3, 20, 0, 0, 0, 0)
-        '
-        'btnCancelar
-        '
-        Me.btnCancelar.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(77, Byte), Integer), CType(CType(111, Byte), Integer))
-        Me.btnCancelar.Font = New System.Drawing.Font("Berlin Sans FB", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnCancelar.ForeColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(247, Byte), Integer), CType(CType(249, Byte), Integer))
-        Me.btnCancelar.Image = Global.TESLA_CEL.My.Resources.Resources.salir_color
-        Me.btnCancelar.Location = New System.Drawing.Point(495, 481)
-        Me.btnCancelar.Name = "btnCancelar"
-        Me.btnCancelar.Size = New System.Drawing.Size(229, 58)
-        Me.btnCancelar.TabIndex = 10
-        Me.btnCancelar.Text = "CANCELAR"
-        Me.btnCancelar.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage
-        Me.btnCancelar.UseVisualStyleBackColor = False
-        '
-        'btnAgregar
-        '
-        Me.btnAgregar.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(77, Byte), Integer), CType(CType(111, Byte), Integer))
-        Me.btnAgregar.Font = New System.Drawing.Font("Berlin Sans FB", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnAgregar.ForeColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(247, Byte), Integer), CType(CType(249, Byte), Integer))
-        Me.btnAgregar.Image = Global.TESLA_CEL.My.Resources.Resources.suma_color
-        Me.btnAgregar.Location = New System.Drawing.Point(762, 481)
-        Me.btnAgregar.Name = "btnAgregar"
-        Me.btnAgregar.Size = New System.Drawing.Size(229, 58)
-        Me.btnAgregar.TabIndex = 11
-        Me.btnAgregar.Text = "AGREGAR"
-        Me.btnAgregar.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage
-        Me.btnAgregar.UseVisualStyleBackColor = False
         '
         'Label1
         '
@@ -194,6 +154,19 @@ Partial Class Insertar_Prod
         Me.cbProveedor.TabIndex = 13
         Me.cbProveedor.Text = "PROVEEDOR"
         '
+        'txtCategoria
+        '
+        Me.txtCategoria.BackColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(247, Byte), Integer), CType(CType(249, Byte), Integer))
+        Me.txtCategoria.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.txtCategoria.Font = New System.Drawing.Font("Berlin Sans FB", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtCategoria.ForeColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(77, Byte), Integer), CType(CType(111, Byte), Integer))
+        Me.txtCategoria.Location = New System.Drawing.Point(601, 256)
+        Me.txtCategoria.Name = "txtCategoria"
+        Me.txtCategoria.Size = New System.Drawing.Size(286, 30)
+        Me.txtCategoria.TabIndex = 19
+        Me.txtCategoria.Text = "CATEGORIA"
+        Me.txtCategoria.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        '
         'bntSalir
         '
         Me.bntSalir.Image = Global.TESLA_CEL.My.Resources.Resources.salir_color
@@ -204,12 +177,41 @@ Partial Class Insertar_Prod
         Me.bntSalir.TabIndex = 18
         Me.bntSalir.TabStop = False
         '
+        'btnAgregar
+        '
+        Me.btnAgregar.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(77, Byte), Integer), CType(CType(111, Byte), Integer))
+        Me.btnAgregar.Font = New System.Drawing.Font("Berlin Sans FB", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnAgregar.ForeColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(247, Byte), Integer), CType(CType(249, Byte), Integer))
+        Me.btnAgregar.Image = Global.TESLA_CEL.My.Resources.Resources.suma_color
+        Me.btnAgregar.Location = New System.Drawing.Point(762, 481)
+        Me.btnAgregar.Name = "btnAgregar"
+        Me.btnAgregar.Size = New System.Drawing.Size(229, 58)
+        Me.btnAgregar.TabIndex = 11
+        Me.btnAgregar.Text = "AGREGAR"
+        Me.btnAgregar.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage
+        Me.btnAgregar.UseVisualStyleBackColor = False
+        '
+        'btnCancelar
+        '
+        Me.btnCancelar.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(77, Byte), Integer), CType(CType(111, Byte), Integer))
+        Me.btnCancelar.Font = New System.Drawing.Font("Berlin Sans FB", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnCancelar.ForeColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(247, Byte), Integer), CType(CType(249, Byte), Integer))
+        Me.btnCancelar.Image = Global.TESLA_CEL.My.Resources.Resources.salir_color
+        Me.btnCancelar.Location = New System.Drawing.Point(495, 481)
+        Me.btnCancelar.Name = "btnCancelar"
+        Me.btnCancelar.Size = New System.Drawing.Size(229, 58)
+        Me.btnCancelar.TabIndex = 10
+        Me.btnCancelar.Text = "CANCELAR"
+        Me.btnCancelar.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage
+        Me.btnCancelar.UseVisualStyleBackColor = False
+        '
         'Insertar_Prod
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(77, Byte), Integer), CType(CType(111, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(1069, 609)
+        Me.Controls.Add(Me.txtCategoria)
         Me.Controls.Add(Me.bntSalir)
         Me.Controls.Add(Me.cbProveedor)
         Me.Controls.Add(Me.Label1)
@@ -217,7 +219,6 @@ Partial Class Insertar_Prod
         Me.Controls.Add(Me.btnCancelar)
         Me.Controls.Add(Me.dtpFecha)
         Me.Controls.Add(Me.txtCodigo)
-        Me.Controls.Add(Me.cbCategora)
         Me.Controls.Add(Me.txtMinimo)
         Me.Controls.Add(Me.txtCantidad)
         Me.Controls.Add(Me.txtPrecio)
@@ -237,7 +238,6 @@ Partial Class Insertar_Prod
     Friend WithEvents txtCantidad As TextBox
     Friend WithEvents txtPrecio As TextBox
     Friend WithEvents txtMinimo As TextBox
-    Friend WithEvents cbCategora As ComboBox
     Friend WithEvents txtCodigo As TextBox
     Friend WithEvents dtpFecha As DateTimePicker
     Friend WithEvents btnCancelar As Button
@@ -245,4 +245,5 @@ Partial Class Insertar_Prod
     Friend WithEvents Label1 As Label
     Friend WithEvents cbProveedor As ComboBox
     Friend WithEvents bntSalir As PictureBox
+    Friend WithEvents txtCategoria As TextBox
 End Class

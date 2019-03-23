@@ -108,10 +108,16 @@ Public Class consultas
     Public Shared Function getProductoByProveedor(pid) As DataTable
         Dim con As MySqlConnection = conexion.conection
         Dim dt As New DataTable
-        Dim cmd As MySqlCommand = New MySqlCommand(String.Format("SELECT product FROM products  WHERE id_provider = '{0}'", pid), con)
+        Dim cmd As MySqlCommand = New MySqlCommand(String.Format("SELECT name FROM products  WHERE id_provider = '{0}'", pid), con)
         Dim adap As New MySqlDataAdapter(cmd)
         adap.Fill(dt)
         con.Close()
         Return dt
     End Function
+    Public Shared Sub delProducto(pname)
+        Dim con As MySqlConnection = conexion.conection
+        Dim cmd As MySqlCommand = New MySqlCommand(String.Format("DELETE FROM products WHERE name='{0}'", pname), con)
+        cmd.ExecuteNonQuery()
+        con.Close()
+    End Sub
 End Class

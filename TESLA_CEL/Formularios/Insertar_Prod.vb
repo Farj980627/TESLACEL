@@ -1,5 +1,6 @@
 ﻿Public Class Insertar_Prod
     Dim newDt As New DataTable
+    Dim desc, cod, min
     Private Sub bntSalir_Click(sender As Object, e As EventArgs) Handles bntSalir.Click
         Me.Close()
 
@@ -12,8 +13,30 @@
     End Sub
 
     Private Sub btnAgregar_Click(sender As Object, e As EventArgs) Handles btnAgregar.Click
-        consultas.insProducto(txtNombre.Text, txtDescripcion.Text, txtPrecio.Text, txtCodigo.Text, txtCantidad.Text, txtMinimo.Text, dtpFecha.Value.Date.ToString("yyyy-MM-dd"), cbCategora.Text, cbProveedor.Text)
-        MessageBox.Show("Articulo Arreglado")
+        If txtDescripcion.Text = "DESCRIPCIÓN" Or txtDescripcion.Text = "" Then
+            desc = ""
+        Else
+            desc = txtDescripcion.Text
+        End If
+        If txtCodigo.Text = "CODIGO BARRAS" Or txtCodigo.Text = "" Then
+            cod = ""
+        Else
+            cod = txtCodigo.Text
+        End If
+        If txtMinimo.Text = "MINIMO" Or txtMinimo.Text = "" Then
+            min = ""
+        Else
+            min = txtMinimo.Text
+        End If
+        If txtPrecio.Text = "PRECIO" Or txtNombre.Text = "NOMBRE PRODUCTO" Or txtCantidad.Text = "CANTIDAD" Or txtCategoria.Text = "CATEGORIA" Or txtPrecio.Text = "PRECIO" Then
+            MessageBox.Show("Alguno de los campos contiene informacion no valida")
+        Else
+            ' Dim index As String
+            ' index = cbProveedor.SelectedIndex
+            consultas.insProducto(txtNombre.Text, desc, txtPrecio.Text, cod, txtCantidad.Text, min, dtpFecha.Value.Date.ToString("yyyy-MM-dd"), txtCategoria.Text, newDt(cbProveedor.SelectedIndex)("id_provider").ToString)
+            MessageBox.Show("Articulo Arreglado")
+        End If
+
     End Sub
 
     Private Sub txtNombre_Click(sender As Object, e As EventArgs) Handles txtNombre.Click
@@ -72,4 +95,14 @@
     End Sub
 
 
+
+    Private Sub txtCategoria_Click(sender As Object, e As EventArgs) Handles txtCategoria.Click
+        txtCategoria.Clear()
+    End Sub
+
+    Private Sub txtCategoria_Leave(sender As Object, e As EventArgs) Handles txtCategoria.Leave
+        If txtCategoria.Text = "" Then
+            txtCategoria.Text = "CATEGORIA"
+        End If
+    End Sub
 End Class

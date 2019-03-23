@@ -26,15 +26,15 @@ Partial Class Reportes
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.txtNombre = New System.Windows.Forms.TextBox()
         Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.bntDiario = New System.Windows.Forms.Button()
         Me.cbProveedor = New System.Windows.Forms.ComboBox()
         Me.cbCategoria = New System.Windows.Forms.ComboBox()
+        Me.btnMostrar = New System.Windows.Forms.Button()
         Me.Panel4 = New System.Windows.Forms.Panel()
         Me.Panel5 = New System.Windows.Forms.Panel()
         Me.dtpFin = New System.Windows.Forms.DateTimePicker()
         Me.dtpInicio = New System.Windows.Forms.DateTimePicker()
         Me.dgvProducto = New System.Windows.Forms.DataGridView()
-        Me.bntDiario = New System.Windows.Forms.Button()
-        Me.btnMostrar = New System.Windows.Forms.Button()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.Panel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
@@ -96,6 +96,21 @@ Partial Class Reportes
         Me.Panel2.Size = New System.Drawing.Size(527, 147)
         Me.Panel2.TabIndex = 4
         '
+        'bntDiario
+        '
+        Me.bntDiario.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.bntDiario.BackColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(247, Byte), Integer), CType(CType(249, Byte), Integer))
+        Me.bntDiario.Font = New System.Drawing.Font("Berlin Sans FB", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.bntDiario.ForeColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(77, Byte), Integer), CType(CType(111, Byte), Integer))
+        Me.bntDiario.Image = Global.TESLA_CEL.My.Resources.Resources.reporte_color
+        Me.bntDiario.Location = New System.Drawing.Point(10, 68)
+        Me.bntDiario.Name = "bntDiario"
+        Me.bntDiario.Size = New System.Drawing.Size(228, 76)
+        Me.bntDiario.TabIndex = 6
+        Me.bntDiario.Text = "Reporte Diario"
+        Me.bntDiario.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.bntDiario.UseVisualStyleBackColor = False
+        '
         'cbProveedor
         '
         Me.cbProveedor.BackColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(247, Byte), Integer), CType(CType(249, Byte), Integer))
@@ -119,6 +134,21 @@ Partial Class Reportes
         Me.cbCategoria.Size = New System.Drawing.Size(271, 38)
         Me.cbCategoria.TabIndex = 1
         Me.cbCategoria.Text = "CATEGORIA"
+        '
+        'btnMostrar
+        '
+        Me.btnMostrar.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnMostrar.BackColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(247, Byte), Integer), CType(CType(249, Byte), Integer))
+        Me.btnMostrar.Font = New System.Drawing.Font("Berlin Sans FB", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnMostrar.ForeColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(77, Byte), Integer), CType(CType(111, Byte), Integer))
+        Me.btnMostrar.Image = Global.TESLA_CEL.My.Resources.Resources.mostrar_todo
+        Me.btnMostrar.Location = New System.Drawing.Point(9, 3)
+        Me.btnMostrar.Name = "btnMostrar"
+        Me.btnMostrar.Size = New System.Drawing.Size(228, 59)
+        Me.btnMostrar.TabIndex = 5
+        Me.btnMostrar.Text = "Mostrar Todo"
+        Me.btnMostrar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.btnMostrar.UseVisualStyleBackColor = False
         '
         'Panel4
         '
@@ -172,36 +202,6 @@ Partial Class Reportes
         Me.dgvProducto.RowTemplate.Height = 24
         Me.dgvProducto.Size = New System.Drawing.Size(1069, 300)
         Me.dgvProducto.TabIndex = 8
-        '
-        'bntDiario
-        '
-        Me.bntDiario.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.bntDiario.BackColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(247, Byte), Integer), CType(CType(249, Byte), Integer))
-        Me.bntDiario.Font = New System.Drawing.Font("Berlin Sans FB", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.bntDiario.ForeColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(77, Byte), Integer), CType(CType(111, Byte), Integer))
-        Me.bntDiario.Image = Global.TESLA_CEL.My.Resources.Resources.reporte_color
-        Me.bntDiario.Location = New System.Drawing.Point(10, 68)
-        Me.bntDiario.Name = "bntDiario"
-        Me.bntDiario.Size = New System.Drawing.Size(228, 59)
-        Me.bntDiario.TabIndex = 6
-        Me.bntDiario.Text = "Reporte Diario"
-        Me.bntDiario.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
-        Me.bntDiario.UseVisualStyleBackColor = False
-        '
-        'btnMostrar
-        '
-        Me.btnMostrar.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnMostrar.BackColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(247, Byte), Integer), CType(CType(249, Byte), Integer))
-        Me.btnMostrar.Font = New System.Drawing.Font("Berlin Sans FB", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnMostrar.ForeColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(77, Byte), Integer), CType(CType(111, Byte), Integer))
-        Me.btnMostrar.Image = Global.TESLA_CEL.My.Resources.Resources.mostrar_todo
-        Me.btnMostrar.Location = New System.Drawing.Point(9, 3)
-        Me.btnMostrar.Name = "btnMostrar"
-        Me.btnMostrar.Size = New System.Drawing.Size(228, 59)
-        Me.btnMostrar.TabIndex = 5
-        Me.btnMostrar.Text = "Mostrar Todo"
-        Me.btnMostrar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
-        Me.btnMostrar.UseVisualStyleBackColor = False
         '
         'Reportes
         '

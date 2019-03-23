@@ -40,6 +40,7 @@ Partial Class Inventario
         Me.txtCodigo = New System.Windows.Forms.TextBox()
         Me.txtNombre = New System.Windows.Forms.TextBox()
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
+        Me.btnBuscarFechas = New System.Windows.Forms.Button()
         Me.Panel3.SuspendLayout()
         CType(Me.dgvProducto, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel5.SuspendLayout()
@@ -71,6 +72,7 @@ Partial Class Inventario
         '
         'Panel5
         '
+        Me.Panel5.Controls.Add(Me.btnBuscarFechas)
         Me.Panel5.Controls.Add(Me.dtpFin)
         Me.Panel5.Controls.Add(Me.dtpInicio)
         Me.Panel5.Dock = System.Windows.Forms.DockStyle.Fill
@@ -277,6 +279,21 @@ Partial Class Inventario
         Me.TableLayoutPanel1.Size = New System.Drawing.Size(1069, 313)
         Me.TableLayoutPanel1.TabIndex = 6
         '
+        'btnBuscarFechas
+        '
+        Me.btnBuscarFechas.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnBuscarFechas.BackColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(247, Byte), Integer), CType(CType(249, Byte), Integer))
+        Me.btnBuscarFechas.Font = New System.Drawing.Font("Berlin Sans FB", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnBuscarFechas.ForeColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(77, Byte), Integer), CType(CType(111, Byte), Integer))
+        Me.btnBuscarFechas.Image = Global.TESLA_CEL.My.Resources.Resources.buscar_color
+        Me.btnBuscarFechas.Location = New System.Drawing.Point(152, 75)
+        Me.btnBuscarFechas.Name = "btnBuscarFechas"
+        Me.btnBuscarFechas.Size = New System.Drawing.Size(229, 57)
+        Me.btnBuscarFechas.TabIndex = 6
+        Me.btnBuscarFechas.Text = "Buscar Fechas"
+        Me.btnBuscarFechas.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.btnBuscarFechas.UseVisualStyleBackColor = False
+        '
         'Inventario
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -319,4 +336,5 @@ Partial Class Inventario
     Friend WithEvents btnNuevo As Button
     Friend WithEvents Label2 As Label
     Friend WithEvents Label1 As Label
+    Friend WithEvents btnBuscarFechas As Button
 End Class
