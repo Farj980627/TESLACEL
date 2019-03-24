@@ -120,4 +120,23 @@ Public Class consultas
         cmd.ExecuteNonQuery()
         con.Close()
     End Sub
+    Public Shared Function getProductoByBarCode(pbarcode) As DataTable
+        Dim con As MySqlConnection = conexion.conection
+        Dim dt As New DataTable
+        Dim cmd As MySqlCommand = New MySqlCommand(String.Format("SELECT name,price FROM products  WHERE bar_code = '{0}'", pbarcode), con)
+        Dim adap As New MySqlDataAdapter(cmd)
+        adap.Fill(dt)
+        con.Close()
+        Return dt
+    End Function
+    Public Shared Function getProductosByProduct(pproduct) As DataTable
+        Dim con As MySqlConnection = conexion.conection
+        Dim dt As New DataTable
+        Dim cmd As MySqlCommand = New MySqlCommand(String.Format("SELECT name,price FROM products  WHERE name = '{0}'", pproduct), con)
+        Dim adap As New MySqlDataAdapter(cmd)
+        adap.Fill(dt)
+        con.Close()
+        Return dt
+    End Function
+
 End Class

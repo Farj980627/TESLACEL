@@ -36,7 +36,7 @@ Partial Class ventas
         Me.dgvProducto = New System.Windows.Forms.DataGridView()
         Me.btnCancelar = New System.Windows.Forms.Button()
         Me.btnConfirmar = New System.Windows.Forms.Button()
-        Me.btnBuscar = New System.Windows.Forms.Button()
+        Me.txtProducto = New System.Windows.Forms.TextBox()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.Panel1.SuspendLayout()
         Me.TableLayoutPanel2.SuspendLayout()
@@ -78,9 +78,9 @@ Partial Class ventas
         '
         'Panel1
         '
+        Me.Panel1.Controls.Add(Me.txtProducto)
         Me.Panel1.Controls.Add(Me.Label1)
         Me.Panel1.Controls.Add(Me.txtCantidad)
-        Me.Panel1.Controls.Add(Me.btnBuscar)
         Me.Panel1.Location = New System.Drawing.Point(537, 3)
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(529, 56)
@@ -91,7 +91,7 @@ Partial Class ventas
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Berlin Sans FB", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(77, Byte), Integer), CType(CType(111, Byte), Integer))
-        Me.Label1.Location = New System.Drawing.Point(53, 13)
+        Me.Label1.Location = New System.Drawing.Point(3, 22)
         Me.Label1.Name = "Label1"
         Me.Label1.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.Label1.Size = New System.Drawing.Size(113, 31)
@@ -107,7 +107,7 @@ Partial Class ventas
         Me.txtCantidad.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.txtCantidad.Font = New System.Drawing.Font("Berlin Sans FB", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtCantidad.ForeColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(247, Byte), Integer), CType(CType(249, Byte), Integer))
-        Me.txtCantidad.Location = New System.Drawing.Point(172, 14)
+        Me.txtCantidad.Location = New System.Drawing.Point(122, 23)
         Me.txtCantidad.Name = "txtCantidad"
         Me.txtCantidad.Size = New System.Drawing.Size(57, 30)
         Me.txtCantidad.TabIndex = 13
@@ -228,20 +228,20 @@ Partial Class ventas
         Me.btnConfirmar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.btnConfirmar.UseVisualStyleBackColor = False
         '
-        'btnBuscar
+        'txtProducto
         '
-        Me.btnBuscar.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnBuscar.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(77, Byte), Integer), CType(CType(111, Byte), Integer))
-        Me.btnBuscar.Font = New System.Drawing.Font("Berlin Sans FB", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnBuscar.ForeColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(247, Byte), Integer), CType(CType(249, Byte), Integer))
-        Me.btnBuscar.Image = Global.TESLA_CEL.My.Resources.Resources.buscar_color
-        Me.btnBuscar.Location = New System.Drawing.Point(301, 6)
-        Me.btnBuscar.Name = "btnBuscar"
-        Me.btnBuscar.Size = New System.Drawing.Size(204, 47)
-        Me.btnBuscar.TabIndex = 12
-        Me.btnBuscar.Text = "BUSCAR"
-        Me.btnBuscar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
-        Me.btnBuscar.UseVisualStyleBackColor = False
+        Me.txtProducto.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.txtProducto.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(77, Byte), Integer), CType(CType(111, Byte), Integer))
+        Me.txtProducto.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.txtProducto.Font = New System.Drawing.Font("Berlin Sans FB", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtProducto.ForeColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(247, Byte), Integer), CType(CType(249, Byte), Integer))
+        Me.txtProducto.Location = New System.Drawing.Point(196, 23)
+        Me.txtProducto.Name = "txtProducto"
+        Me.txtProducto.Size = New System.Drawing.Size(324, 30)
+        Me.txtProducto.TabIndex = 15
+        Me.txtProducto.Text = "PRODUCTO"
+        Me.txtProducto.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'ventas
         '
@@ -275,7 +275,6 @@ Partial Class ventas
     Friend WithEvents txtCodigo As TextBox
     Friend WithEvents Panel1 As Panel
     Friend WithEvents txtCantidad As TextBox
-    Friend WithEvents btnBuscar As Button
     Friend WithEvents Label1 As Label
     Friend WithEvents Panel2 As Panel
     Friend WithEvents btnConfirmar As Button
@@ -284,4 +283,5 @@ Partial Class ventas
     Friend WithEvents lblTotal As Label
     Friend WithEvents Label2 As Label
     Friend WithEvents RadioButton1 As RadioButton
+    Friend WithEvents txtProducto As TextBox
 End Class

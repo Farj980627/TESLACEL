@@ -31,8 +31,7 @@
         If txtPrecio.Text = "PRECIO" Or txtNombre.Text = "NOMBRE PRODUCTO" Or txtCantidad.Text = "CANTIDAD" Or txtCategoria.Text = "CATEGORIA" Or txtPrecio.Text = "PRECIO" Then
             MessageBox.Show("Alguno de los campos contiene informacion no valida")
         Else
-            ' Dim index As String
-            ' index = cbProveedor.SelectedIndex
+
             consultas.insProducto(txtNombre.Text, desc, txtPrecio.Text, cod, txtCantidad.Text, min, dtpFecha.Value.Date.ToString("yyyy-MM-dd"), txtCategoria.Text, newDt(cbProveedor.SelectedIndex)("id_provider").ToString)
             MessageBox.Show("Articulo Arreglado")
         End If
@@ -93,9 +92,6 @@
         txtCantidad.Text = "CANTIDAD"
 
     End Sub
-
-
-
     Private Sub txtCategoria_Click(sender As Object, e As EventArgs) Handles txtCategoria.Click
         txtCategoria.Clear()
     End Sub

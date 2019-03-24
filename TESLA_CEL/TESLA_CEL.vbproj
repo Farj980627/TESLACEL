@@ -78,10 +78,10 @@
   <ItemGroup>
     <Compile Include="Clases\conexion.vb" />
     <Compile Include="Clases\consultas.vb" />
-    <Compile Include="Formularios\Buscar_Prod.Designer.vb">
-      <DependentUpon>Buscar_Prod.vb</DependentUpon>
+    <Compile Include="Formularios\Conf_Venta.Designer.vb">
+      <DependentUpon>Conf_Venta.vb</DependentUpon>
     </Compile>
-    <Compile Include="Formularios\Buscar_Prod.vb">
+    <Compile Include="Formularios\Conf_Venta.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Formularios\Eliminar_Prod.Designer.vb">
@@ -150,8 +150,8 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Formularios\Buscar_Prod.resx">
-      <DependentUpon>Buscar_Prod.vb</DependentUpon>
+    <EmbeddedResource Include="Formularios\Conf_Venta.resx">
+      <DependentUpon>Conf_Venta.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Eliminar_Prod.resx">
       <DependentUpon>Eliminar_Prod.vb</DependentUpon>
