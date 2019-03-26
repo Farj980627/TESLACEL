@@ -138,5 +138,68 @@ Public Class consultas
         con.Close()
         Return dt
     End Function
+    Public Shared Function getIDByProducto(pproduct) As String
+        Dim con As MySqlConnection = conexion.conection
+        Dim id As String
+        Dim cmd As MySqlCommand = New MySqlCommand(String.Format("SELECT id_product FROM products  WHERE name = '{0}'", pproduct), con)
+        Dim reader As MySqlDataReader = cmd.ExecuteReader
+        If reader.Read Then
+            id = reader(0).ToString
+        End If
+        con.Close()
+        Return id
+    End Function
+    Public Shared Sub insSale(pid_pro, pquantity, pdate, ptipo, ptotal)
+        Dim con As MySqlConnection = conexion.conection
+        Dim cmd As MySqlCommand = New MySqlCommand(String.Format("INSERT INTO sales(id_product,quantity,date,type, total) VALUES('{0}','{1}','{2}','{3}','{4}')", pid_pro, pquantity, pdate, ptipo, ptotal), con)
+        cmd.ExecuteNonQuery()
+        con.Close()
+    End Sub
+    Public Shared Function getReportsAll() As DataTable
+        Dim con As MySqlConnection = conexion.conection
+        Dim dt As New DataTable
+        Dim cmd As MySqlCommand = New MySqlCommand(String.Format("SELECT * FROM sales "), con)
+        Dim adap As New MySqlDataAdapter(cmd)
+        adap.Fill(dt)
+        con.Close()
+        Return dt
+    End Function
+    Public Shared Function getDayliReport(pdate) As DataTable
+        Dim con As MySqlConnection = conexion.conection
+        Dim dt As New DataTable
+        Dim cmd As MySqlCommand = New MySqlCommand(String.Format("SELECT * FROM sales WHERE date='{0}' ", pdate), con)
+        Dim adap As New MySqlDataAdapter(cmd)
+        adap.Fill(dt)
+        con.Close()
+        Return dt
+    End Function
+    Public Shared Function getDateReport(pdate1, pdate2) As DataTable
+        Dim con As MySqlConnection = conexion.conection
+        Dim dt As New DataTable
+        Dim cmd As MySqlCommand = New MySqlCommand(String.Format("SELECT * FROM sales WHERE  date >='{0}' and date <='{1}' ", pdate1, pdate2), con)
+        Dim adap As New MySqlDataAdapter(cmd)
+        adap.Fill(dt)
+        con.Close()
+        Return dt
+    End Function
+    Public Shared Function getProductReport(pproduct) As DataTable
+        Dim con As MySqlConnection = conexion.conection
+        Dim dt As New DataTable
+        Dim cmd As MySqlCommand = New MySqlCommand(String.Format("SELECT * FROM sales sl JOIN products pr WHERE sl.id_product = pr.id_product AND pr.name = '{0}'", pproduct), con)
+        Dim adap As New MySqlDataAdapter(cmd)
+        adap.Fill(dt)
+        con.Close()
+        Return dt
+    End Function
+    Public Shared Function getDateTypeReport(pdate1, pdate2, ptipo) As DataTable
+        Dim con As MySqlConnection = conexion.conection
+        Dim dt As New DataTable
+        Dim cmd As MySqlCommand = New MySqlCommand(String.Format("SELECT * FROM sales WHERE  date >='{0}' AND date <='{1}' AND type= '{2}'", pdate1, pdate2, ptipo), con)
+        Dim adap As New MySqlDataAdapter(cmd)
+        adap.Fill(dt)
+        con.Close()
+        Return dt
+    End Function
+
 
 End Class

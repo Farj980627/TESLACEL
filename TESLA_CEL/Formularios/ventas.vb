@@ -4,6 +4,7 @@
     Dim total As New DataColumn("total", GetType(System.String))
     Dim producto, price As String
     Public Shared sumTot As String
+    Public Shared dtTodo As New DataTable
     Private Sub txtProducto_Click(sender As Object, e As EventArgs) Handles txtProducto.Click
         txtProducto.Clear()
     End Sub
@@ -32,7 +33,9 @@
                         sumas = sumas + carrito2(i)("total")
                         lblTotal.Text = sumas
                     Next
+
                     dgvProducto.DataSource = carrito2
+                    dtTodo = carrito2
                     carrito = carrito2
                 Else
                     carrito2 = carrito
@@ -50,6 +53,7 @@
                         sumas = sumas + carrito2(i)("total")
                         lblTotal.Text = sumas
                     Next
+                    dtTodo = carrito2
                     carrito = carrito2
                 End If
             End If
@@ -62,6 +66,7 @@
                     carrito(0)("total") = carrito(0)("cantidad") * carrito(0)("price")
                     dgvProducto.DataSource = carrito
                     lblTotal.Text = carrito(0)("total")
+                    dtTodo = carrito
                 Else
                     carrito = consultas.getProductosByProduct(txtProducto.Text)
                     carrito.Columns.Add(cantidad)
@@ -70,6 +75,7 @@
                     carrito(0)("total") = carrito(0)("cantidad") * carrito(0)("price")
                     dgvProducto.DataSource = carrito
                     lblTotal.Text = carrito(0)("total")
+                    dtTodo = carrito
                 End If
 
             End If
@@ -79,6 +85,19 @@
 
     Private Sub btnConfirmar_Click(sender As Object, e As EventArgs) Handles btnConfirmar.Click
         sumTot = lblTotal.Text
+        Conf_Venta.ShowDialog()
+    End Sub
+
+    Private Sub ventas_Leave(sender As Object, e As EventArgs) Handles MyBase.Leave
+        dgvProducto.DataSource = ""
+        txtCantidad.Text = ""
+        txtCodigo.Text = "CODIGO DE BARRAS"
+        txtProducto.Text = "PRODUCTO"
+        lblTotal.Text = ""
+        carrito2.Clear()
+        carrito.Clear()
+        dtTodo.Clear()
+
     End Sub
 
     Private Sub txtCodigo_Click(sender As Object, e As EventArgs) Handles txtCodigo.Click
@@ -104,6 +123,7 @@
                         lblTotal.Text = sumas
                     Next
                     dgvProducto.DataSource = carrito2
+                    dtTodo = carrito2
                     carrito = carrito2
                 Else
                     carrito2 = carrito
@@ -121,6 +141,7 @@
                         sumas = sumas + carrito2(i)("total")
                         lblTotal.Text = sumas
                     Next
+                    dtTodo = carrito2
                     carrito = carrito2
                 End If
             End If
@@ -133,6 +154,7 @@
                     carrito(0)("total") = carrito(0)("cantidad") * carrito(0)("price")
                     dgvProducto.DataSource = carrito
                     lblTotal.Text = carrito(0)("total")
+                    dtTodo = carrito2
                 Else
                     carrito = consultas.getProductoByBarCode(txtCodigo.Text)
                     carrito.Columns.Add(cantidad)
@@ -141,6 +163,7 @@
                     carrito(0)("total") = carrito(0)("cantidad") * carrito(0)("price")
                     dgvProducto.DataSource = carrito
                     lblTotal.Text = carrito(0)("total")
+                    dtTodo = carrito2
                 End If
 
             End If

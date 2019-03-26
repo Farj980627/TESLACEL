@@ -25,18 +25,18 @@ Partial Class ventas
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
         Me.txtCodigo = New System.Windows.Forms.TextBox()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.txtProducto = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.txtCantidad = New System.Windows.Forms.TextBox()
         Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
         Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.btnCancelar = New System.Windows.Forms.Button()
+        Me.btnConfirmar = New System.Windows.Forms.Button()
         Me.Panel3 = New System.Windows.Forms.Panel()
-        Me.RadioButton1 = New System.Windows.Forms.RadioButton()
         Me.lblTotal = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.dgvProducto = New System.Windows.Forms.DataGridView()
-        Me.btnCancelar = New System.Windows.Forms.Button()
-        Me.btnConfirmar = New System.Windows.Forms.Button()
-        Me.txtProducto = New System.Windows.Forms.TextBox()
+        Me.Label3 = New System.Windows.Forms.Label()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.Panel1.SuspendLayout()
         Me.TableLayoutPanel2.SuspendLayout()
@@ -85,6 +85,21 @@ Partial Class ventas
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(529, 56)
         Me.Panel1.TabIndex = 10
+        '
+        'txtProducto
+        '
+        Me.txtProducto.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.txtProducto.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(77, Byte), Integer), CType(CType(111, Byte), Integer))
+        Me.txtProducto.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.txtProducto.Font = New System.Drawing.Font("Berlin Sans FB", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtProducto.ForeColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(247, Byte), Integer), CType(CType(249, Byte), Integer))
+        Me.txtProducto.Location = New System.Drawing.Point(196, 23)
+        Me.txtProducto.Name = "txtProducto"
+        Me.txtProducto.Size = New System.Drawing.Size(324, 30)
+        Me.txtProducto.TabIndex = 15
+        Me.txtProducto.Text = "PRODUCTO"
+        Me.txtProducto.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'Label1
         '
@@ -138,66 +153,6 @@ Partial Class ventas
         Me.Panel2.Size = New System.Drawing.Size(529, 56)
         Me.Panel2.TabIndex = 0
         '
-        'Panel3
-        '
-        Me.Panel3.Controls.Add(Me.RadioButton1)
-        Me.Panel3.Controls.Add(Me.lblTotal)
-        Me.Panel3.Controls.Add(Me.Label2)
-        Me.Panel3.Location = New System.Drawing.Point(3, 3)
-        Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(528, 56)
-        Me.Panel3.TabIndex = 1
-        '
-        'RadioButton1
-        '
-        Me.RadioButton1.AutoSize = True
-        Me.RadioButton1.Font = New System.Drawing.Font("Berlin Sans FB", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.RadioButton1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(77, Byte), Integer), CType(CType(111, Byte), Integer))
-        Me.RadioButton1.Location = New System.Drawing.Point(9, 9)
-        Me.RadioButton1.Name = "RadioButton1"
-        Me.RadioButton1.Size = New System.Drawing.Size(229, 35)
-        Me.RadioButton1.TabIndex = 17
-        Me.RadioButton1.TabStop = True
-        Me.RadioButton1.Text = "Pago Electronico"
-        Me.RadioButton1.UseVisualStyleBackColor = True
-        '
-        'lblTotal
-        '
-        Me.lblTotal.AutoSize = True
-        Me.lblTotal.Font = New System.Drawing.Font("Berlin Sans FB", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblTotal.ForeColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(77, Byte), Integer), CType(CType(111, Byte), Integer))
-        Me.lblTotal.Location = New System.Drawing.Point(377, 11)
-        Me.lblTotal.Name = "lblTotal"
-        Me.lblTotal.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.lblTotal.Size = New System.Drawing.Size(133, 31)
-        Me.lblTotal.TabIndex = 16
-        Me.lblTotal.Text = "mil pesitos"
-        Me.lblTotal.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'Label2
-        '
-        Me.Label2.AutoSize = True
-        Me.Label2.Font = New System.Drawing.Font("Berlin Sans FB", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(77, Byte), Integer), CType(CType(111, Byte), Integer))
-        Me.Label2.Location = New System.Drawing.Point(271, 11)
-        Me.Label2.Name = "Label2"
-        Me.Label2.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.Label2.Size = New System.Drawing.Size(100, 31)
-        Me.Label2.TabIndex = 15
-        Me.Label2.Text = "TOTAL:"
-        Me.Label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'dgvProducto
-        '
-        Me.dgvProducto.BackgroundColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(77, Byte), Integer), CType(CType(111, Byte), Integer))
-        Me.dgvProducto.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgvProducto.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.dgvProducto.Location = New System.Drawing.Point(0, 62)
-        Me.dgvProducto.Name = "dgvProducto"
-        Me.dgvProducto.RowTemplate.Height = 24
-        Me.dgvProducto.Size = New System.Drawing.Size(1069, 485)
-        Me.dgvProducto.TabIndex = 2
-        '
         'btnCancelar
         '
         Me.btnCancelar.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
@@ -228,20 +183,65 @@ Partial Class ventas
         Me.btnConfirmar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.btnConfirmar.UseVisualStyleBackColor = False
         '
-        'txtProducto
+        'Panel3
         '
-        Me.txtProducto.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.txtProducto.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(77, Byte), Integer), CType(CType(111, Byte), Integer))
-        Me.txtProducto.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.txtProducto.Font = New System.Drawing.Font("Berlin Sans FB", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtProducto.ForeColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(247, Byte), Integer), CType(CType(249, Byte), Integer))
-        Me.txtProducto.Location = New System.Drawing.Point(196, 23)
-        Me.txtProducto.Name = "txtProducto"
-        Me.txtProducto.Size = New System.Drawing.Size(324, 30)
-        Me.txtProducto.TabIndex = 15
-        Me.txtProducto.Text = "PRODUCTO"
-        Me.txtProducto.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.Panel3.Controls.Add(Me.Label3)
+        Me.Panel3.Controls.Add(Me.lblTotal)
+        Me.Panel3.Controls.Add(Me.Label2)
+        Me.Panel3.Location = New System.Drawing.Point(3, 3)
+        Me.Panel3.Name = "Panel3"
+        Me.Panel3.Size = New System.Drawing.Size(528, 56)
+        Me.Panel3.TabIndex = 1
+        '
+        'lblTotal
+        '
+        Me.lblTotal.AutoSize = True
+        Me.lblTotal.Font = New System.Drawing.Font("Berlin Sans FB", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblTotal.ForeColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(77, Byte), Integer), CType(CType(111, Byte), Integer))
+        Me.lblTotal.Location = New System.Drawing.Point(214, 11)
+        Me.lblTotal.Name = "lblTotal"
+        Me.lblTotal.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me.lblTotal.Size = New System.Drawing.Size(133, 31)
+        Me.lblTotal.TabIndex = 16
+        Me.lblTotal.Text = "mil pesitos"
+        Me.lblTotal.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Font = New System.Drawing.Font("Berlin Sans FB", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(77, Byte), Integer), CType(CType(111, Byte), Integer))
+        Me.Label2.Location = New System.Drawing.Point(76, 11)
+        Me.Label2.Name = "Label2"
+        Me.Label2.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me.Label2.Size = New System.Drawing.Size(100, 31)
+        Me.Label2.TabIndex = 15
+        Me.Label2.Text = "TOTAL:"
+        Me.Label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'dgvProducto
+        '
+        Me.dgvProducto.BackgroundColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(77, Byte), Integer), CType(CType(111, Byte), Integer))
+        Me.dgvProducto.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dgvProducto.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.dgvProducto.Location = New System.Drawing.Point(0, 62)
+        Me.dgvProducto.Name = "dgvProducto"
+        Me.dgvProducto.RowTemplate.Height = 24
+        Me.dgvProducto.Size = New System.Drawing.Size(1069, 485)
+        Me.dgvProducto.TabIndex = 2
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Font = New System.Drawing.Font("Berlin Sans FB", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.ForeColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(77, Byte), Integer), CType(CType(111, Byte), Integer))
+        Me.Label3.Location = New System.Drawing.Point(182, 11)
+        Me.Label3.Name = "Label3"
+        Me.Label3.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me.Label3.Size = New System.Drawing.Size(26, 31)
+        Me.Label3.TabIndex = 17
+        Me.Label3.Text = "$"
+        Me.Label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'ventas
         '
@@ -282,6 +282,6 @@ Partial Class ventas
     Friend WithEvents Panel3 As Panel
     Friend WithEvents lblTotal As Label
     Friend WithEvents Label2 As Label
-    Friend WithEvents RadioButton1 As RadioButton
     Friend WithEvents txtProducto As TextBox
+    Friend WithEvents Label3 As Label
 End Class
