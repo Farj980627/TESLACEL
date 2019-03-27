@@ -1,5 +1,5 @@
 ﻿Public Class ventas
-    Dim carrito, carrito2 As New DataTable
+    Dim carrito, carrito2, vacio As New DataTable
     Dim cantidad As New DataColumn("cantidad", GetType(System.String))
     Dim total As New DataColumn("total", GetType(System.String))
     Dim producto, price As String
@@ -89,14 +89,13 @@
     End Sub
 
     Private Sub ventas_Leave(sender As Object, e As EventArgs) Handles MyBase.Leave
-        dgvProducto.DataSource = ""
+        dgvProducto.DataSource = vacio
         txtCantidad.Text = ""
         txtCodigo.Text = "CODIGO DE BARRAS"
         txtProducto.Text = "PRODUCTO"
         lblTotal.Text = ""
-        carrito2.Clear()
-        carrito.Clear()
-        dtTodo.Clear()
+
+
 
     End Sub
 

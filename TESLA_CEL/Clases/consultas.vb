@@ -140,7 +140,7 @@ Public Class consultas
     End Function
     Public Shared Function getIDByProducto(pproduct) As String
         Dim con As MySqlConnection = conexion.conection
-        Dim id As String
+        Dim id As String = 0
         Dim cmd As MySqlCommand = New MySqlCommand(String.Format("SELECT id_product FROM products  WHERE name = '{0}'", pproduct), con)
         Dim reader As MySqlDataReader = cmd.ExecuteReader
         If reader.Read Then
@@ -200,6 +200,22 @@ Public Class consultas
         con.Close()
         Return dt
     End Function
-
+    Public Shared Function getContador() As String
+        Dim con As MySqlConnection = conexion.conection
+        Dim cont As String = 0
+        Dim cmd As MySqlCommand = New MySqlCommand(String.Format("SELECT id_contador FROM contador ORDER BY id_contador DESC LIMIT 1"), con)
+        Dim reader As MySqlDataReader = cmd.ExecuteReader
+        If reader.Read Then
+            cont = reader(0).ToString
+        End If
+        con.Close()
+        Return cont
+    End Function
+    Public Shared Sub insContador()
+        Dim con As MySqlConnection = conexion.conection
+        Dim cmd As MySqlCommand = New MySqlCommand(String.Format("INSERT INTO contador() VALUES()"), con)
+        cmd.ExecuteNonQuery()
+        con.Close()
+    End Sub
 
 End Class

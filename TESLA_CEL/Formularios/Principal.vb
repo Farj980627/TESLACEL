@@ -45,6 +45,11 @@
         lblTitulo.Text = "VENTAS"
     End Sub
 
+    Private Sub btnSoporte_Click(sender As Object, e As EventArgs) Handles btnSoporte.Click
+        loadForm(Soporte)
+        lblTitulo.Text = "SOPORTE"
+    End Sub
+
     Private Sub btnReportes_Click(sender As Object, e As EventArgs) Handles btnReportes.Click
         loadForm(Reportes)
         lblTitulo.Text = "REPORTES"
