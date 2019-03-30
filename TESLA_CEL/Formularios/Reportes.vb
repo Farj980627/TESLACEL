@@ -1,7 +1,5 @@
 ﻿Public Class Reportes
-    Private Sub Reportes_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
-    End Sub
 
     Private Sub btnMostrar_Click(sender As Object, e As EventArgs) Handles btnMostrar.Click
         dgvProducto.DataSource = consultas.getReportsAll
@@ -34,5 +32,9 @@
 
     Private Sub txtNombre_TextChanged(sender As Object, e As EventArgs) Handles txtNombre.TextChanged
         dgvProducto.DataSource = consultas.getProductReport(txtNombre.Text)
+    End Sub
+
+    Private Sub Reportes_Leave(sender As Object, e As EventArgs) Handles MyBase.Leave
+        dgvProducto.DataSource = ""
     End Sub
 End Class

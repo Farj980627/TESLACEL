@@ -26,9 +26,9 @@ Partial Class Soporte
         Me.Label1 = New System.Windows.Forms.Label()
         Me.txtDescripcion = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
-        Me.txtNombre = New System.Windows.Forms.TextBox()
-        Me.TextBox2 = New System.Windows.Forms.TextBox()
+        Me.txtProblema = New System.Windows.Forms.TextBox()
+        Me.txtAnticipo = New System.Windows.Forms.TextBox()
+        Me.txtTotal = New System.Windows.Forms.TextBox()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.btnBuscarFechas = New System.Windows.Forms.Button()
@@ -88,43 +88,43 @@ Partial Class Soporte
         Me.Label2.Text = "PROBLEMA:"
         Me.Label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
-        'TextBox1
+        'txtProblema
         '
-        Me.TextBox1.BackColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(247, Byte), Integer), CType(CType(249, Byte), Integer))
-        Me.TextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.TextBox1.Font = New System.Drawing.Font("Berlin Sans FB", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(77, Byte), Integer), CType(CType(111, Byte), Integer))
-        Me.TextBox1.Location = New System.Drawing.Point(321, 179)
-        Me.TextBox1.Multiline = True
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(736, 152)
-        Me.TextBox1.TabIndex = 24
-        Me.TextBox1.Text = "PROBLEMA"
-        Me.TextBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.txtProblema.BackColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(247, Byte), Integer), CType(CType(249, Byte), Integer))
+        Me.txtProblema.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.txtProblema.Font = New System.Drawing.Font("Berlin Sans FB", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtProblema.ForeColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(77, Byte), Integer), CType(CType(111, Byte), Integer))
+        Me.txtProblema.Location = New System.Drawing.Point(321, 179)
+        Me.txtProblema.Multiline = True
+        Me.txtProblema.Name = "txtProblema"
+        Me.txtProblema.Size = New System.Drawing.Size(736, 152)
+        Me.txtProblema.TabIndex = 24
+        Me.txtProblema.Text = "PROBLEMA"
+        Me.txtProblema.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
-        'txtNombre
+        'txtAnticipo
         '
-        Me.txtNombre.BackColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(247, Byte), Integer), CType(CType(249, Byte), Integer))
-        Me.txtNombre.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.txtNombre.Font = New System.Drawing.Font("Berlin Sans FB", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtNombre.ForeColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(77, Byte), Integer), CType(CType(111, Byte), Integer))
-        Me.txtNombre.Location = New System.Drawing.Point(321, 373)
-        Me.txtNombre.Name = "txtNombre"
-        Me.txtNombre.Size = New System.Drawing.Size(286, 30)
-        Me.txtNombre.TabIndex = 25
-        Me.txtNombre.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.txtAnticipo.BackColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(247, Byte), Integer), CType(CType(249, Byte), Integer))
+        Me.txtAnticipo.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.txtAnticipo.Font = New System.Drawing.Font("Berlin Sans FB", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtAnticipo.ForeColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(77, Byte), Integer), CType(CType(111, Byte), Integer))
+        Me.txtAnticipo.Location = New System.Drawing.Point(321, 373)
+        Me.txtAnticipo.Name = "txtAnticipo"
+        Me.txtAnticipo.Size = New System.Drawing.Size(286, 30)
+        Me.txtAnticipo.TabIndex = 25
+        Me.txtAnticipo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
-        'TextBox2
+        'txtTotal
         '
-        Me.TextBox2.BackColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(247, Byte), Integer), CType(CType(249, Byte), Integer))
-        Me.TextBox2.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.TextBox2.Font = New System.Drawing.Font("Berlin Sans FB", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(77, Byte), Integer), CType(CType(111, Byte), Integer))
-        Me.TextBox2.Location = New System.Drawing.Point(771, 373)
-        Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.Size = New System.Drawing.Size(286, 30)
-        Me.TextBox2.TabIndex = 26
-        Me.TextBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.txtTotal.BackColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(247, Byte), Integer), CType(CType(249, Byte), Integer))
+        Me.txtTotal.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.txtTotal.Font = New System.Drawing.Font("Berlin Sans FB", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtTotal.ForeColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(77, Byte), Integer), CType(CType(111, Byte), Integer))
+        Me.txtTotal.Location = New System.Drawing.Point(771, 373)
+        Me.txtTotal.Name = "txtTotal"
+        Me.txtTotal.Size = New System.Drawing.Size(286, 30)
+        Me.txtTotal.TabIndex = 26
+        Me.txtTotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'Label3
         '
@@ -184,9 +184,9 @@ Partial Class Soporte
         Me.Controls.Add(Me.btnBuscarFechas)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.Label3)
-        Me.Controls.Add(Me.TextBox2)
-        Me.Controls.Add(Me.txtNombre)
-        Me.Controls.Add(Me.TextBox1)
+        Me.Controls.Add(Me.txtTotal)
+        Me.Controls.Add(Me.txtAnticipo)
+        Me.Controls.Add(Me.txtProblema)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.txtDescripcion)
         Me.Controls.Add(Me.Label1)
@@ -203,9 +203,9 @@ Partial Class Soporte
     Friend WithEvents Label1 As Label
     Friend WithEvents txtDescripcion As TextBox
     Friend WithEvents Label2 As Label
-    Friend WithEvents TextBox1 As TextBox
-    Friend WithEvents txtNombre As TextBox
-    Friend WithEvents TextBox2 As TextBox
+    Friend WithEvents txtProblema As TextBox
+    Friend WithEvents txtAnticipo As TextBox
+    Friend WithEvents txtTotal As TextBox
     Friend WithEvents Label3 As Label
     Friend WithEvents Label4 As Label
     Friend WithEvents btnBuscarFechas As Button

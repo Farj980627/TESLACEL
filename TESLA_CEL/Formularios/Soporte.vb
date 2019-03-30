@@ -18,4 +18,11 @@ Public Class Soporte
         Code.IncludeLabel = True
         pCodigo.BackgroundImage = Code.Encode(BarcodeLib.TYPE.CODE11, newCode, Color.Black, Color.White, 400, 100)
     End Sub
+
+    Private Sub Soporte_Leave(sender As Object, e As EventArgs) Handles MyBase.Leave
+        txtDescripcion.Text = ""
+        txtAnticipo.Text = ""
+        txtProblema.Text = ""
+        txtTotal.Text = ""
+    End Sub
 End Class
