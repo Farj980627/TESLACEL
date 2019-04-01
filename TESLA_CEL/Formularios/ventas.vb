@@ -5,6 +5,7 @@
     Dim producto, price As String
     Public Shared sumTot As String
     Public Shared dtTodo As New DataTable
+    Public Shared orden As Boolean = False
     Private Sub txtProducto_Click(sender As Object, e As EventArgs) Handles txtProducto.Click
         txtProducto.Clear()
     End Sub
@@ -96,6 +97,19 @@
 
     End Sub
 
+    Private Sub txtOrden_KeyDown(sender As Object, e As KeyEventArgs) Handles txtOrden.KeyDown
+        If e.KeyCode = Keys.Enter Then
+            carrito = consultas.getOrden(txtOrden.Text)
+            sumTot = Val(carrito(0)("total")) - Val(carrito(0)("advance_payment"))
+            orden = True
+            Conf_Venta.ShowDialog()
+        End If
+    End Sub
+
+    Private Sub txtOrden_Click(sender As Object, e As EventArgs) Handles txtOrden.Click
+        txtOrden.Text = ""
+    End Sub
+
     Private Sub ventas_Leave(sender As Object, e As EventArgs) Handles MyBase.Leave
         dgvProducto.DataSource = vacio
         txtCantidad.Text = ""
@@ -108,11 +122,11 @@
 
     End Sub
 
-    Private Sub txtCodigo_Click(sender As Object, e As EventArgs) Handles txtCodigo.Click
+    Private Sub txtCodigo_Click(sender As Object, e As EventArgs)
         txtCodigo.Text = ""
     End Sub
 
-    Private Sub txtCodigo_KeyDown(sender As Object, e As KeyEventArgs) Handles txtCodigo.KeyDown
+    Private Sub txtCodigo_KeyDown(sender As Object, e As KeyEventArgs)
         If e.KeyCode = Keys.Enter Then
             If carrito.Columns.Contains("cantidad") Then
                 If txtCantidad.Text = "" Then

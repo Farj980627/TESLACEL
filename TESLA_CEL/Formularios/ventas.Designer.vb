@@ -23,11 +23,13 @@ Partial Class ventas
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
-        Me.txtCodigo = New System.Windows.Forms.TextBox()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.txtProducto = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.txtCantidad = New System.Windows.Forms.TextBox()
+        Me.Panel4 = New System.Windows.Forms.Panel()
+        Me.txtOrden = New System.Windows.Forms.TextBox()
+        Me.txtCodigo = New System.Windows.Forms.TextBox()
         Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.btnCancelar = New System.Windows.Forms.Button()
@@ -39,6 +41,7 @@ Partial Class ventas
         Me.dgvProducto = New System.Windows.Forms.DataGridView()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.Panel1.SuspendLayout()
+        Me.Panel4.SuspendLayout()
         Me.TableLayoutPanel2.SuspendLayout()
         Me.Panel2.SuspendLayout()
         Me.Panel3.SuspendLayout()
@@ -50,31 +53,16 @@ Partial Class ventas
         Me.TableLayoutPanel1.ColumnCount = 2
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel1.Controls.Add(Me.txtCodigo, 0, 0)
         Me.TableLayoutPanel1.Controls.Add(Me.Panel1, 1, 0)
+        Me.TableLayoutPanel1.Controls.Add(Me.Panel4, 0, 0)
         Me.TableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top
         Me.TableLayoutPanel1.Location = New System.Drawing.Point(0, 0)
         Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
         Me.TableLayoutPanel1.RowCount = 1
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 56.0!))
-        Me.TableLayoutPanel1.Size = New System.Drawing.Size(1069, 56)
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 85.0!))
+        Me.TableLayoutPanel1.Size = New System.Drawing.Size(1069, 85)
         Me.TableLayoutPanel1.TabIndex = 0
-        '
-        'txtCodigo
-        '
-        Me.txtCodigo.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.txtCodigo.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(77, Byte), Integer), CType(CType(111, Byte), Integer))
-        Me.txtCodigo.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.txtCodigo.Font = New System.Drawing.Font("Berlin Sans FB", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtCodigo.ForeColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(247, Byte), Integer), CType(CType(249, Byte), Integer))
-        Me.txtCodigo.Location = New System.Drawing.Point(3, 23)
-        Me.txtCodigo.Name = "txtCodigo"
-        Me.txtCodigo.Size = New System.Drawing.Size(528, 30)
-        Me.txtCodigo.TabIndex = 9
-        Me.txtCodigo.Text = "CODIGO DE BARRAS"
-        Me.txtCodigo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'Panel1
         '
@@ -83,7 +71,7 @@ Partial Class ventas
         Me.Panel1.Controls.Add(Me.txtCantidad)
         Me.Panel1.Location = New System.Drawing.Point(537, 3)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(529, 50)
+        Me.Panel1.Size = New System.Drawing.Size(529, 76)
         Me.Panel1.TabIndex = 10
         '
         'txtProducto
@@ -94,7 +82,7 @@ Partial Class ventas
         Me.txtProducto.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.txtProducto.Font = New System.Drawing.Font("Berlin Sans FB", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtProducto.ForeColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(247, Byte), Integer), CType(CType(249, Byte), Integer))
-        Me.txtProducto.Location = New System.Drawing.Point(196, 17)
+        Me.txtProducto.Location = New System.Drawing.Point(196, 23)
         Me.txtProducto.Name = "txtProducto"
         Me.txtProducto.Size = New System.Drawing.Size(324, 30)
         Me.txtProducto.TabIndex = 15
@@ -122,11 +110,50 @@ Partial Class ventas
         Me.txtCantidad.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.txtCantidad.Font = New System.Drawing.Font("Berlin Sans FB", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtCantidad.ForeColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(247, Byte), Integer), CType(CType(249, Byte), Integer))
-        Me.txtCantidad.Location = New System.Drawing.Point(122, 17)
+        Me.txtCantidad.Location = New System.Drawing.Point(122, 22)
         Me.txtCantidad.Name = "txtCantidad"
         Me.txtCantidad.Size = New System.Drawing.Size(57, 30)
         Me.txtCantidad.TabIndex = 13
         Me.txtCantidad.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        '
+        'Panel4
+        '
+        Me.Panel4.Controls.Add(Me.txtOrden)
+        Me.Panel4.Controls.Add(Me.txtCodigo)
+        Me.Panel4.Location = New System.Drawing.Point(3, 3)
+        Me.Panel4.Name = "Panel4"
+        Me.Panel4.Size = New System.Drawing.Size(528, 79)
+        Me.Panel4.TabIndex = 11
+        '
+        'txtOrden
+        '
+        Me.txtOrden.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.txtOrden.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(77, Byte), Integer), CType(CType(111, Byte), Integer))
+        Me.txtOrden.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.txtOrden.Font = New System.Drawing.Font("Berlin Sans FB", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtOrden.ForeColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(247, Byte), Integer), CType(CType(249, Byte), Integer))
+        Me.txtOrden.Location = New System.Drawing.Point(3, 3)
+        Me.txtOrden.Name = "txtOrden"
+        Me.txtOrden.Size = New System.Drawing.Size(528, 30)
+        Me.txtOrden.TabIndex = 11
+        Me.txtOrden.Text = "ORDEN DE PAGO"
+        Me.txtOrden.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        '
+        'txtCodigo
+        '
+        Me.txtCodigo.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.txtCodigo.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(77, Byte), Integer), CType(CType(111, Byte), Integer))
+        Me.txtCodigo.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.txtCodigo.Font = New System.Drawing.Font("Berlin Sans FB", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtCodigo.ForeColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(247, Byte), Integer), CType(CType(249, Byte), Integer))
+        Me.txtCodigo.Location = New System.Drawing.Point(3, 46)
+        Me.txtCodigo.Name = "txtCodigo"
+        Me.txtCodigo.Size = New System.Drawing.Size(528, 30)
+        Me.txtCodigo.TabIndex = 10
+        Me.txtCodigo.Text = "CODIGO DE BARRAS"
+        Me.txtCodigo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'TableLayoutPanel2
         '
@@ -237,10 +264,10 @@ Partial Class ventas
         Me.dgvProducto.BackgroundColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(77, Byte), Integer), CType(CType(111, Byte), Integer))
         Me.dgvProducto.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvProducto.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.dgvProducto.Location = New System.Drawing.Point(0, 56)
+        Me.dgvProducto.Location = New System.Drawing.Point(0, 85)
         Me.dgvProducto.Name = "dgvProducto"
         Me.dgvProducto.RowTemplate.Height = 24
-        Me.dgvProducto.Size = New System.Drawing.Size(1069, 491)
+        Me.dgvProducto.Size = New System.Drawing.Size(1069, 462)
         Me.dgvProducto.TabIndex = 2
         '
         'ventas
@@ -257,9 +284,10 @@ Partial Class ventas
         Me.Name = "ventas"
         Me.Text = "ventas"
         Me.TableLayoutPanel1.ResumeLayout(False)
-        Me.TableLayoutPanel1.PerformLayout()
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
+        Me.Panel4.ResumeLayout(False)
+        Me.Panel4.PerformLayout()
         Me.TableLayoutPanel2.ResumeLayout(False)
         Me.Panel2.ResumeLayout(False)
         Me.Panel3.ResumeLayout(False)
@@ -272,7 +300,6 @@ Partial Class ventas
     Friend WithEvents TableLayoutPanel1 As TableLayoutPanel
     Friend WithEvents TableLayoutPanel2 As TableLayoutPanel
     Friend WithEvents dgvProducto As DataGridView
-    Friend WithEvents txtCodigo As TextBox
     Friend WithEvents Panel1 As Panel
     Friend WithEvents txtCantidad As TextBox
     Friend WithEvents Label1 As Label
@@ -284,4 +311,7 @@ Partial Class ventas
     Friend WithEvents Label2 As Label
     Friend WithEvents txtProducto As TextBox
     Friend WithEvents Label3 As Label
+    Friend WithEvents Panel4 As Panel
+    Friend WithEvents txtOrden As TextBox
+    Friend WithEvents txtCodigo As TextBox
 End Class

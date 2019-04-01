@@ -9,23 +9,24 @@
         Eliminar_Prod.ShowDialog()
     End Sub
     Private Sub Inventario_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        newDt = consultas.getCategoria
-        cbCategoria.DataSource = newDt
-        cbCategoria.DisplayMember = "category"
+        newDt = consultas.getProveedor
+        cbProveedor.DataSource = newDt
+        cbProveedor.DisplayMember = "provider"
     End Sub
     Private Sub btnMostrar_Click(sender As Object, e As EventArgs) Handles btnMostrar.Click
         newDt = consultas.getProductos()
         dgvProducto.DataSource = newDt
     End Sub
 
-    Private Sub cbCategoria_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbCategoria.SelectedIndexChanged
+    'Private Sub cbCategoria_SelectedIndexChanged(sender As Object, e As EventArgs)
 
-        newDt = consultas.getProductosByCategory(cbCategoria.Text)
-        dgvProducto.DataSource = newDt
-    End Sub
+    'newDt = consultas.getProductosByCategory(cbCategoria.Text)
+    ' dgvProducto.DataSource = newDt
+    '  End Sub
 
     Private Sub cbProveedor_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbProveedor.SelectedIndexChanged
-
+        newDt = consultas.getProductosByProveedor(cbProveedor.Text)
+        dgvProducto.DataSource = newDt
     End Sub
 
     Private Sub txtNombre_KeyDown(sender As Object, e As KeyEventArgs) Handles txtNombre.KeyDown

@@ -51,6 +51,12 @@
     <Reference Include="BarcodeStandard, Version=2.2.1.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\BarcodeLib.2.2.1\lib\netstandard2.0\BarcodeStandard.dll</HintPath>
     </Reference>
+    <Reference Include="itextsharp">
+      <HintPath>..\..\..\..\Documents\Visual Studio 2017\Projects\ExcelToDataGV\ExcelToDataGV\bin\Debug\itextsharp.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp.pdfa">
+      <HintPath>..\..\..\..\Documents\Visual Studio 2017\Projects\ExcelToDataGV\ExcelToDataGV\bin\Debug\itextsharp.pdfa.dll</HintPath>
+    </Reference>
     <Reference Include="MySql.Data">
       <HintPath>..\..\..\..\Documents\Visual Studio 2017\Projects\ExcelToDataGV\ExcelToDataGV\bin\Debug\MySql.Data.dll</HintPath>
     </Reference>
@@ -115,6 +121,12 @@
     <Compile Include="Formularios\Inventario.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Formularios\Pagar_Orden.Designer.vb">
+      <DependentUpon>Pagar_Orden.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Pagar_Orden.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Formularios\Principal.Designer.vb">
       <DependentUpon>Principal.vb</DependentUpon>
     </Compile>
@@ -176,6 +188,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Inventario.resx">
       <DependentUpon>Inventario.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Pagar_Orden.resx">
+      <DependentUpon>Pagar_Orden.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Principal.resx">
       <DependentUpon>Principal.vb</DependentUpon>

@@ -72,15 +72,25 @@ Public Class consultas
         con.Close()
         Return dt
     End Function
-    Public Shared Function getCategoria() As DataTable
+    ' Public Shared Function getCategoria() As DataTable
+    'Dim con As MySqlConnection = conexion.conection
+    'Dim dt As New DataTable
+    'Dim cmd As MySqlCommand = New MySqlCommand(String.Format("SELECT category FROM products"), con)
+    'Dim adap As New MySqlDataAdapter(cmd)
+    '   adap.Fill(dt)
+    '  con.Close()
+    'Return dt
+    'End Function
+    Public Shared Function getProveedor() As DataTable
         Dim con As MySqlConnection = conexion.conection
         Dim dt As New DataTable
-        Dim cmd As MySqlCommand = New MySqlCommand(String.Format("SELECT category FROM products"), con)
+        Dim cmd As MySqlCommand = New MySqlCommand(String.Format("SELECT provider FROM providers"), con)
         Dim adap As New MySqlDataAdapter(cmd)
         adap.Fill(dt)
         con.Close()
         Return dt
     End Function
+
     Public Shared Function getProductosByProductos(pproducto) As DataTable
         Dim con As MySqlConnection = conexion.conection
         Dim dt As New DataTable
@@ -191,6 +201,15 @@ Public Class consultas
         con.Close()
         Return dt
     End Function
+    Public Shared Function getProductosByProveedor(pproveedor) As DataTable
+        Dim con As MySqlConnection = conexion.conection
+        Dim dt As New DataTable
+        Dim cmd As MySqlCommand = New MySqlCommand(String.Format("SELECT * FROM products pr JOIN providers prov WHERE pr.id_provider = prov.id_provider AND prov.provider = '{0}'", pproveedor), con)
+        Dim adap As New MySqlDataAdapter(cmd)
+        adap.Fill(dt)
+        con.Close()
+        Return dt
+    End Function
     Public Shared Function getDateTypeReport(pdate1, pdate2, ptipo) As DataTable
         Dim con As MySqlConnection = conexion.conection
         Dim dt As New DataTable
@@ -217,5 +236,20 @@ Public Class consultas
         cmd.ExecuteNonQuery()
         con.Close()
     End Sub
+    Public Shared Sub insOrden(ptype, pdescription, pissue, ppayment, ptotal, pcode)
+        Dim con As MySqlConnection = conexion.conection
+        Dim cmd As MySqlCommand = New MySqlCommand(String.Format("INSERT INTO support(type,description,issue,advance_payment,total,code) VALUES('{0}','{1}','{2}','{3}','{4}','{5}')", ptype, pdescription, pissue, ppayment, ptotal, pcode), con)
+        cmd.ExecuteNonQuery()
+        con.Close()
+    End Sub
+    Public Shared Function getOrden(pcode) As DataTable
+        Dim con As MySqlConnection = conexion.conection
+        Dim dt As New DataTable
+        Dim cmd As MySqlCommand = New MySqlCommand(String.Format("SELECT * FROM support WHERE code = '{0}'", pcode), con)
+        Dim adap As New MySqlDataAdapter(cmd)
+        adap.Fill(dt)
+        con.Close()
+        Return dt
+    End Function
 
 End Class
