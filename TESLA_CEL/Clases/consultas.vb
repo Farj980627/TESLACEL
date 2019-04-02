@@ -251,5 +251,11 @@ Public Class consultas
         con.Close()
         Return dt
     End Function
+    Public Shared Sub updInventario(cantidad, pname)
+        Dim con As MySqlConnection = conexion.conection
+        Dim cmd As MySqlCommand = New MySqlCommand(String.Format("UPDATE products SET quantity='{0}' WHERE id_product='{1}'", cantidad, pname), con)
+        cmd.ExecuteNonQuery()
+        con.Close()
+    End Sub
 
 End Class

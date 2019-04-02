@@ -18,7 +18,6 @@
 
     Private Sub txtProducto_KeyDown(sender As Object, e As KeyEventArgs) Handles txtProducto.KeyDown
         If e.KeyCode = Keys.Enter Then
-
             If carrito.Columns.Contains("cantidad") Then
                 If txtCantidad.Text = "" Then
                     carrito2 = carrito
@@ -35,7 +34,6 @@
                         sumas = sumas + carrito2(i)("total")
                         lblTotal.Text = sumas
                     Next
-
                     dgvProducto.DataSource = carrito2
                     dtTodo = carrito2
                     carrito = carrito2
@@ -57,15 +55,12 @@
                     Next
                     dtTodo = carrito2
                     carrito = carrito2
-
                 End If
             Else
                 carrito = consultas.getProductosByProduct(txtProducto.Text)
                 carrito.Columns.Add(cantidad)
                 carrito.Columns.Add(total)
             End If
-
-
             If carrito.Rows.Count = 1 Then
                 If txtCantidad.Text = "" Then
                     carrito(0)("cantidad") = "1"
@@ -80,9 +75,8 @@
                     lblTotal.Text = carrito(0)("total")
                     dtTodo = carrito
                 End If
-
             End If
-
+            txtCodigo.Text = ""
         End If
     End Sub
 
@@ -90,8 +84,6 @@
         sumTot = lblTotal.Text
         Conf_Venta.ShowDialog()
     End Sub
-
-
 
     Private Sub ventas_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
@@ -117,16 +109,13 @@
         txtProducto.Text = "PRODUCTO"
         carrito.Columns.Remove("cantidad")
         carrito.Columns.Remove("total")
-
-
-
     End Sub
 
-    Private Sub txtCodigo_Click(sender As Object, e As EventArgs)
+    Private Sub txtCodigo_Click(sender As Object, e As EventArgs) Handles txtCodigo.Click
         txtCodigo.Text = ""
     End Sub
 
-    Private Sub txtCodigo_KeyDown(sender As Object, e As KeyEventArgs)
+    Private Sub txtCodigo_KeyDown(sender As Object, e As KeyEventArgs) Handles txtCodigo.KeyDown
         If e.KeyCode = Keys.Enter Then
             If carrito.Columns.Contains("cantidad") Then
                 If txtCantidad.Text = "" Then
@@ -171,26 +160,21 @@
                 carrito.Columns.Add(cantidad)
                 carrito.Columns.Add(total)
             End If
-
-
-
             If carrito.Rows.Count = 1 Then
                 If txtCantidad.Text = "" Then
                     carrito(0)("cantidad") = "1"
                     carrito(0)("total") = carrito(0)("cantidad") * carrito(0)("price")
                     dgvProducto.DataSource = carrito
                     lblTotal.Text = carrito(0)("total")
-                    dtTodo = carrito2
+                    dtTodo = carrito
                 Else
                     carrito(0)("cantidad") = txtCantidad.Text
                     carrito(0)("total") = carrito(0)("cantidad") * carrito(0)("price")
                     dgvProducto.DataSource = carrito
                     lblTotal.Text = carrito(0)("total")
-                    dtTodo = carrito2
+                    dtTodo = carrito
                 End If
-
             End If
-
         End If
     End Sub
 End Class
