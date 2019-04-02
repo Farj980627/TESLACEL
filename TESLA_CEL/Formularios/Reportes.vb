@@ -2,7 +2,12 @@
 
 
     Private Sub btnMostrar_Click(sender As Object, e As EventArgs) Handles btnMostrar.Click
-        dgvProducto.DataSource = consultas.getReportsAll
+        Try
+            dgvProducto.DataSource = consultas.getReportsAll
+        Catch ex As Exception
+            MsgBox(ex)
+        End Try
+
     End Sub
 
     Private Sub bntDiario_Click(sender As Object, e As EventArgs) Handles bntDiario.Click
@@ -11,11 +16,16 @@
     End Sub
 
     Private Sub btnBuscarFechas_Click(sender As Object, e As EventArgs) Handles btnBuscarFechas.Click
-        If cbTipo.Text = "TIPO PAGO" Then
-            dgvProducto.DataSource = consultas.getDateReport(dtpInicio.Value.Date.ToString("yyyy-MM-dd"), dtpFin.Value.Date.ToString("yyyy-MM-dd"))
-        Else
-            dgvProducto.DataSource = consultas.getDateTypeReport(dtpInicio.Value.Date.ToString("yyyy-MM-dd"), dtpFin.Value.Date.ToString("yyyy-MM-dd"), cbTipo.Text)
-        End If
+        Try
+            If cbTipo.Text = "TIPO PAGO" Then
+                dgvProducto.DataSource = consultas.getDateReport(dtpInicio.Value.Date.ToString("yyyy-MM-dd"), dtpFin.Value.Date.ToString("yyyy-MM-dd"))
+            Else
+                dgvProducto.DataSource = consultas.getDateTypeReport(dtpInicio.Value.Date.ToString("yyyy-MM-dd"), dtpFin.Value.Date.ToString("yyyy-MM-dd"), cbTipo.Text)
+            End If
+        Catch ex As Exception
+            MsgBox(ex)
+        End Try
+
 
 
     End Sub
@@ -31,7 +41,12 @@
     End Sub
 
     Private Sub txtNombre_TextChanged(sender As Object, e As EventArgs) Handles txtNombre.TextChanged
-        dgvProducto.DataSource = consultas.getProductReport(txtNombre.Text)
+        Try
+            dgvProducto.DataSource = consultas.getProductReport(txtNombre.Text)
+        Catch ex As Exception
+            MsgBox(ex)
+        End Try
+
     End Sub
 
     Private Sub Reportes_Leave(sender As Object, e As EventArgs) Handles MyBase.Leave

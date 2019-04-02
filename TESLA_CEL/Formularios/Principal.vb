@@ -1,28 +1,37 @@
 ﻿Public Class Principal
     Public Shared userLevel, username As String
     Private Sub Principal_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Me.ActiveControl = PictureBox1
-        If userLevel = "3" Then
-            btnInventario.Enabled = False
-            btnReportes.Enabled = False
-            btnUsuarios.Enabled = False
-        ElseIf userLevel = "4" Then
-            btnInventario.Enabled = False
-            btnReportes.Enabled = False
-            btnUsuarios.Enabled = False
-            btnVentas.Enabled = False
-        End If
+        Try
+            Me.ActiveControl = PictureBox1
+            If userLevel = "3" Then
+                btnInventario.Enabled = False
+                btnReportes.Enabled = False
+                btnUsuarios.Enabled = False
+            ElseIf userLevel = "4" Then
+                btnInventario.Enabled = False
+                btnReportes.Enabled = False
+                btnUsuarios.Enabled = False
+                btnVentas.Enabled = False
+            End If
+        Catch ex As Exception
+            MsgBox(ex)
+        End Try
     End Sub
     Sub loadForm(ByVal form As Object)
-        If Me.contenedor.Controls.Count > 0 Then
-            Me.contenedor.Controls.RemoveAt(0)
-        End If
-        Dim opened As Form = TryCast(form, Form)
-        opened.TopLevel = False
-        opened.Dock = DockStyle.Fill
-        Me.contenedor.Controls.Add(opened)
-        Me.contenedor.Tag = opened
-        opened.Show()
+        Try
+            If Me.contenedor.Controls.Count > 0 Then
+                Me.contenedor.Controls.RemoveAt(0)
+            End If
+            Dim opened As Form = TryCast(form, Form)
+            opened.TopLevel = False
+            opened.Dock = DockStyle.Fill
+            Me.contenedor.Controls.Add(opened)
+            Me.contenedor.Tag = opened
+            opened.Show()
+        Catch ex As Exception
+            MsgBox(ex)
+        End Try
+
     End Sub
 
     Private Sub btnUsuarios_Click(sender As Object, e As EventArgs) Handles btnUsuarios.Click

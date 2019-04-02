@@ -70,10 +70,25 @@
 
     End Sub
     Private Sub txtPagar_TextChanged(sender As Object, e As EventArgs) Handles txtPagar.TextChanged
-        If Val(txtPagar.Text) >= Val(lblTotal.Text) Then
-            btnConfirmar.Enabled = True
-        Else
-            btnConfirmar.Enabled = False
-        End If
+        Try
+            If Val(txtPagar.Text) >= Val(lblTotal.Text) Then
+                btnConfirmar.Enabled = True
+            Else
+                btnConfirmar.Enabled = False
+            End If
+        Catch ex As Exception
+            MsgBox(ex)
+        End Try
+    End Sub
+
+    Private Sub txtPagar_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtPagar.KeyPress
+        Try
+            If Not Char.IsNumber(e.KeyChar) Then
+                e.Handled = True
+                MessageBox.Show("Introduzca sólo valores númericos")
+            End If
+        Catch ex As Exception
+            MsgBox(e)
+        End Try
     End Sub
 End Class

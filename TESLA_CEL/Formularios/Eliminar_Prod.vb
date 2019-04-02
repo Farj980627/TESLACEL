@@ -5,19 +5,32 @@
     End Sub
 
     Private Sub Eliminar_Prod_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        cbProveedor.DataSource = consultas.getProovedor
-        cbProveedor.DisplayMember = "provider"
+        Try
+            cbProveedor.DataSource = consultas.getProovedor
+            cbProveedor.DisplayMember = "provider"
+        Catch ex As Exception
+            MsgBox(ex)
+        End Try
+
     End Sub
     Private Sub cbProveedor_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbProveedor.SelectedIndexChanged
-        cbProducto.DataSource = consultas.getProductoByProveedor(consultas.getProovedor(cbProveedor.SelectedIndex)("id_provider"))
-        cbProducto.DisplayMember = "name"
+        Try
+            cbProducto.DataSource = consultas.getProductoByProveedor(consultas.getProovedor(cbProveedor.SelectedIndex)("id_provider"))
+            cbProducto.DisplayMember = "name"
+        Catch ex As Exception
+            MsgBox(ex)
+        End Try
+
     End Sub
 
     Private Sub btnEliminar_Click(sender As Object, e As EventArgs) Handles btnEliminar.Click
-        If (MessageBox.Show("Estas seguro que deseas eliminar?", "AVISO", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = DialogResult.Yes) Then
-            consultas.delProducto(cbProducto.Text)
-        End If
-
+        Try
+            If (MessageBox.Show("Estas seguro que deseas eliminar?", "AVISO", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = DialogResult.Yes) Then
+                consultas.delProducto(cbProducto.Text)
+            End If
+        Catch ex As Exception
+            MsgBox(ex)
+        End Try
 
     End Sub
 End Class

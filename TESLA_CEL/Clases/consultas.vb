@@ -257,5 +257,22 @@ Public Class consultas
         cmd.ExecuteNonQuery()
         con.Close()
     End Sub
+    Public Shared Sub updInventarioAll(pname, pdescription, pprice, pbarcode, pqueantity, pmin, pdate, pcategory, pid_provider, pid_product)
+        Dim con As MySqlConnection = conexion.conection
+        Dim cmd As MySqlCommand = New MySqlCommand(String.Format("UPDATE products SET name='{0}',description='{1}',price='{2}', bar_code='{3}', quantity='{4}', min='{5}',date='{6}', category='{7}', id_provider='{8}'  WHERE id_product='{9}'", pname, pdescription, pprice, pbarcode, pqueantity, pmin, pdate, pcategory, pid_provider, pid_product), con)
+        cmd.ExecuteNonQuery()
+        con.Close()
+    End Sub
+    Public Shared Function getIDProvideer(pprovider) As String
+        Dim con As MySqlConnection = conexion.conection
+        Dim id As String = 0
+        Dim cmd As MySqlCommand = New MySqlCommand(String.Format("SELECT id_provider FROM providers  WHERE provider = '{0}'", pprovider), con)
+        Dim reader As MySqlDataReader = cmd.ExecuteReader
+        If reader.Read Then
+            id = reader(0).ToString
+        End If
+        con.Close()
+        Return id
+    End Function
 
 End Class

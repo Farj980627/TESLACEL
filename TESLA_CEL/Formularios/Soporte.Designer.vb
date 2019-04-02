@@ -31,10 +31,10 @@ Partial Class Soporte
         Me.txtTotal = New System.Windows.Forms.TextBox()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
-        Me.btnBuscarFechas = New System.Windows.Forms.Button()
         Me.pCodigo = New System.Windows.Forms.Panel()
         Me.SaveFileDialog1 = New System.Windows.Forms.SaveFileDialog()
         Me.Button1 = New System.Windows.Forms.Button()
+        Me.btnBuscarFechas = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'cbTipo
@@ -154,21 +154,6 @@ Partial Class Soporte
         Me.Label4.Text = "TOTAL:"
         Me.Label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
-        'btnBuscarFechas
-        '
-        Me.btnBuscarFechas.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnBuscarFechas.BackColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(247, Byte), Integer), CType(CType(249, Byte), Integer))
-        Me.btnBuscarFechas.Font = New System.Drawing.Font("Berlin Sans FB", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnBuscarFechas.ForeColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(77, Byte), Integer), CType(CType(111, Byte), Integer))
-        Me.btnBuscarFechas.Image = Global.TESLA_CEL.My.Resources.Resources.generar_color
-        Me.btnBuscarFechas.Location = New System.Drawing.Point(780, 456)
-        Me.btnBuscarFechas.Name = "btnBuscarFechas"
-        Me.btnBuscarFechas.Size = New System.Drawing.Size(277, 61)
-        Me.btnBuscarFechas.TabIndex = 29
-        Me.btnBuscarFechas.Text = "Generar Orden"
-        Me.btnBuscarFechas.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
-        Me.btnBuscarFechas.UseVisualStyleBackColor = False
-        '
         'pCodigo
         '
         Me.pCodigo.Location = New System.Drawing.Point(251, 426)
@@ -190,6 +175,21 @@ Partial Class Soporte
         Me.Button1.Text = "Pagar Orden"
         Me.Button1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.Button1.UseVisualStyleBackColor = False
+        '
+        'btnBuscarFechas
+        '
+        Me.btnBuscarFechas.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnBuscarFechas.BackColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(247, Byte), Integer), CType(CType(249, Byte), Integer))
+        Me.btnBuscarFechas.Font = New System.Drawing.Font("Berlin Sans FB", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnBuscarFechas.ForeColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(77, Byte), Integer), CType(CType(111, Byte), Integer))
+        Me.btnBuscarFechas.Image = Global.TESLA_CEL.My.Resources.Resources.generar_color
+        Me.btnBuscarFechas.Location = New System.Drawing.Point(780, 456)
+        Me.btnBuscarFechas.Name = "btnBuscarFechas"
+        Me.btnBuscarFechas.Size = New System.Drawing.Size(277, 61)
+        Me.btnBuscarFechas.TabIndex = 29
+        Me.btnBuscarFechas.Text = "Generar Orden"
+        Me.btnBuscarFechas.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.btnBuscarFechas.UseVisualStyleBackColor = False
         '
         'Soporte
         '

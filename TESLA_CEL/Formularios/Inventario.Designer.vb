@@ -28,16 +28,17 @@ Partial Class Inventario
         Me.btnBuscarFechas = New System.Windows.Forms.Button()
         Me.dtpFin = New System.Windows.Forms.DateTimePicker()
         Me.dtpInicio = New System.Windows.Forms.DateTimePicker()
-        Me.cbProveedor = New System.Windows.Forms.ComboBox()
         Me.Panel4 = New System.Windows.Forms.Panel()
         Me.btnEliminar = New System.Windows.Forms.Button()
         Me.btnNuevo = New System.Windows.Forms.Button()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.Label1 = New System.Windows.Forms.Label()
+        Me.cbProveedor = New System.Windows.Forms.ComboBox()
         Me.btnMostrar = New System.Windows.Forms.Button()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.txtNombre = New System.Windows.Forms.TextBox()
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
+        Me.btnActualizar = New System.Windows.Forms.Button()
         Me.Panel3.SuspendLayout()
         CType(Me.dgvProducto, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel5.SuspendLayout()
@@ -117,20 +118,9 @@ Partial Class Inventario
         Me.dtpInicio.TabIndex = 0
         Me.dtpInicio.Value = New Date(2019, 3, 20, 0, 0, 0, 0)
         '
-        'cbProveedor
-        '
-        Me.cbProveedor.BackColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(247, Byte), Integer), CType(CType(249, Byte), Integer))
-        Me.cbProveedor.Font = New System.Drawing.Font("Berlin Sans FB", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cbProveedor.ForeColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(77, Byte), Integer), CType(CType(111, Byte), Integer))
-        Me.cbProveedor.FormattingEnabled = True
-        Me.cbProveedor.Location = New System.Drawing.Point(270, 52)
-        Me.cbProveedor.Name = "cbProveedor"
-        Me.cbProveedor.Size = New System.Drawing.Size(229, 38)
-        Me.cbProveedor.TabIndex = 2
-        Me.cbProveedor.Text = "PROVEEDOR"
-        '
         'Panel4
         '
+        Me.Panel4.Controls.Add(Me.btnActualizar)
         Me.Panel4.Controls.Add(Me.btnEliminar)
         Me.Panel4.Controls.Add(Me.btnNuevo)
         Me.Panel4.Dock = System.Windows.Forms.DockStyle.Fill
@@ -146,7 +136,7 @@ Partial Class Inventario
         Me.btnEliminar.Font = New System.Drawing.Font("Berlin Sans FB", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnEliminar.ForeColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(77, Byte), Integer), CType(CType(111, Byte), Integer))
         Me.btnEliminar.Image = Global.TESLA_CEL.My.Resources.Resources.carro_menos_color
-        Me.btnEliminar.Location = New System.Drawing.Point(280, 38)
+        Me.btnEliminar.Location = New System.Drawing.Point(297, 3)
         Me.btnEliminar.Name = "btnEliminar"
         Me.btnEliminar.Size = New System.Drawing.Size(229, 75)
         Me.btnEliminar.TabIndex = 7
@@ -161,7 +151,7 @@ Partial Class Inventario
         Me.btnNuevo.Font = New System.Drawing.Font("Berlin Sans FB", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnNuevo.ForeColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(77, Byte), Integer), CType(CType(111, Byte), Integer))
         Me.btnNuevo.Image = Global.TESLA_CEL.My.Resources.Resources.carro_mas_color
-        Me.btnNuevo.Location = New System.Drawing.Point(20, 38)
+        Me.btnNuevo.Location = New System.Drawing.Point(3, 3)
         Me.btnNuevo.Name = "btnNuevo"
         Me.btnNuevo.Size = New System.Drawing.Size(229, 75)
         Me.btnNuevo.TabIndex = 6
@@ -194,6 +184,18 @@ Partial Class Inventario
         Me.Label1.TabIndex = 6
         Me.Label1.Text = "PROVEEDOR"
         Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'cbProveedor
+        '
+        Me.cbProveedor.BackColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(247, Byte), Integer), CType(CType(249, Byte), Integer))
+        Me.cbProveedor.Font = New System.Drawing.Font("Berlin Sans FB", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cbProveedor.ForeColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(77, Byte), Integer), CType(CType(111, Byte), Integer))
+        Me.cbProveedor.FormattingEnabled = True
+        Me.cbProveedor.Location = New System.Drawing.Point(270, 52)
+        Me.cbProveedor.Name = "cbProveedor"
+        Me.cbProveedor.Size = New System.Drawing.Size(229, 38)
+        Me.cbProveedor.TabIndex = 2
+        Me.cbProveedor.Text = "PROVEEDOR"
         '
         'btnMostrar
         '
@@ -250,6 +252,21 @@ Partial Class Inventario
         Me.TableLayoutPanel1.Size = New System.Drawing.Size(1069, 313)
         Me.TableLayoutPanel1.TabIndex = 6
         '
+        'btnActualizar
+        '
+        Me.btnActualizar.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnActualizar.BackColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(247, Byte), Integer), CType(CType(249, Byte), Integer))
+        Me.btnActualizar.Font = New System.Drawing.Font("Berlin Sans FB", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnActualizar.ForeColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(77, Byte), Integer), CType(CType(111, Byte), Integer))
+        Me.btnActualizar.Image = Global.TESLA_CEL.My.Resources.Resources.actualizar_color
+        Me.btnActualizar.Location = New System.Drawing.Point(115, 84)
+        Me.btnActualizar.Name = "btnActualizar"
+        Me.btnActualizar.Size = New System.Drawing.Size(317, 59)
+        Me.btnActualizar.TabIndex = 8
+        Me.btnActualizar.Text = "Actualizar Producto"
+        Me.btnActualizar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.btnActualizar.UseVisualStyleBackColor = False
+        '
         'Inventario
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -279,7 +296,6 @@ Partial Class Inventario
     Friend WithEvents Panel5 As Panel
     Friend WithEvents dtpFin As DateTimePicker
     Friend WithEvents dtpInicio As DateTimePicker
-    Friend WithEvents cbProveedor As ComboBox
     Friend WithEvents Panel4 As Panel
     Friend WithEvents Panel2 As Panel
     Friend WithEvents btnMostrar As Button
@@ -288,6 +304,8 @@ Partial Class Inventario
     Friend WithEvents TableLayoutPanel1 As TableLayoutPanel
     Friend WithEvents btnEliminar As Button
     Friend WithEvents btnNuevo As Button
-    Friend WithEvents Label1 As Label
     Friend WithEvents btnBuscarFechas As Button
+    Friend WithEvents Label1 As Label
+    Friend WithEvents cbProveedor As ComboBox
+    Friend WithEvents btnActualizar As Button
 End Class

@@ -7,34 +7,43 @@
     End Sub
 
     Private Sub Insertar_Prod_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        newDt = consultas.getProovedor
-        cbProveedor.DataSource = newDt
-        cbProveedor.DisplayMember = "provider"
+        Try
+            newDt = consultas.getProovedor
+            cbProveedor.DataSource = newDt
+            cbProveedor.DisplayMember = "provider"
+        Catch ex As Exception
+            MsgBox(ex)
+        End Try
+
     End Sub
 
     Private Sub btnAgregar_Click(sender As Object, e As EventArgs) Handles btnAgregar.Click
-        If txtDescripcion.Text = "DESCRIPCIÓN" Or txtDescripcion.Text = "" Then
-            desc = ""
-        Else
-            desc = txtDescripcion.Text
-        End If
-        If txtCodigo.Text = "CODIGO BARRAS" Or txtCodigo.Text = "" Then
-            cod = ""
-        Else
-            cod = txtCodigo.Text
-        End If
-        If txtMinimo.Text = "MINIMO" Or txtMinimo.Text = "" Then
-            min = ""
-        Else
-            min = txtMinimo.Text
-        End If
-        If txtPrecio.Text = "PRECIO" Or txtNombre.Text = "NOMBRE PRODUCTO" Or txtCantidad.Text = "CANTIDAD" Or txtCategoria.Text = "CATEGORIA" Or txtPrecio.Text = "PRECIO" Then
-            MessageBox.Show("Alguno de los campos contiene informacion no valida")
-        Else
+        Try
+            If txtDescripcion.Text = "DESCRIPCIÓN" Or txtDescripcion.Text = "" Then
+                desc = ""
+            Else
+                desc = txtDescripcion.Text
+            End If
+            If txtCodigo.Text = "CODIGO BARRAS" Or txtCodigo.Text = "" Then
+                cod = ""
+            Else
+                cod = txtCodigo.Text
+            End If
+            If txtMinimo.Text = "MINIMO" Or txtMinimo.Text = "" Then
+                min = ""
+            Else
+                min = txtMinimo.Text
+            End If
+            If txtPrecio.Text = "PRECIO" Or txtNombre.Text = "NOMBRE PRODUCTO" Or txtCantidad.Text = "CANTIDAD" Or txtCategoria.Text = "CATEGORIA" Or txtPrecio.Text = "PRECIO" Then
+                MessageBox.Show("Alguno de los campos contiene informacion no valida")
+            Else
 
-            consultas.insProducto(txtNombre.Text, desc, txtPrecio.Text, cod, txtCantidad.Text, min, dtpFecha.Value.Date.ToString("yyyy-MM-dd"), txtCategoria.Text, newDt(cbProveedor.SelectedIndex)("id_provider").ToString)
-            MessageBox.Show("Articulo Arreglado")
-        End If
+                consultas.insProducto(txtNombre.Text, desc, txtPrecio.Text, cod, txtCantidad.Text, min, dtpFecha.Value.Date.ToString("yyyy-MM-dd"), txtCategoria.Text, newDt(cbProveedor.SelectedIndex)("id_provider").ToString)
+                MessageBox.Show("Articulo Arreglado")
+            End If
+        Catch ex As Exception
+            MsgBox(ex)
+        End Try
 
     End Sub
 
@@ -92,6 +101,41 @@
         txtCantidad.Text = "CANTIDAD"
 
     End Sub
+
+    Private Sub txtPrecio_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtPrecio.KeyPress
+        Try
+            If Not Char.IsNumber(e.KeyChar) Then
+                e.Handled = True
+                MessageBox.Show("Introduzca sólo valores númericos")
+            End If
+        Catch ex As Exception
+            MsgBox(ex)
+        End Try
+    End Sub
+
+    Private Sub txtCantidad_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtCantidad.KeyPress
+        Try
+            If Not Char.IsNumber(e.KeyChar) Then
+                e.Handled = True
+                MessageBox.Show("Introduzca sólo valores númericos")
+            End If
+        Catch ex As Exception
+            MsgBox(ex)
+
+        End Try
+    End Sub
+
+    Private Sub txtMinimo_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtMinimo.KeyPress
+        Try
+            If Not Char.IsNumber(e.KeyChar) Then
+                e.Handled = True
+                MessageBox.Show("Introduzca sólo valores númericos")
+            End If
+        Catch ex As Exception
+            MsgBox(ex)
+        End Try
+    End Sub
+
     Private Sub txtCategoria_Click(sender As Object, e As EventArgs) Handles txtCategoria.Click
         txtCategoria.Clear()
     End Sub

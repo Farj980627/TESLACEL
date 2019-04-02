@@ -90,6 +90,12 @@
   <ItemGroup>
     <Compile Include="Clases\conexion.vb" />
     <Compile Include="Clases\consultas.vb" />
+    <Compile Include="Formularios\Actualizar_Prod.Designer.vb">
+      <DependentUpon>Actualizar_Prod.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Actualizar_Prod.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Formularios\Conf_Venta.Designer.vb">
       <DependentUpon>Conf_Venta.vb</DependentUpon>
     </Compile>
@@ -119,12 +125,6 @@
       <DependentUpon>Inventario.vb</DependentUpon>
     </Compile>
     <Compile Include="Formularios\Inventario.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Formularios\Pagar_Orden.Designer.vb">
-      <DependentUpon>Pagar_Orden.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Formularios\Pagar_Orden.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Formularios\Principal.Designer.vb">
@@ -174,6 +174,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Formularios\Actualizar_Prod.resx">
+      <DependentUpon>Actualizar_Prod.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Conf_Venta.resx">
       <DependentUpon>Conf_Venta.vb</DependentUpon>
     </EmbeddedResource>
@@ -188,9 +191,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Inventario.resx">
       <DependentUpon>Inventario.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\Pagar_Orden.resx">
-      <DependentUpon>Pagar_Orden.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Principal.resx">
       <DependentUpon>Principal.vb</DependentUpon>
@@ -280,6 +280,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\generar color.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\aceptar color.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>
