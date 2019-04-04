@@ -3,9 +3,10 @@
 
     Private Sub btnMostrar_Click(sender As Object, e As EventArgs) Handles btnMostrar.Click
         Try
+
             dgvProducto.DataSource = consultas.getReportsAll
         Catch ex As Exception
-            MsgBox(ex)
+
         End Try
 
     End Sub
@@ -17,13 +18,17 @@
 
     Private Sub btnBuscarFechas_Click(sender As Object, e As EventArgs) Handles btnBuscarFechas.Click
         Try
-            If cbTipo.Text = "TIPO PAGO" Then
-                dgvProducto.DataSource = consultas.getDateReport(dtpInicio.Value.Date.ToString("yyyy-MM-dd"), dtpFin.Value.Date.ToString("yyyy-MM-dd"))
+            If dtpFin.Value < dtpInicio.Value Then
+                MsgBox("La Fecha de inicio es mayor que la final")
             Else
-                dgvProducto.DataSource = consultas.getDateTypeReport(dtpInicio.Value.Date.ToString("yyyy-MM-dd"), dtpFin.Value.Date.ToString("yyyy-MM-dd"), cbTipo.Text)
+                If cbTipo.Text = "Todos Los Pagos" Then
+                    dgvProducto.DataSource = consultas.getDateReport(dtpInicio.Value.Date.ToString("yyyy-MM-dd"), dtpFin.Value.Date.ToString("yyyy-MM-dd"))
+                Else
+                    dgvProducto.DataSource = consultas.getDateTypeReport(dtpInicio.Value.Date.ToString("yyyy-MM-dd"), dtpFin.Value.Date.ToString("yyyy-MM-dd"), cbTipo.Text)
+                End If
             End If
         Catch ex As Exception
-            MsgBox(ex)
+
         End Try
 
 
@@ -44,7 +49,7 @@
         Try
             dgvProducto.DataSource = consultas.getProductReport(txtNombre.Text)
         Catch ex As Exception
-            MsgBox(ex)
+
         End Try
 
     End Sub

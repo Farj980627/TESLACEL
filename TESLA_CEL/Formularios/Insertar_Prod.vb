@@ -2,6 +2,12 @@
     Dim newDt As New DataTable
     Dim desc, cod, min
     Private Sub bntSalir_Click(sender As Object, e As EventArgs) Handles bntSalir.Click
+        txtCantidad.Text = "CANTIDAD"
+        txtCategoria.Text = "CATEGORIA"
+        txtCodigo.Text = "CODIGO BARRAS"
+        txtMinimo.Text = "MINIMO"
+        txtNombre.Text = "NOMBRE PRODUCTO"
+        txtPrecio.Text = "PRECIO"
         Me.Close()
 
     End Sub
@@ -40,6 +46,14 @@
 
                 consultas.insProducto(txtNombre.Text, desc, txtPrecio.Text, cod, txtCantidad.Text, min, dtpFecha.Value.Date.ToString("yyyy-MM-dd"), txtCategoria.Text, newDt(cbProveedor.SelectedIndex)("id_provider").ToString)
                 MessageBox.Show("Articulo Arreglado")
+                txtCantidad.Text = "CANTIDAD"
+                txtCategoria.Text = "CATEGORIA"
+                txtCodigo.Text = "CODIGO BARRAS"
+                txtMinimo.Text = "MINIMO"
+                txtNombre.Text = "NOMBRE PRODUCTO"
+                txtPrecio.Text = "PRECIO"
+                txtDescripcion.Text = "DESCRIPCIÓN PRODUCTO"
+
             End If
         Catch ex As Exception
             MsgBox(ex)
@@ -99,12 +113,13 @@
         txtMinimo.Text = "MINIMO"
         txtDescripcion.Text = "DESCRIPCION"
         txtCantidad.Text = "CANTIDAD"
+        Me.Close()
 
     End Sub
 
     Private Sub txtPrecio_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtPrecio.KeyPress
         Try
-            If Not Char.IsNumber(e.KeyChar) Then
+           If Not Char.IsDigit( e.KeyChar ) And e.KeyChar <> vbBack Then
                 e.Handled = True
                 MessageBox.Show("Introduzca sólo valores númericos")
             End If
@@ -115,7 +130,7 @@
 
     Private Sub txtCantidad_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtCantidad.KeyPress
         Try
-            If Not Char.IsNumber(e.KeyChar) Then
+           If Not Char.IsDigit( e.KeyChar ) And e.KeyChar <> vbBack Then
                 e.Handled = True
                 MessageBox.Show("Introduzca sólo valores númericos")
             End If
@@ -127,14 +142,16 @@
 
     Private Sub txtMinimo_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtMinimo.KeyPress
         Try
-            If Not Char.IsNumber(e.KeyChar) Then
+           If Not Char.IsDigit( e.KeyChar ) And e.KeyChar <> vbBack Then
                 e.Handled = True
                 MessageBox.Show("Introduzca sólo valores númericos")
             End If
         Catch ex As Exception
-            MsgBox(ex)
+
         End Try
     End Sub
+
+
 
     Private Sub txtCategoria_Click(sender As Object, e As EventArgs) Handles txtCategoria.Click
         txtCategoria.Clear()

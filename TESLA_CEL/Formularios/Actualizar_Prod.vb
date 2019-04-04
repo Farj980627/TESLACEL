@@ -96,7 +96,7 @@
 
     Private Sub txtPrecio_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtPrecio.KeyPress
         Try
-            If Not Char.IsNumber(e.KeyChar) Then
+           If Not Char.IsDigit( e.KeyChar ) And e.KeyChar <> vbBack Then
                 e.Handled = True
                 MessageBox.Show("Introduzca sólo valores númericos")
             End If
@@ -107,7 +107,7 @@
 
     Private Sub txtCantidad_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtCantidad.KeyPress
         Try
-            If Not Char.IsNumber(e.KeyChar) Then
+           If Not Char.IsDigit( e.KeyChar ) And e.KeyChar <> vbBack Then
                 e.Handled = True
                 MessageBox.Show("Introduzca sólo valores númericos")
             End If
@@ -118,7 +118,7 @@
 
     Private Sub txtCodigo_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtCodigo.KeyPress
         Try
-            If Not Char.IsNumber(e.KeyChar) Then
+           If Not Char.IsDigit( e.KeyChar ) And e.KeyChar <> vbBack Then
                 e.Handled = True
                 MessageBox.Show("Introduzca sólo valores númericos")
             End If

@@ -24,8 +24,7 @@ Public Class Soporte
             Dim Code As BarcodeLib.Barcode = New BarcodeLib.Barcode
             Code.IncludeLabel = True
             pCodigo.BackgroundImage = Code.Encode(BarcodeLib.TYPE.CODE11, newCode, Color.Black, Color.White, 400, 100)
-            consultas.insOrden(cbTipo.Text, txtDescripcion.Text, txtProblema.Text, txtAnticipo.Text, txtTotal.Text, newCode - 1)
-
+            consultas.insOrden(cbTipo.Text, txtDescripcion.Text, txtProblema.Text, txtAnticipo.Text, txtTotal.Text, newCode)
             Dim ms As MemoryStream = New MemoryStream()
             pCodigo.BackgroundImage.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg)
             Dim buff As Byte() = ms.GetBuffer()
@@ -91,7 +90,7 @@ Public Class Soporte
 
     Private Sub txtAnticipo_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtAnticipo.KeyPress
         Try
-            If Not Char.IsNumber(e.KeyChar) Then
+            If Not Char.IsDigit(e.KeyChar) And e.KeyChar <> vbBack Then
                 e.Handled = True
                 MessageBox.Show("Introduzca sólo valores númericos")
             End If
@@ -102,7 +101,7 @@ Public Class Soporte
 
     Private Sub txtTotal_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtTotal.KeyPress
         Try
-            If Not Char.IsNumber(e.KeyChar) Then
+            If Not Char.IsDigit(e.KeyChar) And e.KeyChar <> vbBack Then
                 e.Handled = True
                 MessageBox.Show("Introduzca sólo valores númericos")
             End If

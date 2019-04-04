@@ -155,7 +155,7 @@ Partial Class Actualizar_Prod
         Me.txtCantidad.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.txtCantidad.Font = New System.Drawing.Font("Berlin Sans FB", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtCantidad.ForeColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(77, Byte), Integer), CType(CType(111, Byte), Integer))
-        Me.txtCantidad.Location = New System.Drawing.Point(673, 309)
+        Me.txtCantidad.Location = New System.Drawing.Point(673, 298)
         Me.txtCantidad.Name = "txtCantidad"
         Me.txtCantidad.Size = New System.Drawing.Size(286, 30)
         Me.txtCantidad.TabIndex = 23
@@ -168,7 +168,7 @@ Partial Class Actualizar_Prod
         Me.txtPrecio.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.txtPrecio.Font = New System.Drawing.Font("Berlin Sans FB", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtPrecio.ForeColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(77, Byte), Integer), CType(CType(111, Byte), Integer))
-        Me.txtPrecio.Location = New System.Drawing.Point(262, 309)
+        Me.txtPrecio.Location = New System.Drawing.Point(262, 298)
         Me.txtPrecio.Name = "txtPrecio"
         Me.txtPrecio.Size = New System.Drawing.Size(286, 30)
         Me.txtPrecio.TabIndex = 22
@@ -181,7 +181,7 @@ Partial Class Actualizar_Prod
         Me.txtDescripcion.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.txtDescripcion.Font = New System.Drawing.Font("Berlin Sans FB", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtDescripcion.ForeColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(77, Byte), Integer), CType(CType(111, Byte), Integer))
-        Me.txtDescripcion.Location = New System.Drawing.Point(673, 203)
+        Me.txtDescripcion.Location = New System.Drawing.Point(673, 192)
         Me.txtDescripcion.Multiline = True
         Me.txtDescripcion.Name = "txtDescripcion"
         Me.txtDescripcion.Size = New System.Drawing.Size(286, 66)
@@ -195,7 +195,7 @@ Partial Class Actualizar_Prod
         Me.txtNombre.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.txtNombre.Font = New System.Drawing.Font("Berlin Sans FB", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtNombre.ForeColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(77, Byte), Integer), CType(CType(111, Byte), Integer))
-        Me.txtNombre.Location = New System.Drawing.Point(262, 237)
+        Me.txtNombre.Location = New System.Drawing.Point(262, 226)
         Me.txtNombre.Name = "txtNombre"
         Me.txtNombre.Size = New System.Drawing.Size(286, 30)
         Me.txtNombre.TabIndex = 20
@@ -247,7 +247,7 @@ Partial Class Actualizar_Prod
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Berlin Sans FB", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(247, Byte), Integer), CType(CType(249, Byte), Integer))
-        Me.Label2.Location = New System.Drawing.Point(256, 203)
+        Me.Label2.Location = New System.Drawing.Point(256, 192)
         Me.Label2.Name = "Label2"
         Me.Label2.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.Label2.Size = New System.Drawing.Size(117, 31)
@@ -260,7 +260,7 @@ Partial Class Actualizar_Prod
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Berlin Sans FB", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.ForeColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(247, Byte), Integer), CType(CType(249, Byte), Integer))
-        Me.Label3.Location = New System.Drawing.Point(252, 275)
+        Me.Label3.Location = New System.Drawing.Point(252, 264)
         Me.Label3.Name = "Label3"
         Me.Label3.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.Label3.Size = New System.Drawing.Size(91, 31)
@@ -338,7 +338,7 @@ Partial Class Actualizar_Prod
         Me.Label9.AutoSize = True
         Me.Label9.Font = New System.Drawing.Font("Berlin Sans FB", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label9.ForeColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(247, Byte), Integer), CType(CType(249, Byte), Integer))
-        Me.Label9.Location = New System.Drawing.Point(667, 275)
+        Me.Label9.Location = New System.Drawing.Point(667, 264)
         Me.Label9.Name = "Label9"
         Me.Label9.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.Label9.Size = New System.Drawing.Size(132, 31)
@@ -351,7 +351,7 @@ Partial Class Actualizar_Prod
         Me.Label10.AutoSize = True
         Me.Label10.Font = New System.Drawing.Font("Berlin Sans FB", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label10.ForeColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(247, Byte), Integer), CType(CType(249, Byte), Integer))
-        Me.Label10.Location = New System.Drawing.Point(667, 169)
+        Me.Label10.Location = New System.Drawing.Point(667, 158)
         Me.Label10.Name = "Label10"
         Me.Label10.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.Label10.Size = New System.Drawing.Size(149, 31)

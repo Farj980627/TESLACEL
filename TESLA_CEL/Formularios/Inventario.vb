@@ -39,7 +39,6 @@
                 dgvProducto.DataSource = newDt
             End If
         Catch ex As Exception
-            MsgBox(ex)
         End Try
 
     End Sub
@@ -50,5 +49,20 @@
 
     Private Sub btnActualizar_Click(sender As Object, e As EventArgs) Handles btnActualizar.Click
         Actualizar_Prod.ShowDialog()
+    End Sub
+    Private Sub btnBuscarFechas_Click(sender As Object, e As EventArgs) Handles btnBuscarFechas.Click
+        Try
+            If dtpFin.Value < dtpInicio.Value Then
+                MsgBox("La Fecha de inicio es mayor que la final")
+            Else
+                dgvProducto.DataSource = consultas.getProductosByDate(dtpInicio.Value.Date.ToString("yyyy-MM-dd"), dtpFin.Value.Date.ToString("yyyy-MM-dd"))
+            End If
+        Catch ex As Exception
+
+        End Try
+    End Sub
+
+    Private Sub Button1_Click_1(sender As Object, e As EventArgs) Handles Button1.Click
+        Registar_Proveedor.ShowDialog()
     End Sub
 End Class

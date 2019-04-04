@@ -33,7 +33,6 @@ Partial Class Soporte
         Me.Label4 = New System.Windows.Forms.Label()
         Me.pCodigo = New System.Windows.Forms.Panel()
         Me.SaveFileDialog1 = New System.Windows.Forms.SaveFileDialog()
-        Me.Button1 = New System.Windows.Forms.Button()
         Me.btnBuscarFechas = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
@@ -161,21 +160,6 @@ Partial Class Soporte
         Me.pCodigo.Size = New System.Drawing.Size(501, 121)
         Me.pCodigo.TabIndex = 30
         '
-        'Button1
-        '
-        Me.Button1.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Button1.BackColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(247, Byte), Integer), CType(CType(249, Byte), Integer))
-        Me.Button1.Font = New System.Drawing.Font("Berlin Sans FB", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(77, Byte), Integer), CType(CType(111, Byte), Integer))
-        Me.Button1.Image = Global.TESLA_CEL.My.Resources.Resources.generar_color
-        Me.Button1.Location = New System.Drawing.Point(12, 198)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(250, 61)
-        Me.Button1.TabIndex = 31
-        Me.Button1.Text = "Pagar Orden"
-        Me.Button1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
-        Me.Button1.UseVisualStyleBackColor = False
-        '
         'btnBuscarFechas
         '
         Me.btnBuscarFechas.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
@@ -197,7 +181,6 @@ Partial Class Soporte
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(77, Byte), Integer), CType(CType(111, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(1069, 609)
-        Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.pCodigo)
         Me.Controls.Add(Me.btnBuscarFechas)
         Me.Controls.Add(Me.Label4)
@@ -229,5 +212,4 @@ Partial Class Soporte
     Friend WithEvents btnBuscarFechas As Button
     Friend WithEvents pCodigo As Panel
     Friend WithEvents SaveFileDialog1 As SaveFileDialog
-    Friend WithEvents Button1 As Button
 End Class

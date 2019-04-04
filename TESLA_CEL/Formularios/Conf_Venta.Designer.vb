@@ -27,9 +27,11 @@ Partial Class Conf_Venta
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.txtPagar = New System.Windows.Forms.TextBox()
-        Me.btnConfirmar = New System.Windows.Forms.Button()
         Me.chBEfectivo = New System.Windows.Forms.CheckBox()
         Me.cbElectronico = New System.Windows.Forms.CheckBox()
+        Me.bntSalir = New System.Windows.Forms.PictureBox()
+        Me.btnConfirmar = New System.Windows.Forms.Button()
+        CType(Me.bntSalir, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Label1
@@ -96,22 +98,6 @@ Partial Class Conf_Venta
         Me.txtPagar.TabIndex = 24
         Me.txtPagar.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
-        'btnConfirmar
-        '
-        Me.btnConfirmar.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnConfirmar.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(77, Byte), Integer), CType(CType(111, Byte), Integer))
-        Me.btnConfirmar.Enabled = False
-        Me.btnConfirmar.Font = New System.Drawing.Font("Berlin Sans FB", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnConfirmar.ForeColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(247, Byte), Integer), CType(CType(249, Byte), Integer))
-        Me.btnConfirmar.Image = Global.TESLA_CEL.My.Resources.Resources.comprar_color
-        Me.btnConfirmar.Location = New System.Drawing.Point(497, 382)
-        Me.btnConfirmar.Name = "btnConfirmar"
-        Me.btnConfirmar.Size = New System.Drawing.Size(198, 47)
-        Me.btnConfirmar.TabIndex = 25
-        Me.btnConfirmar.Text = "VENDER"
-        Me.btnConfirmar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
-        Me.btnConfirmar.UseVisualStyleBackColor = False
-        '
         'chBEfectivo
         '
         Me.chBEfectivo.AutoSize = True
@@ -136,12 +122,39 @@ Partial Class Conf_Venta
         Me.cbElectronico.Text = "Pago Electrónico "
         Me.cbElectronico.UseVisualStyleBackColor = True
         '
+        'bntSalir
+        '
+        Me.bntSalir.Image = Global.TESLA_CEL.My.Resources.Resources.salir_color
+        Me.bntSalir.Location = New System.Drawing.Point(1021, 3)
+        Me.bntSalir.Name = "bntSalir"
+        Me.bntSalir.Size = New System.Drawing.Size(46, 43)
+        Me.bntSalir.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.bntSalir.TabIndex = 28
+        Me.bntSalir.TabStop = False
+        '
+        'btnConfirmar
+        '
+        Me.btnConfirmar.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnConfirmar.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(77, Byte), Integer), CType(CType(111, Byte), Integer))
+        Me.btnConfirmar.Enabled = False
+        Me.btnConfirmar.Font = New System.Drawing.Font("Berlin Sans FB", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnConfirmar.ForeColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(247, Byte), Integer), CType(CType(249, Byte), Integer))
+        Me.btnConfirmar.Image = Global.TESLA_CEL.My.Resources.Resources.comprar_color
+        Me.btnConfirmar.Location = New System.Drawing.Point(497, 382)
+        Me.btnConfirmar.Name = "btnConfirmar"
+        Me.btnConfirmar.Size = New System.Drawing.Size(198, 47)
+        Me.btnConfirmar.TabIndex = 25
+        Me.btnConfirmar.Text = "VENDER"
+        Me.btnConfirmar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.btnConfirmar.UseVisualStyleBackColor = False
+        '
         'Conf_Venta
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(77, Byte), Integer), CType(CType(111, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(1069, 609)
+        Me.Controls.Add(Me.bntSalir)
         Me.Controls.Add(Me.cbElectronico)
         Me.Controls.Add(Me.chBEfectivo)
         Me.Controls.Add(Me.btnConfirmar)
@@ -153,6 +166,7 @@ Partial Class Conf_Venta
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "Conf_Venta"
         Me.Text = "Conf_Venta"
+        CType(Me.bntSalir, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -165,4 +179,5 @@ Partial Class Conf_Venta
     Friend WithEvents btnConfirmar As Button
     Friend WithEvents chBEfectivo As CheckBox
     Friend WithEvents cbElectronico As CheckBox
+    Friend WithEvents bntSalir As PictureBox
 End Class
