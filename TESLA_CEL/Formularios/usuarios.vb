@@ -11,7 +11,7 @@
             txtPass.Text = newDt(0)("password").ToString
             txtUsuario.Text = newDt(0)("user").ToString
         Catch ex As Exception
-            MsgBox(ex)
+            
         End Try
 
     End Sub
@@ -22,7 +22,7 @@
             txtPass.Text = newDt(0)("password").ToString
             txtUsuario.Text = newDt(0)("user").ToString
         Catch ex As Exception
-            MsgBox(ex)
+            
         End Try
 
     End Sub
@@ -40,13 +40,13 @@
             cbUsuarios.DisplayMember = "user"
             MessageBox.Show("Usuario Actualizado")
         Catch ex As Exception
-            MsgBox(ex)
+            
         End Try
 
     End Sub
     Private Sub btnAgregar_Click(sender As Object, e As EventArgs) Handles btnAgregar.Click
         Try
-            Dim lvl As String
+            Dim lvl As String = ""
             If cbNivel.Text = "Administrador" Then
                 lvl = "1"
             ElseIf cbNivel.Text = "Cajero" Then
@@ -59,7 +59,7 @@
             cbUsuarios.DataSource = consultas.getUsuarios
             cbUsuarios.DisplayMember = "user"
         Catch ex As Exception
-            MsgBox(ex)
+            MsgBox("El nombre de usuario ya esta en uso")
         End Try
 
     End Sub

@@ -18,7 +18,7 @@
             cbProveedor.DataSource = newDt
             cbProveedor.DisplayMember = "provider"
         Catch ex As Exception
-            MsgBox(ex)
+            
         End Try
 
     End Sub
@@ -43,20 +43,22 @@
             If txtPrecio.Text = "PRECIO" Or txtNombre.Text = "NOMBRE PRODUCTO" Or txtCantidad.Text = "CANTIDAD" Or txtCategoria.Text = "CATEGORIA" Or txtPrecio.Text = "PRECIO" Then
                 MessageBox.Show("Alguno de los campos contiene informacion no valida")
             Else
-
-                consultas.insProducto(txtNombre.Text, desc, txtPrecio.Text, cod, txtCantidad.Text, min, dtpFecha.Value.Date.ToString("yyyy-MM-dd"), txtCategoria.Text, newDt(cbProveedor.SelectedIndex)("id_provider").ToString)
-                MessageBox.Show("Articulo Arreglado")
-                txtCantidad.Text = "CANTIDAD"
-                txtCategoria.Text = "CATEGORIA"
-                txtCodigo.Text = "CODIGO BARRAS"
-                txtMinimo.Text = "MINIMO"
-                txtNombre.Text = "NOMBRE PRODUCTO"
-                txtPrecio.Text = "PRECIO"
-                txtDescripcion.Text = "DESCRIPCIÓN PRODUCTO"
-
+                If consultas.checkRepetitions(txtNombre.Text, txtDescripcion.Text, txtCategoria.Text) = True Then
+                    MsgBox("El Producto ya Existe")
+                Else
+                    consultas.insProducto(txtNombre.Text, desc, txtPrecio.Text, cod, txtCantidad.Text, min, dtpFecha.Value.Date.ToString("yyyy-MM-dd"), txtCategoria.Text, newDt(cbProveedor.SelectedIndex)("id_provider").ToString)
+                    MessageBox.Show("Articulo Arreglado")
+                    txtCantidad.Text = "CANTIDAD"
+                    txtCategoria.Text = "CATEGORIA"
+                    txtCodigo.Text = "CODIGO BARRAS"
+                    txtMinimo.Text = "MINIMO"
+                    txtNombre.Text = "NOMBRE PRODUCTO"
+                    txtPrecio.Text = "PRECIO"
+                    txtDescripcion.Text = "DESCRIPCIÓN PRODUCTO"
+                End If
             End If
         Catch ex As Exception
-            MsgBox(ex)
+            
         End Try
 
     End Sub
@@ -113,6 +115,8 @@
         txtMinimo.Text = "MINIMO"
         txtDescripcion.Text = "DESCRIPCION"
         txtCantidad.Text = "CANTIDAD"
+        txtCodigo.Text = "CODIGO DE BARRAS"
+        txtCategoria.Text = "CATEGORIA"
         Me.Close()
 
     End Sub
@@ -124,7 +128,7 @@
                 MessageBox.Show("Introduzca sólo valores númericos")
             End If
         Catch ex As Exception
-            MsgBox(ex)
+            
         End Try
     End Sub
 
@@ -135,7 +139,7 @@
                 MessageBox.Show("Introduzca sólo valores númericos")
             End If
         Catch ex As Exception
-            MsgBox(ex)
+            
 
         End Try
     End Sub

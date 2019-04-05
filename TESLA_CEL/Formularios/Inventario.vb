@@ -14,7 +14,7 @@
             cbProveedor.DataSource = newDt
             cbProveedor.DisplayMember = "provider"
         Catch ex As Exception
-            MsgBox(ex)
+
         End Try
 
     End Sub
@@ -23,7 +23,7 @@
             newDt = consultas.getProductos()
             dgvProducto.DataSource = newDt
         Catch ex As Exception
-            MsgBox(ex)
+
         End Try
     End Sub
 

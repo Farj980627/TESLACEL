@@ -77,18 +77,22 @@
                         dtTodo = carrito
                     End If
                 End If
-                txtCodigo.Text = ""
+
             End If
         Catch ex As Exception
-            MsgBox(ex)
+
         End Try
     End Sub
 
     Private Sub btnConfirmar_Click(sender As Object, e As EventArgs) Handles btnConfirmar.Click
-        sumTot = lblTotal.Text
-        dgvProducto.DataSource = ""
+        If dgvProducto.Rows.Count = 0 Then
+            MsgBox("No se a agregado ningun producto")
+        Else
+            sumTot = lblTotal.Text
+            dgvProducto.DataSource = ""
+            Conf_Venta.ShowDialog()
+        End If
 
-        Conf_Venta.ShowDialog()
     End Sub
 
     Private Sub ventas_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -113,14 +117,14 @@
         txtOrden.Text = ""
     End Sub
 
-    Private Sub txtCantidad_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtCantidad.KeyPress
+    Private Sub txtCantidad_KeyPress(sender As Object, e As KeyPressEventArgs)
         Try
             If Not Char.IsDigit(e.KeyChar) And e.KeyChar <> vbBack Then
                 e.Handled = True
                 MessageBox.Show("Introduzca sólo valores númericos")
             End If
         Catch ex As Exception
-            MsgBox(ex)
+
         End Try
     End Sub
 
@@ -147,6 +151,7 @@
     Private Sub txtOrden_Leave(sender As Object, e As EventArgs) Handles txtOrden.Leave
         txtOrden.Text = "ORDEN DE PAGO"
     End Sub
+
 
     Private Sub ventas_Leave(sender As Object, e As EventArgs) Handles MyBase.Leave
         Try

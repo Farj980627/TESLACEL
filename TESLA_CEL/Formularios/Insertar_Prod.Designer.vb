@@ -127,7 +127,7 @@ Partial Class Insertar_Prod
         Me.dtpFecha.Name = "dtpFecha"
         Me.dtpFecha.Size = New System.Drawing.Size(286, 37)
         Me.dtpFecha.TabIndex = 9
-        Me.dtpFecha.Value = New Date(2019, 3, 20, 0, 0, 0, 0)
+        Me.dtpFecha.Value = New Date(2019, 4, 5, 0, 0, 0, 0)
         '
         'Label1
         '

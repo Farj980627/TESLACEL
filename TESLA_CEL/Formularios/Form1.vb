@@ -11,7 +11,7 @@
                 MsgBox("Usuario o Contraseña Incorrectos")
             End If
         Catch ex As Exception
-            MsgBox(ex)
+            
         End Try
 
 

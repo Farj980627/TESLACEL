@@ -9,7 +9,7 @@
             cbProveedor.DataSource = consultas.getProovedor
             cbProveedor.DisplayMember = "provider"
         Catch ex As Exception
-            MsgBox(ex)
+
         End Try
 
     End Sub
@@ -18,7 +18,7 @@
             cbProducto.DataSource = consultas.getProductoByProveedor(consultas.getProovedor(cbProveedor.SelectedIndex)("id_provider"))
             cbProducto.DisplayMember = "name"
         Catch ex As Exception
-            MsgBox(ex)
+
         End Try
 
     End Sub
@@ -30,7 +30,7 @@
                 MsgBox("Producto Eliminado")
             End If
         Catch ex As Exception
-            MsgBox(ex)
+
         End Try
 
     End Sub

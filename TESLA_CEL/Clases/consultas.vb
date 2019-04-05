@@ -57,7 +57,7 @@ Public Class consultas
     Public Shared Function getProductos() As DataTable
         Dim con As MySqlConnection = conexion.conection
         Dim dt As New DataTable
-        Dim cmd As MySqlCommand = New MySqlCommand(String.Format("SELECT pr.name, pr.description, pr.price, pr.bar_code, pr.quantity, pr.min, pr.date,pr.category, prov.provider, prov.contact, prov.address, prov.phone FROM products pr JOIN providers prov"), con)
+        Dim cmd As MySqlCommand = New MySqlCommand(String.Format("SELECT pr.name, pr.description, pr.price, pr.bar_code, pr.quantity, pr.min, pr.date,pr.category, prov.provider, prov.contact, prov.address, prov.phone FROM products pr JOIN providers prov WHERE pr.id_provider = prov.id_provider"), con)
         Dim adap As New MySqlDataAdapter(cmd)
         adap.Fill(dt)
         con.Close()
@@ -74,7 +74,7 @@ Public Class consultas
     Public Shared Function getProductosByDate(pdate1, pdate2) As DataTable
         Dim con As MySqlConnection = conexion.conection
         Dim dt As New DataTable
-        Dim cmd As MySqlCommand = New MySqlCommand(String.Format("SELECT pr.name, pr.description, pr.price, pr.bar_code, pr.quantity, pr.min, pr.date,pr.category, prov.provider, prov.contact, prov.address, prov.phone FROM products pr JOIN providers prov WHERE pr.date >='{0}' AND pr.date <='{1}'", pdate1, pdate2), con)
+        Dim cmd As MySqlCommand = New MySqlCommand(String.Format("SELECT pr.name, pr.description, pr.price, pr.bar_code, pr.quantity, pr.min, pr.date,pr.category, prov.provider, prov.contact, prov.address, prov.phone FROM products pr JOIN providers prov WHERE pr.id_provider = prov.id_provider AND pr.date >='{0}' AND pr.date <='{1}'", pdate1, pdate2), con)
         Dim adap As New MySqlDataAdapter(cmd)
         adap.Fill(dt)
         con.Close()
@@ -98,11 +98,19 @@ Public Class consultas
         con.Close()
         Return dt
     End Function
-
+    Public Shared Function getProductosToUpdate(pproducto) As DataTable
+        Dim con As MySqlConnection = conexion.conection
+        Dim dt As New DataTable
+        Dim cmd As MySqlCommand = New MySqlCommand(String.Format("SELECT * FROM products WHERE name = '{0}'", pproducto), con)
+        Dim adap As New MySqlDataAdapter(cmd)
+        adap.Fill(dt)
+        con.Close()
+        Return dt
+    End Function
     Public Shared Function getProductosByProductos(pproducto) As DataTable
         Dim con As MySqlConnection = conexion.conection
         Dim dt As New DataTable
-        Dim cmd As MySqlCommand = New MySqlCommand(String.Format("SELECT pr.name, pr.description, pr.price, pr.bar_code, pr.quantity, pr.min, pr.date,pr.category, prov.provider, prov.contact, prov.address, prov.phone FROM products  pr JOIN providers prov WHERE pr.name='{0}'", pproducto), con)
+        Dim cmd As MySqlCommand = New MySqlCommand(String.Format("SELECT pr.name, pr.description, pr.price, pr.bar_code, pr.quantity, pr.min, pr.date,pr.category, prov.provider, prov.contact, prov.address, prov.phone FROM products  pr JOIN providers prov WHERE pr.id_provider = prov.id_provider AND pr.name='{0}'", pproducto), con)
         Dim adap As New MySqlDataAdapter(cmd)
         adap.Fill(dt)
         con.Close()
@@ -288,4 +296,33 @@ Public Class consultas
         cmd.ExecuteNonQuery()
         con.Close()
     End Sub
+    Public Shared Sub delProvider(pprovider)
+        Dim con As MySqlConnection = conexion.conection
+        Dim cmd As MySqlCommand = New MySqlCommand(String.Format("DELETE FROM providers WHERE provider='{0}'", pprovider), con)
+        cmd.ExecuteNonQuery()
+        con.Close()
+    End Sub
+    Public Shared Function getProductosSinProveedor() As DataTable
+        Dim con As MySqlConnection = conexion.conection
+        Dim dt As New DataTable
+        Dim ord As String = "Orden de Pago"
+        Dim cmd As MySqlCommand = New MySqlCommand(String.Format("SELECT * FROM products where id_provider IS NULL AND name != '" + ord + "'"), con)
+        Dim adap As New MySqlDataAdapter(cmd)
+        adap.Fill(dt)
+        con.Close()
+        Return dt
+    End Function
+    Public Shared Function checkRepetitions(pname, pdes, pcat) As Boolean
+        Dim con As MySqlConnection = conexion.conection
+        Dim bool As Boolean = False
+        Dim cmd As MySqlCommand = New MySqlCommand(String.Format("SELECT name, description, category FROM products where name = '{0}' AND description='{1}' AND category='{2}'", pname, pdes, pcat), con)
+        Dim reader As MySqlDataReader = cmd.ExecuteReader
+        If reader.Read Then
+            If reader.HasRows = True Then
+                bool = True
+            End If
+        End If
+        con.Close()
+        Return bool
+    End Function
 End Class

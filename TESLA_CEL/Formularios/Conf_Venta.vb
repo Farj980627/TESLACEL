@@ -1,21 +1,25 @@
 ﻿Public Class Conf_Venta
     Dim id_product As New DataColumn("id_product", GetType(System.String))
+    Dim cerrar As Boolean = False
+    Dim venta As Boolean = False
     Private Sub Conf_Venta_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         lblTotal.Text = ventas.sumTot
     End Sub
     Private Sub btnConfirmar_Click(sender As Object, e As EventArgs) Handles btnConfirmar.Click
-        '  Try
-        If ventas.orden = True Then
+        Try
+            If ventas.orden = True Then
                 If chBEfectivo.Checked = True And cbElectronico.Checked = False Then
-                    consultas.insSale(11, 1, Date.Today.ToString("yyyy-MM-dd"), "Efectivo", ventas.sumTot)
-                    txtPagar.Clear()
+                    consultas.insSale(24, 1, Date.Today.ToString("yyyy-MM-dd"), "Efectivo", ventas.sumTot)
+
                     Me.Close()
                     ventas.Close()
                     MsgBox("Favor de Regresar: $" & Val(txtPagar.Text) - Val(lblTotal.Text))
+                    txtPagar.Clear()
                 ElseIf chBEfectivo.Checked = False And cbElectronico.Checked = False Then
                     MsgBox("Selecciona una Forma de Pago")
                 ElseIf chBEfectivo.Checked = False And cbElectronico.Checked = True Then
-                    consultas.insSale(11, 1, Date.Today.ToString("yyyy-MM-dd"), "Electrónico ", ventas.sumTot)
+                    consultas.insSale(24, 1, Date.Today.ToString("yyyy-MM-dd"), "Electrónico ", ventas.sumTot)
+                    MsgBox("Venta Realizada")
                     txtPagar.Clear()
                     Me.Close()
                     ventas.Close()
@@ -26,48 +30,71 @@
             Else
                 ventas.dtTodo.Columns.Add("id_product")
                 If chBEfectivo.Checked = True And cbElectronico.Checked = False Then
-                For i As Integer = 0 To ventas.dtTodo.Rows.Count - 1 Step +1
-                    ventas.dtTodo(i)("id_product") = (consultas.getIDByProducto(ventas.dtTodo(i)("name")))
-                    Dim a As String = ventas.dtTodo(i)("cantidad").ToString()
-                    Dim b As String = consultas.getProductosByProductos(ventas.dtTodo(i)("name"))(0)("quantity").ToString()
-                    If Val(a) <= Val(b) Then
-                        Dim newCantidad As String
-                        newCantidad = Val(b) - Val(a)
-                        consultas.updInventario(newCantidad, ventas.dtTodo(i)("id_product"))
-                        consultas.insSale(ventas.dtTodo(i)("id_product"), ventas.dtTodo(i)("cantidad"), Date.Today.ToString("yyyy-MM-dd"), "Efectivo", ventas.dtTodo(i)("total"))
-                    Else
-                        MsgBox("Cantidad de" & ventas.dtTodo(i)("name") & " Inventario es insuficiente para realizar la venta")
-                        Me.Close()
-                        ventas.Close()
+                    For i As Integer = 0 To ventas.dtTodo.Rows.Count - 1 Step +1
+                        ventas.dtTodo(i)("id_product") = (consultas.getIDByProducto(ventas.dtTodo(i)("name")))
+                        Dim a As String = ventas.dtTodo(i)("cantidad").ToString()
+                        Dim b As String = consultas.getProductosByProductos(ventas.dtTodo(i)("name"))(0)("quantity").ToString()
+                        If Val(a) > Val(b) Then
+                            MsgBox("Cantidad de " & ventas.dtTodo(i)("name") & " en " & " Inventario es insuficiente para realizar la venta")
+                            cerrar = True
+                            venta = False
+                            Me.Close()
+                            ventas.Close()
+                        Else
+                            venta = True
+                        End If
+                    Next
+                    If venta = True Then
+                        For i As Integer = 0 To ventas.dtTodo.Rows.Count - 1 Step +1
+                            Dim newCantidad As String
+                            newCantidad = Val(consultas.getProductosByProductos(ventas.dtTodo(i)("name"))(0)("quantity")) - Val(ventas.dtTodo(i)("cantidad"))
+                            consultas.updInventario(newCantidad, ventas.dtTodo(i)("id_product"))
+                            consultas.insSale(ventas.dtTodo(i)("id_product"), ventas.dtTodo(i)("cantidad"), Date.Today.ToString("yyyy-MM-dd"), "Efectivo", ventas.dtTodo(i)("total"))
+                        Next
+                        cerrar = False
                     End If
-                Next
-                MsgBox("Venta Realizada")
-                txtPagar.Clear()
-                chBEfectivo.Checked = False
-                cbElectronico.Checked = False
-                Me.Close()
-                ventas.Close()
-            ElseIf chBEfectivo.Checked = False And cbElectronico.Checked = False Then
-                    MsgBox("Selecciona una Forma de Pago")
-                ElseIf chBEfectivo.Checked = False And cbElectronico.Checked = True Then
-                For i As Integer = 0 To ventas.dtTodo.Rows.Count - 1 Step +1
-                    ventas.dtTodo(i)("id_product") = (consultas.getIDByProducto(ventas.dtTodo(i)("name")))
-                    Dim a As String = ventas.dtTodo(i)("cantidad").ToString()
-                    Dim b As String = consultas.getProductosByProductos(ventas.dtTodo(i)("name"))(0)("quantity").ToString()
-                    If Val(a) <= Val(b) Then
-                        Dim newCantidad As String
-                        newCantidad = Val(b) - Val(a)
-                        consultas.updInventario(newCantidad, ventas.dtTodo(i)("id_product"))
-                        consultas.insSale(ventas.dtTodo(i)("id_product"), ventas.dtTodo(i)("cantidad"), Date.Today.ToString("yyyy-MM-dd"), "Electrónico ", ventas.dtTodo(i)("total"))
-                    Else
-                        MsgBox("Cantidad de" & ventas.dtTodo(i)("name") & " Inventario es insuficiente para realizar la venta")
-                        Me.Close()
-                        ventas.Close()
+                    If cerrar = False Then
+                        MsgBox("Venta Realizada")
                     End If
 
-                Next
-                MsgBox("Venta Realizada")
-                txtPagar.Clear()
+                    txtPagar.Clear()
+                    chBEfectivo.Checked = False
+                    cbElectronico.Checked = False
+                    Me.Close()
+                    ventas.Close()
+                ElseIf chBEfectivo.Checked = False And cbElectronico.Checked = False Then
+                    MsgBox("Selecciona una Forma de Pago")
+                ElseIf chBEfectivo.Checked = False And cbElectronico.Checked = True Then
+                    For i As Integer = 0 To ventas.dtTodo.Rows.Count - 1 Step +1
+                        ventas.dtTodo(i)("id_product") = (consultas.getIDByProducto(ventas.dtTodo(i)("name")))
+                        Dim a As String = ventas.dtTodo(i)("cantidad").ToString()
+                        Dim b As String = consultas.getProductosByProductos(ventas.dtTodo(i)("name"))(0)("quantity").ToString()
+                        If Val(a) > Val(b) Then
+
+                            MsgBox("Cantidad de " & ventas.dtTodo(i)("name") & " en " & " Inventario es insuficiente para realizar la venta")
+                            cerrar = True
+                            venta = False
+                            Me.Close()
+                            ventas.Close()
+                        Else
+                            venta = True
+                        End If
+
+                    Next
+                    If venta = True Then
+                        For i As Integer = 0 To ventas.dtTodo.Rows.Count - 1 Step +1
+                            Dim newCantidad As String
+                            newCantidad = Val(consultas.getProductosByProductos(ventas.dtTodo(i)("name"))(0)("quantity")) - Val(ventas.dtTodo(i)("cantidad"))
+                            consultas.updInventario(newCantidad, ventas.dtTodo(i)("id_product"))
+                            consultas.insSale(ventas.dtTodo(i)("id_product"), ventas.dtTodo(i)("cantidad"), Date.Today.ToString("yyyy-MM-dd"), "Electrónico ", ventas.dtTodo(i)("total"))
+                        Next
+                        cerrar = False
+                    End If
+                    If cerrar = False Then
+                        MsgBox("Venta Realizada")
+                    End If
+
+                    txtPagar.Clear()
                     chBEfectivo.Checked = False
                     cbElectronico.Checked = False
                     Me.Close()
@@ -76,6 +103,8 @@
                     MsgBox("Solo puedes seleccionar un tipo de pago")
                 End If
             End If
+        Catch ex As Exception
+        End Try
 
 
 
@@ -89,7 +118,7 @@
                 btnConfirmar.Enabled = False
             End If
         Catch ex As Exception
-            MsgBox(ex)
+
         End Try
     End Sub
 

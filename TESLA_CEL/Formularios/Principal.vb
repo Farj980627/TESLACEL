@@ -14,7 +14,7 @@
                 btnVentas.Enabled = False
             End If
         Catch ex As Exception
-            MsgBox(ex)
+            
         End Try
     End Sub
     Sub loadForm(ByVal form As Object)
@@ -29,7 +29,7 @@
             Me.contenedor.Tag = opened
             opened.Show()
         Catch ex As Exception
-            MsgBox(ex)
+            
         End Try
 
     End Sub

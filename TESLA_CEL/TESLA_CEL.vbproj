@@ -293,5 +293,8 @@
   <ItemGroup>
     <None Include="Resources\aceptar color.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\administrar color.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

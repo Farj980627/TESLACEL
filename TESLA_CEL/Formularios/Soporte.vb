@@ -13,7 +13,7 @@ Public Class Soporte
             Code.IncludeLabel = True
             pCodigo.BackgroundImage = Code.Encode(BarcodeLib.TYPE.CODE11, newCode, Color.Black, Color.White, 400, 100)
         Catch ex As Exception
-            MsgBox(ex)
+            
         End Try
 
     End Sub
@@ -56,7 +56,7 @@ Public Class Soporte
                 End Try
             End If
         Catch ex As Exception
-            MsgBox(ex)
+            
         End Try
 
     End Sub
@@ -95,7 +95,7 @@ Public Class Soporte
                 MessageBox.Show("Introduzca sólo valores númericos")
             End If
         Catch ex As Exception
-            MsgBox(ex)
+            
         End Try
     End Sub
 
@@ -106,7 +106,7 @@ Public Class Soporte
                 MessageBox.Show("Introduzca sólo valores númericos")
             End If
         Catch ex As Exception
-            MsgBox(ex)
+            
         End Try
     End Sub
 End Class

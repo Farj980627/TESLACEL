@@ -46,6 +46,9 @@ Partial Class Actualizar_Prod
         Me.Label8 = New System.Windows.Forms.Label()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.Label10 = New System.Windows.Forms.Label()
+        Me.cbProductoNull = New System.Windows.Forms.ComboBox()
+        Me.Label11 = New System.Windows.Forms.Label()
+        Me.RadioButton1 = New System.Windows.Forms.RadioButton()
         CType(Me.bntSalir, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -80,7 +83,7 @@ Partial Class Actualizar_Prod
         Me.cbProducto.Font = New System.Drawing.Font("Berlin Sans FB", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cbProducto.ForeColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(77, Byte), Integer), CType(CType(111, Byte), Integer))
         Me.cbProducto.FormattingEnabled = True
-        Me.cbProducto.Location = New System.Drawing.Point(332, 43)
+        Me.cbProducto.Location = New System.Drawing.Point(415, 43)
         Me.cbProducto.Name = "cbProducto"
         Me.cbProducto.Size = New System.Drawing.Size(286, 38)
         Me.cbProducto.TabIndex = 16
@@ -121,7 +124,7 @@ Partial Class Actualizar_Prod
         Me.dtpFecha.Name = "dtpFecha"
         Me.dtpFecha.Size = New System.Drawing.Size(286, 37)
         Me.dtpFecha.TabIndex = 26
-        Me.dtpFecha.Value = New Date(2019, 3, 20, 0, 0, 0, 0)
+        Me.dtpFecha.Value = New Date(2019, 4, 5, 0, 0, 0, 0)
         '
         'txtCodigo
         '
@@ -209,7 +212,7 @@ Partial Class Actualizar_Prod
         Me.btnNuevo.Font = New System.Drawing.Font("Berlin Sans FB", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnNuevo.ForeColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(77, Byte), Integer), CType(CType(111, Byte), Integer))
         Me.btnNuevo.Image = Global.TESLA_CEL.My.Resources.Resources.aceptar_color
-        Me.btnNuevo.Location = New System.Drawing.Point(653, 34)
+        Me.btnNuevo.Location = New System.Drawing.Point(742, 38)
         Me.btnNuevo.Name = "btnNuevo"
         Me.btnNuevo.Size = New System.Drawing.Size(188, 47)
         Me.btnNuevo.TabIndex = 30
@@ -359,12 +362,51 @@ Partial Class Actualizar_Prod
         Me.Label10.Text = "Descripción:"
         Me.Label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
+        'cbProductoNull
+        '
+        Me.cbProductoNull.BackColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(247, Byte), Integer), CType(CType(249, Byte), Integer))
+        Me.cbProductoNull.Font = New System.Drawing.Font("Berlin Sans FB", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cbProductoNull.ForeColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(77, Byte), Integer), CType(CType(111, Byte), Integer))
+        Me.cbProductoNull.FormattingEnabled = True
+        Me.cbProductoNull.Location = New System.Drawing.Point(415, 87)
+        Me.cbProductoNull.Name = "cbProductoNull"
+        Me.cbProductoNull.Size = New System.Drawing.Size(286, 38)
+        Me.cbProductoNull.TabIndex = 41
+        Me.cbProductoNull.Text = "PRODUCTO"
+        Me.cbProductoNull.Visible = False
+        '
+        'Label11
+        '
+        Me.Label11.AutoSize = True
+        Me.Label11.Font = New System.Drawing.Font("Berlin Sans FB", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label11.ForeColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(247, Byte), Integer), CType(CType(249, Byte), Integer))
+        Me.Label11.Location = New System.Drawing.Point(22, 90)
+        Me.Label11.Name = "Label11"
+        Me.Label11.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me.Label11.Size = New System.Drawing.Size(301, 31)
+        Me.Label11.TabIndex = 42
+        Me.Label11.Text = "Producto Sin Proveedor?"
+        Me.Label11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'RadioButton1
+        '
+        Me.RadioButton1.AutoSize = True
+        Me.RadioButton1.Location = New System.Drawing.Point(330, 102)
+        Me.RadioButton1.Name = "RadioButton1"
+        Me.RadioButton1.Size = New System.Drawing.Size(17, 16)
+        Me.RadioButton1.TabIndex = 43
+        Me.RadioButton1.TabStop = True
+        Me.RadioButton1.UseVisualStyleBackColor = True
+        '
         'Actualizar_Prod
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(77, Byte), Integer), CType(CType(111, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(1069, 609)
+        Me.Controls.Add(Me.RadioButton1)
+        Me.Controls.Add(Me.Label11)
+        Me.Controls.Add(Me.cbProductoNull)
         Me.Controls.Add(Me.Label10)
         Me.Controls.Add(Me.Label9)
         Me.Controls.Add(Me.Label8)
@@ -422,4 +464,7 @@ Partial Class Actualizar_Prod
     Friend WithEvents Label8 As Label
     Friend WithEvents Label9 As Label
     Friend WithEvents Label10 As Label
+    Friend WithEvents cbProductoNull As ComboBox
+    Friend WithEvents Label11 As Label
+    Friend WithEvents RadioButton1 As RadioButton
 End Class
