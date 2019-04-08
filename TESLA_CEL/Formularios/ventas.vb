@@ -1,4 +1,5 @@
-﻿Public Class ventas
+﻿Imports LibPrintTicket
+Public Class ventas
     Dim carrito, carrito2, vacio As New DataTable
     Dim cantidad As New DataColumn("cantidad", GetType(System.String))
     Dim total As New DataColumn("total", GetType(System.String))
@@ -152,6 +153,26 @@
         txtOrden.Text = "ORDEN DE PAGO"
     End Sub
 
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        Try
+
+            Dim ticket As Ticket = New Ticket()
+            ticket.AddHeaderLine("TESLACEL")
+            ticket.AddHeaderLine("Pino Suarez #2014")
+            ticket.AddHeaderLine("DURANGO, DGO")
+            ticket.AddSubHeaderLine(DateTime.Now.ToShortDateString() & " " + DateTime.Now.ToShortTimeString())
+            Dim des As String = ""
+            des = consultas.getLaastOrder(0)("description")
+            ticket.AddItem("1", des, "")
+            ticket.AddFooterLine("Total: $" & consultas.getLaastOrder(0)("total"))
+            ticket.AddFooterLine("Anticipo: $" & consultas.getLaastOrder(0)("advance_payment"))
+            ticket.AddFooterLine("Codigo de Orden: " & consultas.getLaastOrder(0)("code"))
+            ticket.AddFooterLine("VUELVA PRONTO")
+            ticket.PrintTicket("XP-58 (copy 1)")
+        Catch ex As Exception
+
+        End Try
+    End Sub
 
     Private Sub ventas_Leave(sender As Object, e As EventArgs) Handles MyBase.Leave
         Try

@@ -1,12 +1,12 @@
 ﻿Public Class Actualizar_Prod
     Private Sub Actualizar_Prod_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Try
-            cbProveedor.DataSource = consultas.getProveedor
+            dtpFecha.Value = Date.Today
+            cbProveedor.DataSource = consultas.getProovedor
             cbProveedor.DisplayMember = "provider"
-            ComboBox1.DataSource = consultas.getProveedor
+            ComboBox1.DataSource = consultas.getProovedor
             ComboBox1.DisplayMember = "provider"
-            cbProducto.DataSource = consultas.getProductoByProveedor(consultas.getProovedor(cbProveedor.SelectedIndex)("id_provider"))
-            cbProducto.DisplayMember = "name"
+
             cbProductoNull.DataSource = consultas.getProductosSinProveedor
             cbProductoNull.DisplayMember = "name"
             txtCantidad.Enabled = False
@@ -98,8 +98,6 @@
                     consultas.updInventarioAll(txtNombre.Text, txtDescripcion.Text, txtPrecio.Text, txtCodigo.Text, txtCantidad.Text, txtMinimo.Text, dtpFecha.Value.Date.ToString("yyyy-MM-dd"), txtCategoria.Text, consultas.getIDProvideer(ComboBox1.Text), consultas.getIDByProducto(cbProducto.Text))
 
                 End If
-
-
                 txtCantidad.Text = "CANTIDAD"
                 txtCategoria.Text = "CATEGORIA"
                 txtCodigo.Text = "CODIGO"
@@ -124,6 +122,7 @@
                 MsgBox("Producto Actualizado")
 
                 Me.Close()
+                Inventario.Close()
             End If
         Catch ex As Exception
 

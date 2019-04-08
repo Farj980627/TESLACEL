@@ -57,4 +57,9 @@
     Private Sub Reportes_Leave(sender As Object, e As EventArgs) Handles MyBase.Leave
         dgvProducto.DataSource = ""
     End Sub
+
+    Private Sub Reportes_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        dtpFin.Value = Date.Today
+        dtpInicio.Value = Date.Today
+    End Sub
 End Class

@@ -116,6 +116,15 @@ Public Class consultas
         con.Close()
         Return dt
     End Function
+    Public Shared Function getProductosByProductosParaInv(pproducto) As DataTable
+        Dim con As MySqlConnection = conexion.conection
+        Dim dt As New DataTable
+        Dim cmd As MySqlCommand = New MySqlCommand(String.Format("SELECT pr.name, pr.description, pr.price, pr.bar_code, pr.quantity, pr.min, pr.date,pr.category, prov.provider, prov.contact, prov.address, prov.phone FROM products  pr JOIN providers prov WHERE pr.id_provider = prov.id_provider AND pr.name like '{0}%'", pproducto), con)
+        Dim adap As New MySqlDataAdapter(cmd)
+        adap.Fill(dt)
+        con.Close()
+        Return dt
+    End Function
     Public Shared Sub insProducto(pname, pdescription, pprice, pbarcode, pquantity, pmin, pdate, pcategory, pidprovee)
         Dim con As MySqlConnection = conexion.conection
         Dim cmd As MySqlCommand = New MySqlCommand(String.Format("INSERT INTO products(name,description,price,bar_code,quantity,min,date,category,id_provider) VALUES('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}')", pname, pdescription, pprice, pbarcode, pquantity, pmin, pdate, pcategory, pidprovee), con)
@@ -211,7 +220,7 @@ Public Class consultas
     Public Shared Function getProductReport(pproduct) As DataTable
         Dim con As MySqlConnection = conexion.conection
         Dim dt As New DataTable
-        Dim cmd As MySqlCommand = New MySqlCommand(String.Format("SELECT pr.name, sl.quantity, sl.date, sl.type, sl.total FROM sales sl JOIN products pr WHERE sl.id_product = pr.id_product AND pr.name = '{0}'", pproduct), con)
+        Dim cmd As MySqlCommand = New MySqlCommand(String.Format("SELECT pr.name, sl.quantity, sl.date, sl.type, sl.total FROM sales sl JOIN products pr WHERE sl.id_product = pr.id_product AND pr.name like '{0}%'", pproduct), con)
         Dim adap As New MySqlDataAdapter(cmd)
         adap.Fill(dt)
         con.Close()
@@ -245,6 +254,16 @@ Public Class consultas
         End If
         con.Close()
         Return cont
+    End Function
+    Public Shared Function getLaastOrder() As DataTable
+        Dim con As MySqlConnection = conexion.conection
+        Dim dt As New DataTable
+        Dim cmd As MySqlCommand = New MySqlCommand(String.Format("SELECT * FROM support ORDER BY id_support DESC LIMIT 1"), con)
+        Dim adap As New MySqlDataAdapter(cmd)
+        adap.Fill(dt)
+        con.Close()
+        con.Close()
+        Return dt
     End Function
     Public Shared Sub insContador()
         Dim con As MySqlConnection = conexion.conection

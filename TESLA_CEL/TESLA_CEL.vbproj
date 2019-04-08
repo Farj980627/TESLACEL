@@ -57,6 +57,9 @@
     <Reference Include="itextsharp.pdfa">
       <HintPath>..\..\..\..\Documents\Visual Studio 2017\Projects\ExcelToDataGV\ExcelToDataGV\bin\Debug\itextsharp.pdfa.dll</HintPath>
     </Reference>
+    <Reference Include="LibPrintTicket">
+      <HintPath>..\..\..\..\Downloads\LibPrintTicket\LibPrintTicket\Release\LibPrintTicket.dll</HintPath>
+    </Reference>
     <Reference Include="MySql.Data">
       <HintPath>..\..\..\..\Documents\Visual Studio 2017\Projects\ExcelToDataGV\ExcelToDataGV\bin\Debug\MySql.Data.dll</HintPath>
     </Reference>
@@ -295,6 +298,29 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\administrar color.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="PDFCreatorPilotLib">
+      <Guid>{F68529F8-9F30-4AEE-B5D0-6DA79CB9E802}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="stdole">
+      <Guid>{00020430-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\impresora color.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

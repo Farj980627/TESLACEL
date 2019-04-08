@@ -14,11 +14,12 @@
 
     Private Sub Insertar_Prod_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Try
+            dtpFecha.Value = Date.Today
             newDt = consultas.getProovedor
             cbProveedor.DataSource = newDt
             cbProveedor.DisplayMember = "provider"
         Catch ex As Exception
-            
+
         End Try
 
     End Sub

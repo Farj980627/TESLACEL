@@ -1,4 +1,7 @@
-﻿Public Class Conf_Venta
+﻿
+Imports LibPrintTicket
+
+Public Class Conf_Venta
     Dim id_product As New DataColumn("id_product", GetType(System.String))
     Dim cerrar As Boolean = False
     Dim venta As Boolean = False
@@ -10,23 +13,48 @@
             If ventas.orden = True Then
                 If chBEfectivo.Checked = True And cbElectronico.Checked = False Then
                     consultas.insSale(24, 1, Date.Today.ToString("yyyy-MM-dd"), "Efectivo", ventas.sumTot)
-
+                    Dim ticket As Ticket = New Ticket()
+                    ticket.AddHeaderLine("TESLACEL")
+                    ticket.AddHeaderLine("Pino Suarez #2014")
+                    ticket.AddHeaderLine("DURANGO, DGO")
+                    ticket.AddSubHeaderLine(DateTime.Now.ToShortDateString() & " " + DateTime.Now.ToShortTimeString())
+                    ticket.AddItem("1", "Orden de Pago", "")
+                    ticket.AddFooterLine("Total: $" & ventas.sumTot)
+                    ticket.AddFooterLine("Recibido: $" & txtPagar.Text)
+                    ticket.AddFooterLine("Cambio: $" & Val(txtPagar.Text) - Val(ventas.sumTot))
+                    ticket.AddFooterLine("VUELVA PRONTO")
+                    ticket.PrintTicket("XP-58 (copy 1)")
+                    MsgBox("Venta Realizada")
+                    chBEfectivo.Checked = False
+                    cbElectronico.Checked = False
                     Me.Close()
+
                     ventas.Close()
-                    MsgBox("Favor de Regresar: $" & Val(txtPagar.Text) - Val(lblTotal.Text))
                     txtPagar.Clear()
                 ElseIf chBEfectivo.Checked = False And cbElectronico.Checked = False Then
                     MsgBox("Selecciona una Forma de Pago")
                 ElseIf chBEfectivo.Checked = False And cbElectronico.Checked = True Then
                     consultas.insSale(24, 1, Date.Today.ToString("yyyy-MM-dd"), "Electrónico ", ventas.sumTot)
+                    Dim ticket As Ticket = New Ticket()
+                    ticket.AddHeaderLine("TESLACEL")
+                    ticket.AddHeaderLine("Pino Suarez #2014")
+                    ticket.AddHeaderLine("DURANGO, DGO")
+                    ticket.AddSubHeaderLine(DateTime.Now.ToShortDateString() & " " + DateTime.Now.ToShortTimeString())
+                    ticket.AddItem("1", "Orden de Pago", "")
+                    ticket.AddFooterLine("Total: $" & ventas.sumTot)
+                    ticket.AddFooterLine("Pago Electrónico")
+                    ticket.AddFooterLine("-----")
+                    ticket.AddFooterLine("VUELVA PRONTO")
+                    ticket.PrintTicket("XP-58 (copy 1)")
                     MsgBox("Venta Realizada")
                     txtPagar.Clear()
+                    chBEfectivo.Checked = False
+                    cbElectronico.Checked = False
                     Me.Close()
                     ventas.Close()
                 ElseIf chBEfectivo.Checked = True And cbElectronico.Checked = True Then
                     MsgBox("Solo puedes seleccionar un tipo de pago")
                 End If
-
             Else
                 ventas.dtTodo.Columns.Add("id_product")
                 If chBEfectivo.Checked = True And cbElectronico.Checked = False Then
@@ -54,12 +82,28 @@
                         cerrar = False
                     End If
                     If cerrar = False Then
+                        Dim ticket As Ticket = New Ticket()
+                        ticket.AddHeaderLine("TESLACEL")
+                        ticket.AddHeaderLine("Pino Suarez #2014")
+                        ticket.AddHeaderLine("DURANGO, DGO")
+                        ticket.AddSubHeaderLine(DateTime.Now.ToShortDateString() & " " + DateTime.Now.ToShortTimeString())
+
+                        For i As Integer = 0 To ventas.dtTodo.Rows.Count - 1 Step +1
+                            ticket.AddItem(ventas.dtTodo(i)("cantidad"), ventas.dtTodo(i)("name"), ventas.dtTodo(i)("price"))
+                        Next
+                        ticket.AddFooterLine("Total: $" & ventas.sumTot)
+                        ticket.AddFooterLine("Recibido: $" & txtPagar.Text)
+                        ticket.AddFooterLine("Cambio: $" & Val(txtPagar.Text) - Val(ventas.sumTot))
+                        ticket.AddFooterLine("VUELVA PRONTO")
+                        ticket.PrintTicket("XP-58 (copy 1)")
                         MsgBox("Venta Realizada")
                     End If
-
+                    chBEfectivo.Checked = False
+                    cbElectronico.Checked = False
                     txtPagar.Clear()
                     chBEfectivo.Checked = False
                     cbElectronico.Checked = False
+
                     Me.Close()
                     ventas.Close()
                 ElseIf chBEfectivo.Checked = False And cbElectronico.Checked = False Then
@@ -70,7 +114,6 @@
                         Dim a As String = ventas.dtTodo(i)("cantidad").ToString()
                         Dim b As String = consultas.getProductosByProductos(ventas.dtTodo(i)("name"))(0)("quantity").ToString()
                         If Val(a) > Val(b) Then
-
                             MsgBox("Cantidad de " & ventas.dtTodo(i)("name") & " en " & " Inventario es insuficiente para realizar la venta")
                             cerrar = True
                             venta = False
@@ -79,7 +122,6 @@
                         Else
                             venta = True
                         End If
-
                     Next
                     If venta = True Then
                         For i As Integer = 0 To ventas.dtTodo.Rows.Count - 1 Step +1
@@ -91,9 +133,23 @@
                         cerrar = False
                     End If
                     If cerrar = False Then
+                        Dim ticket As Ticket = New Ticket()
+                        ticket.AddHeaderLine("TESLACEL")
+                        ticket.AddHeaderLine("Pino Suarez #2014")
+                        ticket.AddHeaderLine("DURANGO, DGO")
+                        ticket.AddSubHeaderLine(DateTime.Now.ToShortDateString() & " " + DateTime.Now.ToShortTimeString())
+                        For i As Integer = 0 To ventas.dtTodo.Rows.Count - 1 Step +1
+                            ticket.AddItem(ventas.dtTodo(i)("cantidad"), ventas.dtTodo(i)("name"), ventas.dtTodo(i)("price"))
+                        Next
+                        ticket.AddFooterLine("Total: $" & ventas.sumTot)
+                        ticket.AddFooterLine("Pago Electrónico")
+                        ticket.AddFooterLine("-----")
+                        ticket.AddFooterLine("VUELVA PRONTO")
+                        ticket.PrintTicket("XP-58 (copy 1)")
                         MsgBox("Venta Realizada")
                     End If
-
+                    chBEfectivo.Checked = False
+                    cbElectronico.Checked = False
                     txtPagar.Clear()
                     chBEfectivo.Checked = False
                     cbElectronico.Checked = False

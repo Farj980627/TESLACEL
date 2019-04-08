@@ -31,9 +31,10 @@ Partial Class Soporte
         Me.txtTotal = New System.Windows.Forms.TextBox()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
-        Me.pCodigo = New System.Windows.Forms.Panel()
         Me.SaveFileDialog1 = New System.Windows.Forms.SaveFileDialog()
         Me.btnBuscarFechas = New System.Windows.Forms.Button()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.txtCodigo = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
         'cbTipo
@@ -153,13 +154,6 @@ Partial Class Soporte
         Me.Label4.Text = "TOTAL:"
         Me.Label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
-        'pCodigo
-        '
-        Me.pCodigo.Location = New System.Drawing.Point(251, 426)
-        Me.pCodigo.Name = "pCodigo"
-        Me.pCodigo.Size = New System.Drawing.Size(501, 121)
-        Me.pCodigo.TabIndex = 30
-        '
         'btnBuscarFechas
         '
         Me.btnBuscarFechas.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
@@ -175,13 +169,40 @@ Partial Class Soporte
         Me.btnBuscarFechas.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.btnBuscarFechas.UseVisualStyleBackColor = False
         '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Font = New System.Drawing.Font("Berlin Sans FB", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label5.ForeColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(247, Byte), Integer), CType(CType(249, Byte), Integer))
+        Me.Label5.Location = New System.Drawing.Point(315, 430)
+        Me.Label5.Name = "Label5"
+        Me.Label5.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me.Label5.Size = New System.Drawing.Size(261, 31)
+        Me.Label5.TabIndex = 30
+        Me.Label5.Text = "CODIGO DE ORDEN:"
+        Me.Label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'txtCodigo
+        '
+        Me.txtCodigo.AutoSize = True
+        Me.txtCodigo.Font = New System.Drawing.Font("Berlin Sans FB", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtCodigo.ForeColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(247, Byte), Integer), CType(CType(249, Byte), Integer))
+        Me.txtCodigo.Location = New System.Drawing.Point(582, 430)
+        Me.txtCodigo.Name = "txtCodigo"
+        Me.txtCodigo.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me.txtCodigo.Size = New System.Drawing.Size(140, 31)
+        Me.txtCodigo.TabIndex = 31
+        Me.txtCodigo.Text = "ANTICIPO:"
+        Me.txtCodigo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
         'Soporte
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(77, Byte), Integer), CType(CType(111, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(1069, 609)
-        Me.Controls.Add(Me.pCodigo)
+        Me.Controls.Add(Me.txtCodigo)
+        Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.btnBuscarFechas)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.Label3)
@@ -210,6 +231,7 @@ Partial Class Soporte
     Friend WithEvents Label3 As Label
     Friend WithEvents Label4 As Label
     Friend WithEvents btnBuscarFechas As Button
-    Friend WithEvents pCodigo As Panel
     Friend WithEvents SaveFileDialog1 As SaveFileDialog
+    Friend WithEvents Label5 As Label
+    Friend WithEvents txtCodigo As Label
 End Class

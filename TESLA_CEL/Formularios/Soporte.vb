@@ -1,17 +1,13 @@
-﻿Imports BarcodeLib
-Imports itextsharp
-Imports itextsharp.text
-Imports itextsharp.text.pdf
-Imports System.IO
+﻿Imports LibPrintTicket
+
+
 
 Public Class Soporte
     Dim newCode As String
     Private Sub Soporte_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Try
             newCode = "300" & consultas.getContador
-            Dim Code As BarcodeLib.Barcode = New BarcodeLib.Barcode
-            Code.IncludeLabel = True
-            pCodigo.BackgroundImage = Code.Encode(BarcodeLib.TYPE.CODE11, newCode, Color.Black, Color.White, 400, 100)
+            txtCodigo.Text = newCode
         Catch ex As Exception
             
         End Try
@@ -19,44 +15,27 @@ Public Class Soporte
     End Sub
     Private Sub btnBuscarFechas_Click(sender As Object, e As EventArgs) Handles btnBuscarFechas.Click
         Try
+
+
+            consultas.insOrden(cbTipo.Text, txtDescripcion.Text, txtProblema.Text, txtAnticipo.Text, txtTotal.Text, newCode)
+
+
+
+            consultas.insSale(24, 1, Date.Today.ToString("yyyy-MM-dd"), "Anticipo Orden", txtTotal.Text)
+
+            txtTotal.Text = ""
+            txtProblema.Text = "PROBLEMA"
+            txtDescripcion.Text = "DESCRIPCIÓN"
+            txtAnticipo.Text = ""
+            MsgBox("Orden Generada Correctamente")
+
             consultas.insContador()
             newCode = "300" & consultas.getContador
-            Dim Code As BarcodeLib.Barcode = New BarcodeLib.Barcode
-            Code.IncludeLabel = True
-            pCodigo.BackgroundImage = Code.Encode(BarcodeLib.TYPE.CODE11, newCode, Color.Black, Color.White, 400, 100)
-            consultas.insOrden(cbTipo.Text, txtDescripcion.Text, txtProblema.Text, txtAnticipo.Text, txtTotal.Text, newCode)
-            Dim ms As MemoryStream = New MemoryStream()
-            pCodigo.BackgroundImage.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg)
-            Dim buff As Byte() = ms.GetBuffer()
-            SaveFileDialog1.DefaultExt = "pdf"
-            If SaveFileDialog1.ShowDialog = Windows.Forms.DialogResult.OK Then
-                Try
-                    Dim DOCUMENTO As New Document
-                    Dim ESCRITOR As PdfWriter = PdfWriter.GetInstance(DOCUMENTO, New FileStream(SaveFileDialog1.FileName, FileMode.Create))
-                    DOCUMENTO.Open()
-                    DOCUMENTO.Add(New Paragraph("DESCRIPCIÓN: " & txtDescripcion.Text))
-                    DOCUMENTO.Add(Chunk.NEWLINE)
-                    DOCUMENTO.Add(Chunk.NEWLINE)
-                    DOCUMENTO.Add(New Paragraph("PROBLEMA: " & txtProblema.Text))
-                    DOCUMENTO.Add(Chunk.NEWLINE)
-                    DOCUMENTO.Add(Chunk.NEWLINE)
-                    DOCUMENTO.Add(New Paragraph("ANTICIPO: " & txtAnticipo.Text & "      " & "TOTAL: " & txtTotal.Text))
-                    DOCUMENTO.Add(Chunk.NEWLINE)
-                    DOCUMENTO.Add(Chunk.NEWLINE)
-                    Dim IMAGEN As Image = Image.GetInstance(buff)
-                    DOCUMENTO.Add(IMAGEN)
-                    DOCUMENTO.Close()
-                    txtTotal.Text = ""
-                    txtProblema.Text = ""
-                    txtDescripcion.Text = "DESCRIPCIÓN"
-                    txtAnticipo.Text = ""
-                    MsgBox("Orden Generada Correctamente")
-                Catch ex As Exception
-                    MsgBox(ex.Message)
-                End Try
-            End If
+            txtCodigo.Text = newCode
+
+
         Catch ex As Exception
-            
+
         End Try
 
     End Sub
@@ -84,7 +63,7 @@ Public Class Soporte
         End If
     End Sub
 
-    Private Sub pCodigo_Paint(sender As Object, e As PaintEventArgs) Handles pCodigo.Paint
+    Private Sub pCodigo_Paint(sender As Object, e As PaintEventArgs)
 
     End Sub
 

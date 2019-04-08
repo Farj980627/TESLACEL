@@ -10,6 +10,8 @@
     End Sub
     Private Sub Inventario_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Try
+            dtpFin.Value = Date.Today
+            dtpInicio.Value = Date.Today
             newDt = consultas.getProveedor
             cbProveedor.DataSource = newDt
             cbProveedor.DisplayMember = "provider"
@@ -35,7 +37,7 @@
     Private Sub txtNombre_KeyDown(sender As Object, e As KeyEventArgs) Handles txtNombre.KeyDown
         Try
             If e.KeyCode = Keys.Enter Then
-                newDt = consultas.getProductosByProductos(txtNombre.Text)
+                newDt = consultas.getProductosByProductosParaInv(txtNombre.Text)
                 dgvProducto.DataSource = newDt
             End If
         Catch ex As Exception
@@ -65,4 +67,6 @@
     Private Sub Button1_Click_1(sender As Object, e As EventArgs) Handles Button1.Click
         Registar_Proveedor.ShowDialog()
     End Sub
+
+
 End Class
