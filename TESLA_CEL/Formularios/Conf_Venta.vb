@@ -23,7 +23,7 @@ Public Class Conf_Venta
                     ticket.AddFooterLine("Recibido: $" & txtPagar.Text)
                     ticket.AddFooterLine("Cambio: $" & Val(txtPagar.Text) - Val(ventas.sumTot))
                     ticket.AddFooterLine("VUELVA PRONTO")
-                    ticket.PrintTicket("XP-58 (copy 1)")
+                    ticket.PrintTicket("XP-58")
                     MsgBox("Venta Realizada")
                     chBEfectivo.Checked = False
                     cbElectronico.Checked = False
@@ -45,7 +45,7 @@ Public Class Conf_Venta
                     ticket.AddFooterLine("Pago Electrónico")
                     ticket.AddFooterLine("-----")
                     ticket.AddFooterLine("VUELVA PRONTO")
-                    ticket.PrintTicket("XP-58 (copy 1)")
+                    ticket.PrintTicket("XP-58")
                     MsgBox("Venta Realizada")
                     txtPagar.Clear()
                     chBEfectivo.Checked = False
@@ -95,7 +95,7 @@ Public Class Conf_Venta
                         ticket.AddFooterLine("Recibido: $" & txtPagar.Text)
                         ticket.AddFooterLine("Cambio: $" & Val(txtPagar.Text) - Val(ventas.sumTot))
                         ticket.AddFooterLine("VUELVA PRONTO")
-                        ticket.PrintTicket("XP-58 (copy 1)")
+                        ticket.PrintTicket("XP-58")
                         MsgBox("Venta Realizada")
                     End If
                     chBEfectivo.Checked = False
@@ -145,7 +145,7 @@ Public Class Conf_Venta
                         ticket.AddFooterLine("Pago Electrónico")
                         ticket.AddFooterLine("-----")
                         ticket.AddFooterLine("VUELVA PRONTO")
-                        ticket.PrintTicket("XP-58 (copy 1)")
+                        ticket.PrintTicket("XP-58")
                         MsgBox("Venta Realizada")
                     End If
                     chBEfectivo.Checked = False

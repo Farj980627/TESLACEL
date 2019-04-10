@@ -28,6 +28,11 @@
             If (MessageBox.Show("Estas seguro que deseas eliminar?", "AVISO", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = DialogResult.Yes) Then
                 consultas.delProducto(cbProducto.Text)
                 MsgBox("Producto Eliminado")
+                cbProducto.DataSource = ""
+                cbProducto.DisplayMember = ""
+                cbProveedor.DataSource = ""
+                cbProveedor.DisplayMember = ""
+                Me.Close()
             End If
         Catch ex As Exception
 

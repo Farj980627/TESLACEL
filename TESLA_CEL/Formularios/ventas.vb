@@ -168,7 +168,7 @@ Public Class ventas
             ticket.AddFooterLine("Anticipo: $" & consultas.getLaastOrder(0)("advance_payment"))
             ticket.AddFooterLine("Codigo de Orden: " & consultas.getLaastOrder(0)("code"))
             ticket.AddFooterLine("VUELVA PRONTO")
-            ticket.PrintTicket("XP-58 (copy 1)")
+            ticket.PrintTicket("XP-58")
         Catch ex As Exception
 
         End Try
@@ -194,8 +194,8 @@ Public Class ventas
     End Sub
 
     Private Sub txtCodigo_KeyDown(sender As Object, e As KeyEventArgs) Handles txtCodigo.KeyDown
-        Try
-            If e.KeyCode = Keys.Enter Then
+        'Try
+        If e.KeyCode = Keys.Enter Then
                 If txtCodigo.Text = "" Then
 
                 Else
@@ -259,8 +259,8 @@ Public Class ventas
                     End If
                 End If
             End If
-        Catch ex As Exception
+        ' Catch ex As Exception
 
-        End Try
+        ' End Try
     End Sub
 End Class

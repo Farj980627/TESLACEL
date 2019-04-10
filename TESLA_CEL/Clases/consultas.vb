@@ -158,7 +158,7 @@ Public Class consultas
     Public Shared Function getProductoByBarCode(pbarcode) As DataTable
         Dim con As MySqlConnection = conexion.conection
         Dim dt As New DataTable
-        Dim cmd As MySqlCommand = New MySqlCommand(String.Format("SELECT name,price FROM products  WHERE bar_code = '{0}'", pbarcode), con)
+        Dim cmd As MySqlCommand = New MySqlCommand(String.Format("SELECT name,price FROM products  WHERE bar_code = " + pbarcode + " "), con)
         Dim adap As New MySqlDataAdapter(cmd)
         adap.Fill(dt)
         con.Close()

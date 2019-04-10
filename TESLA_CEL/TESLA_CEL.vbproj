@@ -47,6 +47,9 @@
   <PropertyGroup>
     <OptionInfer>On</OptionInfer>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>telefono-inteligente.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="BarcodeStandard, Version=2.2.1.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\BarcodeLib.2.2.1\lib\netstandard2.0\BarcodeStandard.dll</HintPath>
@@ -321,6 +324,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\impresora color.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="telefono-inteligente.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

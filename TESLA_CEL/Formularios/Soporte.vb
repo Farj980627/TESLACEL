@@ -21,7 +21,7 @@ Public Class Soporte
 
 
 
-            consultas.insSale(24, 1, Date.Today.ToString("yyyy-MM-dd"), "Anticipo Orden", txtTotal.Text)
+            consultas.insSale(24, 1, Date.Today.ToString("yyyy-MM-dd"), "Anticipo Orden", txtAnticipo.Text)
 
             txtTotal.Text = ""
             txtProblema.Text = "PROBLEMA"
