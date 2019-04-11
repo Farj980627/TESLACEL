@@ -61,7 +61,7 @@ Public Class Conf_Venta
                     For i As Integer = 0 To ventas.dtTodo.Rows.Count - 1 Step +1
                         ventas.dtTodo(i)("id_product") = (consultas.getIDByProducto(ventas.dtTodo(i)("name")))
                         Dim a As String = ventas.dtTodo(i)("cantidad").ToString()
-                        Dim b As String = consultas.getProductosByProductos(ventas.dtTodo(i)("name"))(0)("quantity").ToString()
+                        Dim b As String = consultas.getCantidadInventario(ventas.dtTodo(i)("barcode"))
                         If Val(a) > Val(b) Then
                             MsgBox("Cantidad de " & ventas.dtTodo(i)("name") & " en " & " Inventario es insuficiente para realizar la venta")
                             cerrar = True
@@ -75,7 +75,7 @@ Public Class Conf_Venta
                     If venta = True Then
                         For i As Integer = 0 To ventas.dtTodo.Rows.Count - 1 Step +1
                             Dim newCantidad As String
-                            newCantidad = Val(consultas.getProductosByProductos(ventas.dtTodo(i)("name"))(0)("quantity")) - Val(ventas.dtTodo(i)("cantidad"))
+                            newCantidad = Val(consultas.getCantidadInventario(ventas.dtTodo(i)("barcode")) - Val(ventas.dtTodo(i)("cantidad")))
                             consultas.updInventario(newCantidad, ventas.dtTodo(i)("id_product"))
                             consultas.insSale(ventas.dtTodo(i)("id_product"), ventas.dtTodo(i)("cantidad"), Date.Today.ToString("yyyy-MM-dd"), "Efectivo", ventas.dtTodo(i)("total"))
                         Next
@@ -112,7 +112,7 @@ Public Class Conf_Venta
                     For i As Integer = 0 To ventas.dtTodo.Rows.Count - 1 Step +1
                         ventas.dtTodo(i)("id_product") = (consultas.getIDByProducto(ventas.dtTodo(i)("name")))
                         Dim a As String = ventas.dtTodo(i)("cantidad").ToString()
-                        Dim b As String = consultas.getProductosByProductos(ventas.dtTodo(i)("name"))(0)("quantity").ToString()
+                        Dim b As String = consultas.getCantidadInventario(ventas.dtTodo(i)("barcode"))
                         If Val(a) > Val(b) Then
                             MsgBox("Cantidad de " & ventas.dtTodo(i)("name") & " en " & " Inventario es insuficiente para realizar la venta")
                             cerrar = True
@@ -126,7 +126,7 @@ Public Class Conf_Venta
                     If venta = True Then
                         For i As Integer = 0 To ventas.dtTodo.Rows.Count - 1 Step +1
                             Dim newCantidad As String
-                            newCantidad = Val(consultas.getProductosByProductos(ventas.dtTodo(i)("name"))(0)("quantity")) - Val(ventas.dtTodo(i)("cantidad"))
+                            newCantidad = Val(consultas.getCantidadInventario(ventas.dtTodo(i)("barcode")) - Val(ventas.dtTodo(i)("cantidad")))
                             consultas.updInventario(newCantidad, ventas.dtTodo(i)("id_product"))
                             consultas.insSale(ventas.dtTodo(i)("id_product"), ventas.dtTodo(i)("cantidad"), Date.Today.ToString("yyyy-MM-dd"), "Electrónico ", ventas.dtTodo(i)("total"))
                         Next

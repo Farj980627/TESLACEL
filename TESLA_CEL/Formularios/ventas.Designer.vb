@@ -29,7 +29,6 @@ Partial Class ventas
         Me.txtOrden = New System.Windows.Forms.TextBox()
         Me.txtCodigo = New System.Windows.Forms.TextBox()
         Me.Panel4 = New System.Windows.Forms.Panel()
-        Me.txtProducto = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.txtCantidad = New System.Windows.Forms.TextBox()
         Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
@@ -42,6 +41,7 @@ Partial Class ventas
         Me.lblTotal = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.dgvProducto = New System.Windows.Forms.DataGridView()
+        Me.txtProducto = New System.Windows.Forms.TextBox()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.Panel1.SuspendLayout()
         Me.Panel4.SuspendLayout()
@@ -115,21 +115,6 @@ Partial Class ventas
         Me.Panel4.Name = "Panel4"
         Me.Panel4.Size = New System.Drawing.Size(528, 79)
         Me.Panel4.TabIndex = 11
-        '
-        'txtProducto
-        '
-        Me.txtProducto.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.txtProducto.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(77, Byte), Integer), CType(CType(111, Byte), Integer))
-        Me.txtProducto.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.txtProducto.Font = New System.Drawing.Font("Berlin Sans FB", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtProducto.ForeColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(247, Byte), Integer), CType(CType(249, Byte), Integer))
-        Me.txtProducto.Location = New System.Drawing.Point(139, 23)
-        Me.txtProducto.Name = "txtProducto"
-        Me.txtProducto.Size = New System.Drawing.Size(386, 30)
-        Me.txtProducto.TabIndex = 15
-        Me.txtProducto.Text = "PRODUCTO"
-        Me.txtProducto.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'Label1
         '
@@ -304,6 +289,22 @@ Partial Class ventas
         Me.dgvProducto.Size = New System.Drawing.Size(1069, 462)
         Me.dgvProducto.TabIndex = 2
         '
+        'txtProducto
+        '
+        Me.txtProducto.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.txtProducto.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(77, Byte), Integer), CType(CType(111, Byte), Integer))
+        Me.txtProducto.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.txtProducto.Font = New System.Drawing.Font("Berlin Sans FB", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtProducto.ForeColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(247, Byte), Integer), CType(CType(249, Byte), Integer))
+        Me.txtProducto.Location = New System.Drawing.Point(139, 23)
+        Me.txtProducto.Name = "txtProducto"
+        Me.txtProducto.Size = New System.Drawing.Size(386, 30)
+        Me.txtProducto.TabIndex = 15
+        Me.txtProducto.Text = "PRODUCTO"
+        Me.txtProducto.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.txtProducto.Visible = False
+        '
         'ventas
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -341,7 +342,6 @@ Partial Class ventas
     Friend WithEvents Panel3 As Panel
     Friend WithEvents lblTotal As Label
     Friend WithEvents Label2 As Label
-    Friend WithEvents txtProducto As TextBox
     Friend WithEvents Label3 As Label
     Friend WithEvents Panel4 As Panel
     Friend WithEvents txtOrden As TextBox
@@ -349,4 +349,5 @@ Partial Class ventas
     Friend WithEvents Label1 As Label
     Friend WithEvents txtCantidad As TextBox
     Friend WithEvents Button1 As Button
+    Friend WithEvents txtProducto As TextBox
 End Class

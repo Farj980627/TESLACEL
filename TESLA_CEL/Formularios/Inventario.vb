@@ -10,11 +10,7 @@
     End Sub
     Private Sub Inventario_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Try
-            dtpFin.Value = Date.Today
-            dtpInicio.Value = Date.Today
-            newDt = consultas.getProveedor
-            cbProveedor.DataSource = newDt
-            cbProveedor.DisplayMember = "provider"
+
         Catch ex As Exception
 
         End Try
@@ -22,22 +18,21 @@
     End Sub
     Private Sub btnMostrar_Click(sender As Object, e As EventArgs) Handles btnMostrar.Click
         Try
-            newDt = consultas.getProductos()
+            newDt = consultas.getProductosAll()
+            newDt.Columns.Remove("id_product")
             dgvProducto.DataSource = newDt
         Catch ex As Exception
 
         End Try
     End Sub
 
-    Private Sub cbProveedor_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbProveedor.SelectedIndexChanged
-        newDt = consultas.getProductosByProveedor(cbProveedor.Text)
-        dgvProducto.DataSource = newDt
-    End Sub
+
 
     Private Sub txtNombre_KeyDown(sender As Object, e As KeyEventArgs) Handles txtNombre.KeyDown
         Try
             If e.KeyCode = Keys.Enter Then
                 newDt = consultas.getProductosByProductosParaInv(txtNombre.Text)
+                newDt.Columns.Remove("id_product")
                 dgvProducto.DataSource = newDt
             End If
         Catch ex As Exception

@@ -2,22 +2,28 @@
     Dim newDt As New DataTable
     Dim desc, cod, min
     Private Sub bntSalir_Click(sender As Object, e As EventArgs) Handles bntSalir.Click
-        txtCantidad.Text = "CANTIDAD"
-        txtCategoria.Text = "CATEGORIA"
-        txtCodigo.Text = "CODIGO BARRAS"
-        txtMinimo.Text = "MINIMO"
-        txtNombre.Text = "NOMBRE PRODUCTO"
-        txtPrecio.Text = "PRECIO"
-        Me.Close()
+        Try
+            txtCantidad.Clear()
+            txtColor.Clear()
+            txtMarca.Clear()
+            txtMinimo.Clear()
+            txtModelo.Clear()
+            txtNombre.Clear()
+            txtPrecio.Clear()
+            Me.Close()
+        Catch ex As Exception
+        End Try
+
+
+
 
     End Sub
 
     Private Sub Insertar_Prod_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Try
             dtpFecha.Value = Date.Today
-            newDt = consultas.getProovedor
-            cbProveedor.DataSource = newDt
-            cbProveedor.DisplayMember = "provider"
+            cbTipo.DataSource = consultas.getProducType
+            cbTipo.DisplayMember = "type"
         Catch ex As Exception
 
         End Try
@@ -26,128 +32,96 @@
 
     Private Sub btnAgregar_Click(sender As Object, e As EventArgs) Handles btnAgregar.Click
         Try
-            If txtDescripcion.Text = "DESCRIPCIÓN" Or txtDescripcion.Text = "" Then
-                desc = ""
+            If txtNombre.Text = "" Or txtPrecio.Text = "" Or txtCantidad.Text = "" Then
+                MsgBox("Alguno de los campos con asteriscos contienen información no valida", MsgBoxStyle.Critical, MsgBoxResult.Ok)
             Else
-                desc = txtDescripcion.Text
-            End If
-            If txtCodigo.Text = "CODIGO BARRAS" Or txtCodigo.Text = "" Then
-                cod = ""
-            Else
-                cod = txtCodigo.Text
-            End If
-            If txtMinimo.Text = "MINIMO" Or txtMinimo.Text = "" Then
-                min = ""
-            Else
-                min = txtMinimo.Text
-            End If
-            If txtPrecio.Text = "PRECIO" Or txtNombre.Text = "NOMBRE PRODUCTO" Or txtCantidad.Text = "CANTIDAD" Or txtCategoria.Text = "CATEGORIA" Or txtPrecio.Text = "PRECIO" Then
-                MessageBox.Show("Alguno de los campos contiene informacion no valida")
-            Else
-                If consultas.checkRepetitions(txtNombre.Text, txtDescripcion.Text, txtCategoria.Text) = True Then
-                    MsgBox("El Producto ya Existe")
-                Else
-                    consultas.insProducto(txtNombre.Text, desc, txtPrecio.Text, cod, txtCantidad.Text, min, dtpFecha.Value.Date.ToString("yyyy-MM-dd"), txtCategoria.Text, newDt(cbProveedor.SelectedIndex)("id_provider").ToString)
-                    MessageBox.Show("Articulo Arreglado")
-                    txtCantidad.Text = "CANTIDAD"
-                    txtCategoria.Text = "CATEGORIA"
-                    txtCodigo.Text = "CODIGO BARRAS"
-                    txtMinimo.Text = "MINIMO"
-                    txtNombre.Text = "NOMBRE PRODUCTO"
-                    txtPrecio.Text = "PRECIO"
-                    txtDescripcion.Text = "DESCRIPCIÓN PRODUCTO"
-                End If
+                consultas.insProducto(cbTipo.Text, txtNombre.Text, txtMarca.Text, txtModelo.Text, txtColor.Text, txtPrecio.Text, txtBarcode.Text, txtCantidad.Text, txtMinimo.Text, dtpFecha.Value.Date.ToString("yyyy-MM-dd"))
+                MsgBox("Producto agregado correctamente", MsgBoxStyle.OkOnly)
+                txtCantidad.Clear()
+                txtColor.Clear()
+                txtMarca.Clear()
+                txtMinimo.Clear()
+                txtModelo.Clear()
+                txtNombre.Clear()
+                txtPrecio.Clear()
             End If
         Catch ex As Exception
-            
+
         End Try
 
+    End Sub
+    Private Sub txtPrecio_Click(sender As Object, e As EventArgs) Handles txtPrecio.Click
+        txtPrecio.Clear()
+    End Sub
+    Private Sub txtCantidad_Click(sender As Object, e As EventArgs) Handles txtCantidad.Click
+        txtCantidad.Clear()
+    End Sub
+    Private Sub txtMinimo_Click(sender As Object, e As EventArgs) Handles txtMinimo.Click
+        txtMinimo.Clear()
+    End Sub
+
+
+    Private Sub btnCancelar_Click(sender As Object, e As EventArgs) Handles btnCancelar.Click
+        Try
+            txtCantidad.Clear()
+            txtColor.Clear()
+            txtMarca.Clear()
+            txtMinimo.Clear()
+            txtModelo.Clear()
+            txtNombre.Clear()
+            txtPrecio.Clear()
+            Me.Close()
+        Catch ex As Exception
+
+        End Try
+
+    End Sub
+    Private Sub txtPrecio_KeyPress(sender As Object, e As KeyPressEventArgs)
+        Try
+            If Not Char.IsDigit(e.KeyChar) And e.KeyChar <> vbBack Then
+                e.Handled = True
+                MessageBox.Show("Introduzca sólo valores númericos")
+            End If
+        Catch ex As Exception
+
+        End Try
     End Sub
 
     Private Sub txtNombre_Click(sender As Object, e As EventArgs) Handles txtNombre.Click
         txtNombre.Clear()
     End Sub
-    Private Sub txtNombre_Leave(sender As Object, e As EventArgs) Handles txtNombre.Leave
-        If txtNombre.Text = "" Then
-            txtNombre.Text = "NOMBRE PRODUCTO"
-        End If
-    End Sub
-    Private Sub txtDescripcion_Click(sender As Object, e As EventArgs) Handles txtDescripcion.Click
-        txtDescripcion.Clear()
+
+    Private Sub txtMarca_Click(sender As Object, e As EventArgs) Handles txtMarca.Click
+        txtMarca.Clear()
     End Sub
 
-    Private Sub txtPrecio_Click(sender As Object, e As EventArgs) Handles txtPrecio.Click
-        txtPrecio.Clear()
+    Private Sub txtModelo_Click(sender As Object, e As EventArgs) Handles txtModelo.Click
+        txtModelo.Clear()
     End Sub
 
-    Private Sub txtPrecio_Leave(sender As Object, e As EventArgs) Handles txtPrecio.Leave
-        If txtPrecio.Text = "" Then
-            txtPrecio.Text = "PRECIO"
-        End If
+    Private Sub txtColor_Click(sender As Object, e As EventArgs) Handles txtColor.Click
+        txtColor.Clear()
     End Sub
 
-    Private Sub txtCantidad_Click(sender As Object, e As EventArgs) Handles txtCantidad.Click
-        txtCantidad.Clear()
-
+    Private Sub txtBarcode_Click(sender As Object, e As EventArgs) Handles txtBarcode.Click
+        txtBarcode.Clear()
     End Sub
 
-    Private Sub txtCantidad_Leave(sender As Object, e As EventArgs) Handles txtCantidad.Leave
-        If txtCantidad.Text = "" Then
-            txtCantidad.Text = "CANTIDAD"
-        End If
-    End Sub
-
-    Private Sub txtMinimo_Click(sender As Object, e As EventArgs) Handles txtMinimo.Click
-        txtMinimo.Clear()
-    End Sub
-
-    Private Sub txtMinimo_Leave(sender As Object, e As EventArgs) Handles txtMinimo.Leave
-        If txtMinimo.Text = "" Then
-            txtMinimo.Text = "MINIMO"
-        End If
-    End Sub
-
-    Private Sub txtCodigo_Click(sender As Object, e As EventArgs) Handles txtCodigo.Click
-        txtCodigo.Clear()
-    End Sub
-    Private Sub btnCancelar_Click(sender As Object, e As EventArgs) Handles btnCancelar.Click
-        txtNombre.Text = "NOMBRE PRODUCTO"
-        txtPrecio.Text = "PRECIO"
-        txtMinimo.Text = "MINIMO"
-        txtDescripcion.Text = "DESCRIPCION"
-        txtCantidad.Text = "CANTIDAD"
-        txtCodigo.Text = "CODIGO DE BARRAS"
-        txtCategoria.Text = "CATEGORIA"
-        Me.Close()
-
-    End Sub
-
-    Private Sub txtPrecio_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtPrecio.KeyPress
+    Private Sub txtCantidad_KeyPress(sender As Object, e As KeyPressEventArgs)
         Try
-           If Not Char.IsDigit( e.KeyChar ) And e.KeyChar <> vbBack Then
+            If Not Char.IsDigit(e.KeyChar) And e.KeyChar <> vbBack Then
                 e.Handled = True
                 MessageBox.Show("Introduzca sólo valores númericos")
             End If
         Catch ex As Exception
-            
-        End Try
-    End Sub
 
-    Private Sub txtCantidad_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtCantidad.KeyPress
-        Try
-           If Not Char.IsDigit( e.KeyChar ) And e.KeyChar <> vbBack Then
-                e.Handled = True
-                MessageBox.Show("Introduzca sólo valores númericos")
-            End If
-        Catch ex As Exception
-            
 
         End Try
     End Sub
 
-    Private Sub txtMinimo_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtMinimo.KeyPress
+    Private Sub txtMinimo_KeyPress(sender As Object, e As KeyPressEventArgs)
         Try
-           If Not Char.IsDigit( e.KeyChar ) And e.KeyChar <> vbBack Then
+            If Not Char.IsDigit(e.KeyChar) And e.KeyChar <> vbBack Then
                 e.Handled = True
                 MessageBox.Show("Introduzca sólo valores númericos")
             End If
@@ -157,14 +131,4 @@
     End Sub
 
 
-
-    Private Sub txtCategoria_Click(sender As Object, e As EventArgs) Handles txtCategoria.Click
-        txtCategoria.Clear()
-    End Sub
-
-    Private Sub txtCategoria_Leave(sender As Object, e As EventArgs) Handles txtCategoria.Leave
-        If txtCategoria.Text = "" Then
-            txtCategoria.Text = "CATEGORIA"
-        End If
-    End Sub
 End Class

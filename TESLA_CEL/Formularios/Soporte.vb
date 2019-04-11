@@ -1,91 +1,147 @@
 ﻿Imports LibPrintTicket
-
+Imports System.Text.RegularExpressions
 
 
 Public Class Soporte
     Dim newCode As String
+    Dim mic, alta, cc, camaras, wifi, señal, buzz, sensor As String
+
+
+
     Private Sub Soporte_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Try
+            dtpFecha.Value = Date.Today
             newCode = "300" & consultas.getContador
             txtCodigo.Text = newCode
+            cbCargador.SelectedIndex = 0
+            cbChip.SelectedIndex = 0
+            cbEstado.SelectedIndex = 0
+            cbFunciones.SelectedIndex = 0
+            cbMemoria.SelectedIndex = 0
+            cbPila.SelectedIndex = 0
+
         Catch ex As Exception
-            
+
         End Try
 
     End Sub
     Private Sub btnBuscarFechas_Click(sender As Object, e As EventArgs) Handles btnBuscarFechas.Click
         Try
 
-
-            consultas.insOrden(cbTipo.Text, txtDescripcion.Text, txtProblema.Text, txtAnticipo.Text, txtTotal.Text, newCode)
-
-
-
-            consultas.insSale(24, 1, Date.Today.ToString("yyyy-MM-dd"), "Anticipo Orden", txtTotal.Text)
-
-            txtTotal.Text = ""
-            txtProblema.Text = "PROBLEMA"
-            txtDescripcion.Text = "DESCRIPCIÓN"
-            txtAnticipo.Text = ""
-            MsgBox("Orden Generada Correctamente")
+            If chbAltavoz.Checked = True Then
+                alta = "Si"
+            Else
+                alta = "No"
+            End If
+            If chbBuzzer.Checked = True Then
+                buzz = "Si"
+            Else
+                buzz = "No"
+            End If
+            If chBCamaras.Checked = True Then
+                camaras = "Si"
+            Else
+                camaras = "No"
+            End If
+            If chbCC.Checked = True Then
+                cc = "Si"
+            Else
+                cc = "No"
+            End If
+            If chbMicrofono.Checked = True Then
+                mic = "Si"
+            Else
+                mic = "No"
+            End If
+            If chbSensor.Checked = True Then
+                sensor = "Si"
+            Else
+                sensor = "No"
+            End If
+            If chbSeñal.Checked = True Then
+                señal = "Si"
+            Else
+                señal = "No"
+            End If
+            If chbWifi.Checked = True Then
+                wifi = "Si"
+            Else
+                wifi = "No"
+            End If
+            consultas.insOrden(Date.Today.ToString("yyyy-MM-dd"), txtCliente.Text, txtTelefono.Text, txtEquipo.Text,
+            txtMarca.Text, txtModelo.Text, txtColor.Text, cbEstado.Text, cbChip.Text, cbMemoria.Text, cbPila.Text, cbCargador.Text,
+            txtFalla.Text, txtIMEI.Text, mic, alta, cc, camaras, wifi, señal, buzz, sensor, txtCoste.Text, txtAnticipo.Text, txtGarantia.Text,
+            dtpFecha.Value.Date.ToString("yyyy-MM-dd"), txtEntrega.Text, txtCodigo.Text)
 
             consultas.insContador()
             newCode = "300" & consultas.getContador
             txtCodigo.Text = newCode
 
-
+            cbCargador.SelectedIndex = 0
+            cbChip.SelectedIndex = 0
+            cbEstado.SelectedIndex = 0
+            cbFunciones.SelectedIndex = 0
+            cbMemoria.SelectedIndex = 0
+            cbPila.SelectedIndex = 0
+            For Each txt As Control In Me.Controls
+                If TypeOf txt Is TextBox Then
+                    txt.Text = ""
+                End If
+            Next
         Catch ex As Exception
 
         End Try
 
     End Sub
-    Private Sub Soporte_Leave(sender As Object, e As EventArgs) Handles MyBase.Leave
-        txtDescripcion.Text = ""
-        txtAnticipo.Text = ""
-        txtProblema.Text = ""
-        txtTotal.Text = ""
-    End Sub
-    Private Sub txtDescripcion_Click(sender As Object, e As EventArgs) Handles txtDescripcion.Click
-        txtDescripcion.Text = ""
-    End Sub
-    Private Sub txtProblema_Click(sender As Object, e As EventArgs) Handles txtProblema.Click
-        txtProblema.Text = ""
-    End Sub
-    Private Sub txtDescripcion_Leave(sender As Object, e As EventArgs) Handles txtDescripcion.Leave
-        If txtDescripcion.Text = "" Then
-            txtDescripcion.Text = "DESCRIPCIÓN"
-        End If
-    End Sub
 
-    Private Sub txtProblema_Leave(sender As Object, e As EventArgs) Handles txtProblema.Leave
-        If txtProblema.Text = "" Then
-            txtProblema.Text = "PROBLEMA"
-        End If
-    End Sub
 
-    Private Sub pCodigo_Paint(sender As Object, e As PaintEventArgs)
-
-    End Sub
-
-    Private Sub txtAnticipo_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtAnticipo.KeyPress
+    Private Sub txtAnticipo_KeyPress(sender As Object, e As KeyPressEventArgs)
         Try
             If Not Char.IsDigit(e.KeyChar) And e.KeyChar <> vbBack Then
                 e.Handled = True
                 MessageBox.Show("Introduzca sólo valores númericos")
             End If
         Catch ex As Exception
-            
+
         End Try
     End Sub
 
-    Private Sub txtTotal_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtTotal.KeyPress
+    Private Sub txtTotal_KeyPress(sender As Object, e As KeyPressEventArgs)
         Try
             If Not Char.IsDigit(e.KeyChar) And e.KeyChar <> vbBack Then
                 e.Handled = True
                 MessageBox.Show("Introduzca sólo valores númericos")
             End If
         Catch ex As Exception
-            
+
         End Try
     End Sub
+
+    Private Sub cbFunciones_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbFunciones.SelectedIndexChanged
+        Try
+            If cbFunciones.SelectedIndex = 1 Then
+                chbAltavoz.Checked = True
+                chbBuzzer.Checked = True
+                chBCamaras.Checked = True
+                chbCC.Checked = True
+                chbMicrofono.Checked = True
+                chbSensor.Checked = True
+                chbSeñal.Checked = True
+                chbWifi.Checked = True
+            Else
+                chbAltavoz.Checked = False
+                chbBuzzer.Checked = False
+                chBCamaras.Checked = False
+                chbCC.Checked = False
+                chbMicrofono.Checked = False
+                chbSensor.Checked = False
+                chbSeñal.Checked = False
+                chbWifi.Checked = False
+            End If
+        Catch ex As Exception
+
+        End Try
+    End Sub
+
+
 End Class
