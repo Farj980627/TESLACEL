@@ -22,7 +22,6 @@ Partial Class Soporte
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Me.btnBuscarFechas = New System.Windows.Forms.Button()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.txtCliente = New System.Windows.Forms.TextBox()
         Me.txtTelefono = New System.Windows.Forms.TextBox()
@@ -79,22 +78,9 @@ Partial Class Soporte
         Me.txtCodigo = New System.Windows.Forms.Label()
         Me.dtpFecha = New System.Windows.Forms.DateTimePicker()
         Me.txtEntrega = New System.Windows.Forms.TextBox()
+        Me.Button1 = New System.Windows.Forms.Button()
+        Me.btnBuscarFechas = New System.Windows.Forms.Button()
         Me.SuspendLayout()
-        '
-        'btnBuscarFechas
-        '
-        Me.btnBuscarFechas.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnBuscarFechas.BackColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(247, Byte), Integer), CType(CType(249, Byte), Integer))
-        Me.btnBuscarFechas.Font = New System.Drawing.Font("Berlin Sans FB", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnBuscarFechas.ForeColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(77, Byte), Integer), CType(CType(111, Byte), Integer))
-        Me.btnBuscarFechas.Image = Global.TESLA_CEL.My.Resources.Resources.generar_color
-        Me.btnBuscarFechas.Location = New System.Drawing.Point(722, 536)
-        Me.btnBuscarFechas.Name = "btnBuscarFechas"
-        Me.btnBuscarFechas.Size = New System.Drawing.Size(277, 61)
-        Me.btnBuscarFechas.TabIndex = 29
-        Me.btnBuscarFechas.Text = "Guardar Orden"
-        Me.btnBuscarFechas.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
-        Me.btnBuscarFechas.UseVisualStyleBackColor = False
         '
         'Label2
         '
@@ -729,7 +715,7 @@ Partial Class Soporte
         Me.Label28.AutoSize = True
         Me.Label28.Font = New System.Drawing.Font("Berlin Sans FB", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label28.ForeColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(247, Byte), Integer), CType(CType(249, Byte), Integer))
-        Me.Label28.Location = New System.Drawing.Point(289, 551)
+        Me.Label28.Location = New System.Drawing.Point(289, 496)
         Me.Label28.Name = "Label28"
         Me.Label28.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.Label28.Size = New System.Drawing.Size(268, 31)
@@ -742,7 +728,7 @@ Partial Class Soporte
         Me.txtCodigo.AutoSize = True
         Me.txtCodigo.Font = New System.Drawing.Font("Berlin Sans FB", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtCodigo.ForeColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(247, Byte), Integer), CType(CType(249, Byte), Integer))
-        Me.txtCodigo.Location = New System.Drawing.Point(575, 551)
+        Me.txtCodigo.Location = New System.Drawing.Point(575, 496)
         Me.txtCodigo.Name = "txtCodigo"
         Me.txtCodigo.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.txtCodigo.Size = New System.Drawing.Size(101, 31)
@@ -775,12 +761,43 @@ Partial Class Soporte
         Me.txtEntrega.TabIndex = 99
         Me.txtEntrega.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
+        'Button1
+        '
+        Me.Button1.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Button1.BackColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(247, Byte), Integer), CType(CType(249, Byte), Integer))
+        Me.Button1.Font = New System.Drawing.Font("Berlin Sans FB", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(77, Byte), Integer), CType(CType(111, Byte), Integer))
+        Me.Button1.Image = Global.TESLA_CEL.My.Resources.Resources.generar_color
+        Me.Button1.Location = New System.Drawing.Point(12, 536)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(277, 61)
+        Me.Button1.TabIndex = 103
+        Me.Button1.Text = "Buscar Orden"
+        Me.Button1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.Button1.UseVisualStyleBackColor = False
+        '
+        'btnBuscarFechas
+        '
+        Me.btnBuscarFechas.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnBuscarFechas.BackColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(247, Byte), Integer), CType(CType(249, Byte), Integer))
+        Me.btnBuscarFechas.Font = New System.Drawing.Font("Berlin Sans FB", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnBuscarFechas.ForeColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(77, Byte), Integer), CType(CType(111, Byte), Integer))
+        Me.btnBuscarFechas.Image = Global.TESLA_CEL.My.Resources.Resources.generar_color
+        Me.btnBuscarFechas.Location = New System.Drawing.Point(722, 496)
+        Me.btnBuscarFechas.Name = "btnBuscarFechas"
+        Me.btnBuscarFechas.Size = New System.Drawing.Size(277, 61)
+        Me.btnBuscarFechas.TabIndex = 29
+        Me.btnBuscarFechas.Text = "Guardar Orden"
+        Me.btnBuscarFechas.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.btnBuscarFechas.UseVisualStyleBackColor = False
+        '
         'Soporte
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(77, Byte), Integer), CType(CType(111, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(1069, 609)
+        Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.dtpFecha)
         Me.Controls.Add(Me.txtCodigo)
         Me.Controls.Add(Me.Label28)
@@ -901,4 +918,5 @@ Partial Class Soporte
     Friend WithEvents txtCodigo As Label
     Friend WithEvents dtpFecha As DateTimePicker
     Friend WithEvents txtEntrega As TextBox
+    Friend WithEvents Button1 As Button
 End Class

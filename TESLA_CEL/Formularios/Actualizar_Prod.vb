@@ -38,13 +38,11 @@
             Else
                 consultas.updInventarioAll(cbCatDestino.Text, txtNombre.Text, txtMarca.Text, txtModelo.Text, txtColor.Text, txtPrecio.Text, txtBarcode.Text, txtCantidad.Text, txtMinimo.Text, dtpFecha.Value.Date.ToString("yyyy-MM-ddd"), consultas.getProductosToUpdate(cbProducto.Text, cbCatOrigen.Text)(0)("id_product").ToString)
                 MsgBox("Producto actualizado correctamente", MsgBoxStyle.OkOnly)
-                txtCantidad.Clear()
-                txtColor.Clear()
-                txtMarca.Clear()
-                txtMinimo.Clear()
-                txtModelo.Clear()
-                txtNombre.Clear()
-                txtPrecio.Clear()
+                For Each txt As Control In Me.Controls
+                    If TypeOf txt Is TextBox Then
+                        txt.Text = ""
+                    End If
+                Next
                 txtBarcode.Enabled = False
                 txtCantidad.Enabled = False
                 txtColor.Enabled = False

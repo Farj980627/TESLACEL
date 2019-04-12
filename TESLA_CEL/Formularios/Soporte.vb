@@ -1,11 +1,18 @@
 ﻿Imports LibPrintTicket
 Imports System.Text.RegularExpressions
-
+Imports WL
 
 Public Class Soporte
     Dim newCode As String
     Dim mic, alta, cc, camaras, wifi, señal, buzz, sensor As String
+    Public Shared anticipo As String
+    Public Shared existicket As Boolean = False
 
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        Buscar_Orden.ShowDialog()
+    End Sub
+
+    Public Shared ticketOrden As Tickets = New Tickets
 
 
     Private Sub Soporte_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -73,6 +80,47 @@ Public Class Soporte
             txtFalla.Text, txtIMEI.Text, mic, alta, cc, camaras, wifi, señal, buzz, sensor, txtCoste.Text, txtAnticipo.Text, txtGarantia.Text,
             dtpFecha.Value.Date.ToString("yyyy-MM-dd"), txtEntrega.Text, txtCodigo.Text)
 
+            anticipo = txtAnticipo.Text
+
+            ticketOrden.Logo("../../Resources/logo nuevo.png")
+            ticketOrden.Titulo("TESLACEL")
+            ticketOrden.Encabezado("PINO SUAREZ #2014")
+            ticketOrden.Encabezado("DURANGO,DGO CP:34220")
+            ticketOrden.Encabezado("HORARIO 10:00 - 20:00")
+            ticketOrden.Encabezado("TELEFONO: 618 195 1338")
+            ticketOrden.Encabezado("FECHA: " & Date.Today.ToShortDateString)
+            ticketOrden.Encabezado("# ORDEN: " & txtCodigo.Text)
+            ticketOrden.Encabezado("CLIENTE: " & txtCliente.Text)
+            ticketOrden.Encabezado("TELEFONO CLIENTE: " & txtTelefono.Text)
+            ticketOrden.Encabezado("EQUIPO: " & txtEquipo.Text)
+            ticketOrden.Encabezado("MODELO: " & txtModelo.Text)
+            ticketOrden.Encabezado("MARCA: " & txtColor.Text)
+            ticketOrden.Encabezado("COSTE ESTIMADO: " & txtCoste.Text)
+            ticketOrden.Encabezado("ANTICIPO: " & txtAnticipo.Text)
+            ticketOrden.Encabezado("GARANTIA: " & txtGarantia.Text)
+            ticketOrden.Encabezado("FECHA ENTREGA: " & dtpFecha.Value.Date.ToShortDateString)
+            ticketOrden.Pie("1.- El cliente se hace responsable de la procedencia del equipo.")
+            ticketOrden.Pie("2.- Toda resvisión genera honorarios minimos de $30 pesos.")
+            ticketOrden.Pie("3.- Después de 30 días no nos hacemos responsables por ningún equipo.")
+            ticketOrden.Pie("4.- No nos hacemos responsables por equipos que vengan apagados que puedan presentar fallas aleatorias.")
+            ticketOrden.Pie("5.- No respondemos por ningún equipo después de 60 días (Basados en el artículo de la cámara de comercio, pudiendo disponer del equipo para los intereses que más le convengan al propietario del taller).")
+            ticketOrden.Pie("6.- Todo equipo ya reparado que no sea retirado después de 10 días de comunicado su reparación se le sumara una multa de $80 pesos a la semana a la cantidad total que se estableció, por gastos de almacenamiento, hasta llegar a 60 días.")
+            ticketOrden.Pie("7.- No nos hacemos responsables por memorias o chips olvidados en el taller.")
+            ticketOrden.Pie("8.- Algunos equipos son reparados en otra de nuestras sucursales por motivos de espacio y seguridad.")
+            ticketOrden.Pie("9.- No respondemos por equipo mojados que al ser intervenidos empeoren su estado o se apaguen (Todo equipo mojado tiene secuelas).")
+            ticketOrden.Pie("GARANTIA: *El plazo de garantía es de 15 días (empieza a contar el día que se da aviso que el equipo está listo). 
+            *El trámite de garantía es de 1 a 3 días hábiles. 
+            *La garantía cubre únicamente defectos de fabrica de la pieza reparada o remplazada. 
+            *En equipos golpeados y mojados no hay garantía. 
+            *Secuelas de golpes y humedad no entran como garantía. 
+            *La garantía se vuelve NULA si se pierde la póliza de garantía, el equipo es abierto por personas ajenas al taller tesla, sello de garantía alterado o roto, equipos golpeados o mojados. 
+            *En caso de ser un cristal la pieza remplazada, esta no debe estar rallada ni estrellada.")
+            ticketOrden.Pie("DESPUES DE 30 DIAS NO NOS HACEMOS RESPONSABLES DE NINGUN APARATO")
+            ticketOrden.Pie("________________________________________________________________________________________________________________________________")
+            ticketOrden.Pie("Al firmar acepta nuestros terminos y condiciones.")
+            existicket = True
+
+
             consultas.insContador()
             newCode = "300" & consultas.getContador
             txtCodigo.Text = newCode
@@ -87,7 +135,9 @@ Public Class Soporte
                 If TypeOf txt Is TextBox Then
                     txt.Text = ""
                 End If
+
             Next
+            MsgBox("Orden Generada, Favor de Imprimirla")
         Catch ex As Exception
 
         End Try

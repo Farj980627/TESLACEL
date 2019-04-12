@@ -81,7 +81,7 @@ Public Class consultas
     Public Shared Function getProductoByBarCode(pbarcode) As DataTable
         Dim con As MySqlConnection = conexion.conection
         Dim dt As New DataTable
-        Dim cmd As MySqlCommand = New MySqlCommand(String.Format("SELECT name,price,model,color,barcode FROM products  WHERE bar_code = '{0}'", pbarcode), con)
+        Dim cmd As MySqlCommand = New MySqlCommand(String.Format("SELECT name,price,model,color,barcode FROM products  WHERE barcode = '{0}'", pbarcode), con)
         Dim adap As New MySqlDataAdapter(cmd)
         adap.Fill(dt)
         con.Close()
@@ -192,15 +192,15 @@ Public Class consultas
         cmd.ExecuteNonQuery()
         con.Close()
     End Sub
-    Public Shared Function getOrden(pcode) As DataTable
-        Dim con As MySqlConnection = conexion.conection
-        Dim dt As New DataTable
-        Dim cmd As MySqlCommand = New MySqlCommand(String.Format("SELECT * FROM support WHERE code = '{0}'", pcode), con)
-        Dim adap As New MySqlDataAdapter(cmd)
-        adap.Fill(dt)
-        con.Close()
-        Return dt
-    End Function
+    'Public Shared Function getOrden(pcode) As DataTable
+    'Dim con As MySqlConnection = conexion.conection
+    'Dim dt As New DataTable
+    'Dim cmd As MySqlCommand = New MySqlCommand(String.Format("SELECT * FROM support WHERE code = '{0}'", pcode), con)
+    'Dim adap As New MySqlDataAdapter(cmd)
+    '   adap.Fill(dt)
+    '  con.Close()
+    'Return dt
+    'End Function
     Public Shared Sub updInventario(cantidad, pname)
         Dim con As MySqlConnection = conexion.conection
         Dim cmd As MySqlCommand = New MySqlCommand(String.Format("UPDATE products SET quantity='{0}' WHERE id_product='{1}'", cantidad, pname), con)
@@ -310,6 +310,15 @@ Public Class consultas
         Dim con As MySqlConnection = conexion.conection
         Dim dt As New DataTable
         Dim cmd As MySqlCommand = New MySqlCommand(String.Format("SELECT type,name,brand,model,color,price,barcode,quantity,min,date FROM products WHERE date >= '{0}' AND date= <= '{1}'", pdateInicio, pdateFinal), con)
+        Dim adap As New MySqlDataAdapter(cmd)
+        adap.Fill(dt)
+        con.Close()
+        Return dt
+    End Function
+    Public Shared Function getOrdenAll(pnumero) As DataTable
+        Dim con As MySqlConnection = conexion.conection
+        Dim dt As New DataTable
+        Dim cmd As MySqlCommand = New MySqlCommand(String.Format("SELECT * FROM support WHERE code = '{0}'", pnumero), con)
         Dim adap As New MySqlDataAdapter(cmd)
         adap.Fill(dt)
         con.Close()

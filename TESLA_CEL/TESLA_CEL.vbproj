@@ -48,17 +48,11 @@
     <OptionInfer>On</OptionInfer>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="BarcodeStandard, Version=2.2.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\BarcodeLib.2.2.1\lib\netstandard2.0\BarcodeStandard.dll</HintPath>
-    </Reference>
-    <Reference Include="itextsharp">
-      <HintPath>..\..\..\..\Documents\Visual Studio 2017\Projects\ExcelToDataGV\ExcelToDataGV\bin\Debug\itextsharp.dll</HintPath>
-    </Reference>
-    <Reference Include="itextsharp.pdfa">
-      <HintPath>..\..\..\..\Documents\Visual Studio 2017\Projects\ExcelToDataGV\ExcelToDataGV\bin\Debug\itextsharp.pdfa.dll</HintPath>
-    </Reference>
     <Reference Include="LibPrintTicket">
       <HintPath>..\..\..\..\Downloads\LibPrintTicket\LibPrintTicket\Release\LibPrintTicket.dll</HintPath>
+    </Reference>
+    <Reference Include="libreria">
+      <HintPath>..\..\..\..\Desktop\Ticket VS2010\Ticket VS2010\Ticket\Ticket\Ticket\bin\Debug\libreria.dll</HintPath>
     </Reference>
     <Reference Include="MySql.Data">
       <HintPath>..\..\..\..\Documents\Visual Studio 2017\Projects\ExcelToDataGV\ExcelToDataGV\bin\Debug\MySql.Data.dll</HintPath>
@@ -76,6 +70,9 @@
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Net.Http" />
+    <Reference Include="wd220net4">
+      <HintPath>..\..\..\..\Desktop\Ticket VS2010\Ticket VS2010\Ticket\Ticket\Ticket\bin\Debug\wd220net4.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Import Include="Microsoft.VisualBasic" />
@@ -97,6 +94,12 @@
       <DependentUpon>Actualizar_Prod.vb</DependentUpon>
     </Compile>
     <Compile Include="Formularios\Actualizar_Prod.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Buscar_Orden.Designer.vb">
+      <DependentUpon>Buscar_Orden.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Buscar_Orden.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Formularios\Conf_Venta.Designer.vb">
@@ -185,6 +188,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Formularios\Actualizar_Prod.resx">
       <DependentUpon>Actualizar_Prod.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Buscar_Orden.resx">
+      <DependentUpon>Buscar_Orden.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Conf_Venta.resx">
       <DependentUpon>Conf_Venta.vb</DependentUpon>
@@ -300,15 +306,6 @@
     <None Include="Resources\administrar color.png" />
   </ItemGroup>
   <ItemGroup>
-    <COMReference Include="PDFCreatorPilotLib">
-      <Guid>{F68529F8-9F30-4AEE-B5D0-6DA79CB9E802}</Guid>
-      <VersionMajor>1</VersionMajor>
-      <VersionMinor>0</VersionMinor>
-      <Lcid>0</Lcid>
-      <WrapperTool>tlbimp</WrapperTool>
-      <Isolated>False</Isolated>
-      <EmbedInteropTypes>True</EmbedInteropTypes>
-    </COMReference>
     <COMReference Include="stdole">
       <Guid>{00020430-0000-0000-C000-000000000046}</Guid>
       <VersionMajor>2</VersionMajor>

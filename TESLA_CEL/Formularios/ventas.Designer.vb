@@ -22,8 +22,8 @@ Partial Class ventas
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.txtOrden = New System.Windows.Forms.TextBox()
@@ -33,15 +33,18 @@ Partial Class ventas
         Me.txtCantidad = New System.Windows.Forms.TextBox()
         Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
         Me.Panel2 = New System.Windows.Forms.Panel()
-        Me.btnCancelar = New System.Windows.Forms.Button()
-        Me.btnConfirmar = New System.Windows.Forms.Button()
         Me.Panel3 = New System.Windows.Forms.Panel()
-        Me.Button1 = New System.Windows.Forms.Button()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.lblTotal = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.dgvProducto = New System.Windows.Forms.DataGridView()
-        Me.txtProducto = New System.Windows.Forms.TextBox()
+        Me.btnCancelar = New System.Windows.Forms.Button()
+        Me.btnConfirmar = New System.Windows.Forms.Button()
+        Me.Button1 = New System.Windows.Forms.Button()
+        Me.txtCobertura = New System.Windows.Forms.TextBox()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.chbSeñal = New System.Windows.Forms.CheckBox()
+        Me.Label18 = New System.Windows.Forms.Label()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.Panel1.SuspendLayout()
         Me.Panel4.SuspendLayout()
@@ -108,7 +111,10 @@ Partial Class ventas
         '
         'Panel4
         '
-        Me.Panel4.Controls.Add(Me.txtProducto)
+        Me.Panel4.Controls.Add(Me.txtCobertura)
+        Me.Panel4.Controls.Add(Me.Label4)
+        Me.Panel4.Controls.Add(Me.chbSeñal)
+        Me.Panel4.Controls.Add(Me.Label18)
         Me.Panel4.Controls.Add(Me.Label1)
         Me.Panel4.Controls.Add(Me.txtCantidad)
         Me.Panel4.Location = New System.Drawing.Point(3, 3)
@@ -121,12 +127,12 @@ Partial Class ventas
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Berlin Sans FB", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(77, Byte), Integer), CType(CType(111, Byte), Integer))
-        Me.Label1.Location = New System.Drawing.Point(0, 3)
+        Me.Label1.Location = New System.Drawing.Point(437, 0)
         Me.Label1.Name = "Label1"
         Me.Label1.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.Label1.Size = New System.Drawing.Size(113, 31)
+        Me.Label1.Size = New System.Drawing.Size(97, 31)
         Me.Label1.TabIndex = 16
-        Me.Label1.Text = "CANT  X"
+        Me.Label1.Text = "CANT  "
         Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'txtCantidad
@@ -137,7 +143,7 @@ Partial Class ventas
         Me.txtCantidad.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.txtCantidad.Font = New System.Drawing.Font("Berlin Sans FB", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtCantidad.ForeColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(247, Byte), Integer), CType(CType(249, Byte), Integer))
-        Me.txtCantidad.Location = New System.Drawing.Point(29, 37)
+        Me.txtCantidad.Location = New System.Drawing.Point(454, 43)
         Me.txtCantidad.Name = "txtCantidad"
         Me.txtCantidad.Size = New System.Drawing.Size(57, 30)
         Me.txtCantidad.TabIndex = 15
@@ -167,6 +173,82 @@ Partial Class ventas
         Me.Panel2.Name = "Panel2"
         Me.Panel2.Size = New System.Drawing.Size(529, 56)
         Me.Panel2.TabIndex = 0
+        '
+        'Panel3
+        '
+        Me.Panel3.Controls.Add(Me.Label3)
+        Me.Panel3.Controls.Add(Me.lblTotal)
+        Me.Panel3.Controls.Add(Me.Label2)
+        Me.Panel3.Controls.Add(Me.Button1)
+        Me.Panel3.Location = New System.Drawing.Point(3, 3)
+        Me.Panel3.Name = "Panel3"
+        Me.Panel3.Size = New System.Drawing.Size(528, 56)
+        Me.Panel3.TabIndex = 1
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Font = New System.Drawing.Font("Berlin Sans FB", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.ForeColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(77, Byte), Integer), CType(CType(111, Byte), Integer))
+        Me.Label3.Location = New System.Drawing.Point(360, 11)
+        Me.Label3.Name = "Label3"
+        Me.Label3.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me.Label3.Size = New System.Drawing.Size(26, 31)
+        Me.Label3.TabIndex = 17
+        Me.Label3.Text = "$"
+        Me.Label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'lblTotal
+        '
+        Me.lblTotal.AutoSize = True
+        Me.lblTotal.Font = New System.Drawing.Font("Berlin Sans FB", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblTotal.ForeColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(77, Byte), Integer), CType(CType(111, Byte), Integer))
+        Me.lblTotal.Location = New System.Drawing.Point(392, 11)
+        Me.lblTotal.Name = "lblTotal"
+        Me.lblTotal.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me.lblTotal.Size = New System.Drawing.Size(31, 31)
+        Me.lblTotal.TabIndex = 16
+        Me.lblTotal.Text = "0"
+        Me.lblTotal.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Font = New System.Drawing.Font("Berlin Sans FB", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(77, Byte), Integer), CType(CType(111, Byte), Integer))
+        Me.Label2.Location = New System.Drawing.Point(254, 11)
+        Me.Label2.Name = "Label2"
+        Me.Label2.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me.Label2.Size = New System.Drawing.Size(100, 31)
+        Me.Label2.TabIndex = 15
+        Me.Label2.Text = "TOTAL:"
+        Me.Label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'dgvProducto
+        '
+        Me.dgvProducto.BackgroundColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(77, Byte), Integer), CType(CType(111, Byte), Integer))
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(CType(CType(44, Byte), Integer), CType(CType(77, Byte), Integer), CType(CType(111, Byte), Integer))
+        DataGridViewCellStyle3.Font = New System.Drawing.Font("Berlin Sans FB", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(247, Byte), Integer), CType(CType(249, Byte), Integer))
+        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(247, Byte), Integer), CType(CType(249, Byte), Integer))
+        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(44, Byte), Integer), CType(CType(77, Byte), Integer), CType(CType(111, Byte), Integer))
+        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgvProducto.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle3
+        Me.dgvProducto.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dgvProducto.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.dgvProducto.Location = New System.Drawing.Point(0, 85)
+        Me.dgvProducto.Name = "dgvProducto"
+        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter
+        DataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(CType(CType(44, Byte), Integer), CType(CType(77, Byte), Integer), CType(CType(111, Byte), Integer))
+        DataGridViewCellStyle4.Font = New System.Drawing.Font("Berlin Sans FB", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(247, Byte), Integer), CType(CType(249, Byte), Integer))
+        DataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(247, Byte), Integer), CType(CType(249, Byte), Integer))
+        DataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(44, Byte), Integer), CType(CType(77, Byte), Integer), CType(CType(111, Byte), Integer))
+        Me.dgvProducto.RowsDefaultCellStyle = DataGridViewCellStyle4
+        Me.dgvProducto.RowTemplate.Height = 24
+        Me.dgvProducto.Size = New System.Drawing.Size(1069, 462)
+        Me.dgvProducto.TabIndex = 2
         '
         'btnCancelar
         '
@@ -198,17 +280,6 @@ Partial Class ventas
         Me.btnConfirmar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.btnConfirmar.UseVisualStyleBackColor = False
         '
-        'Panel3
-        '
-        Me.Panel3.Controls.Add(Me.Button1)
-        Me.Panel3.Controls.Add(Me.Label3)
-        Me.Panel3.Controls.Add(Me.lblTotal)
-        Me.Panel3.Controls.Add(Me.Label2)
-        Me.Panel3.Location = New System.Drawing.Point(3, 3)
-        Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(528, 56)
-        Me.Panel3.TabIndex = 1
-        '
         'Button1
         '
         Me.Button1.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
@@ -216,7 +287,7 @@ Partial Class ventas
         Me.Button1.Font = New System.Drawing.Font("Berlin Sans FB", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(247, Byte), Integer), CType(CType(249, Byte), Integer))
         Me.Button1.Image = Global.TESLA_CEL.My.Resources.Resources.impresora_color
-        Me.Button1.Location = New System.Drawing.Point(0, 0)
+        Me.Button1.Location = New System.Drawing.Point(3, 2)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(241, 53)
         Me.Button1.TabIndex = 15
@@ -224,86 +295,54 @@ Partial Class ventas
         Me.Button1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.Button1.UseVisualStyleBackColor = False
         '
-        'Label3
+        'txtCobertura
         '
-        Me.Label3.AutoSize = True
-        Me.Label3.Font = New System.Drawing.Font("Berlin Sans FB", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.ForeColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(77, Byte), Integer), CType(CType(111, Byte), Integer))
-        Me.Label3.Location = New System.Drawing.Point(353, 11)
-        Me.Label3.Name = "Label3"
-        Me.Label3.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.Label3.Size = New System.Drawing.Size(26, 31)
-        Me.Label3.TabIndex = 17
-        Me.Label3.Text = "$"
-        Me.Label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'lblTotal
-        '
-        Me.lblTotal.AutoSize = True
-        Me.lblTotal.Font = New System.Drawing.Font("Berlin Sans FB", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblTotal.ForeColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(77, Byte), Integer), CType(CType(111, Byte), Integer))
-        Me.lblTotal.Location = New System.Drawing.Point(385, 11)
-        Me.lblTotal.Name = "lblTotal"
-        Me.lblTotal.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.lblTotal.Size = New System.Drawing.Size(31, 31)
-        Me.lblTotal.TabIndex = 16
-        Me.lblTotal.Text = "0"
-        Me.lblTotal.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'Label2
-        '
-        Me.Label2.AutoSize = True
-        Me.Label2.Font = New System.Drawing.Font("Berlin Sans FB", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(77, Byte), Integer), CType(CType(111, Byte), Integer))
-        Me.Label2.Location = New System.Drawing.Point(247, 11)
-        Me.Label2.Name = "Label2"
-        Me.Label2.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.Label2.Size = New System.Drawing.Size(100, 31)
-        Me.Label2.TabIndex = 15
-        Me.Label2.Text = "TOTAL:"
-        Me.Label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'dgvProducto
-        '
-        Me.dgvProducto.BackgroundColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(77, Byte), Integer), CType(CType(111, Byte), Integer))
-        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(CType(CType(44, Byte), Integer), CType(CType(77, Byte), Integer), CType(CType(111, Byte), Integer))
-        DataGridViewCellStyle1.Font = New System.Drawing.Font("Berlin Sans FB", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(247, Byte), Integer), CType(CType(249, Byte), Integer))
-        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(247, Byte), Integer), CType(CType(249, Byte), Integer))
-        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(44, Byte), Integer), CType(CType(77, Byte), Integer), CType(CType(111, Byte), Integer))
-        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.dgvProducto.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
-        Me.dgvProducto.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgvProducto.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.dgvProducto.Location = New System.Drawing.Point(0, 85)
-        Me.dgvProducto.Name = "dgvProducto"
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter
-        DataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(CType(CType(44, Byte), Integer), CType(CType(77, Byte), Integer), CType(CType(111, Byte), Integer))
-        DataGridViewCellStyle2.Font = New System.Drawing.Font("Berlin Sans FB", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(247, Byte), Integer), CType(CType(249, Byte), Integer))
-        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(247, Byte), Integer), CType(CType(249, Byte), Integer))
-        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(44, Byte), Integer), CType(CType(77, Byte), Integer), CType(CType(111, Byte), Integer))
-        Me.dgvProducto.RowsDefaultCellStyle = DataGridViewCellStyle2
-        Me.dgvProducto.RowTemplate.Height = 24
-        Me.dgvProducto.Size = New System.Drawing.Size(1069, 462)
-        Me.dgvProducto.TabIndex = 2
-        '
-        'txtProducto
-        '
-        Me.txtProducto.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
+        Me.txtCobertura.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.txtProducto.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(77, Byte), Integer), CType(CType(111, Byte), Integer))
-        Me.txtProducto.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.txtProducto.Font = New System.Drawing.Font("Berlin Sans FB", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtProducto.ForeColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(247, Byte), Integer), CType(CType(249, Byte), Integer))
-        Me.txtProducto.Location = New System.Drawing.Point(139, 23)
-        Me.txtProducto.Name = "txtProducto"
-        Me.txtProducto.Size = New System.Drawing.Size(386, 30)
-        Me.txtProducto.TabIndex = 15
-        Me.txtProducto.Text = "PRODUCTO"
-        Me.txtProducto.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
-        Me.txtProducto.Visible = False
+        Me.txtCobertura.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(77, Byte), Integer), CType(CType(111, Byte), Integer))
+        Me.txtCobertura.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.txtCobertura.Font = New System.Drawing.Font("Berlin Sans FB", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtCobertura.ForeColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(247, Byte), Integer), CType(CType(249, Byte), Integer))
+        Me.txtCobertura.Location = New System.Drawing.Point(262, 34)
+        Me.txtCobertura.Name = "txtCobertura"
+        Me.txtCobertura.Size = New System.Drawing.Size(57, 30)
+        Me.txtCobertura.TabIndex = 89
+        Me.txtCobertura.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Font = New System.Drawing.Font("Berlin Sans FB", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.ForeColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(77, Byte), Integer), CType(CType(111, Byte), Integer))
+        Me.Label4.Location = New System.Drawing.Point(82, 38)
+        Me.Label4.Name = "Label4"
+        Me.Label4.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me.Label4.Size = New System.Drawing.Size(169, 23)
+        Me.Label4.TabIndex = 88
+        Me.Label4.Text = "COBERTURA POR:" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
+        Me.Label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'chbSeñal
+        '
+        Me.chbSeñal.AutoSize = True
+        Me.chbSeñal.Location = New System.Drawing.Point(190, 18)
+        Me.chbSeñal.Name = "chbSeñal"
+        Me.chbSeñal.Size = New System.Drawing.Size(18, 17)
+        Me.chbSeñal.TabIndex = 87
+        Me.chbSeñal.UseVisualStyleBackColor = True
+        '
+        'Label18
+        '
+        Me.Label18.AutoSize = True
+        Me.Label18.Font = New System.Drawing.Font("Berlin Sans FB", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label18.ForeColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(77, Byte), Integer), CType(CType(111, Byte), Integer))
+        Me.Label18.Location = New System.Drawing.Point(82, 14)
+        Me.Label18.Name = "Label18"
+        Me.Label18.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me.Label18.Size = New System.Drawing.Size(103, 23)
+        Me.Label18.TabIndex = 86
+        Me.Label18.Text = "GARANTIA" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
+        Me.Label18.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'ventas
         '
@@ -349,5 +388,8 @@ Partial Class ventas
     Friend WithEvents Label1 As Label
     Friend WithEvents txtCantidad As TextBox
     Friend WithEvents Button1 As Button
-    Friend WithEvents txtProducto As TextBox
+    Friend WithEvents txtCobertura As TextBox
+    Friend WithEvents Label4 As Label
+    Friend WithEvents chbSeñal As CheckBox
+    Friend WithEvents Label18 As Label
 End Class

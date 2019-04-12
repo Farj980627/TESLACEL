@@ -1,6 +1,6 @@
 ﻿
 Imports LibPrintTicket
-
+Imports WL
 Public Class Conf_Venta
     Dim id_product As New DataColumn("id_product", GetType(System.String))
     Dim cerrar As Boolean = False
@@ -13,39 +13,46 @@ Public Class Conf_Venta
             If ventas.orden = True Then
                 If chBEfectivo.Checked = True And cbElectronico.Checked = False Then
                     consultas.insSale(24, 1, Date.Today.ToString("yyyy-MM-dd"), "Efectivo", ventas.sumTot)
-                    Dim ticket As Ticket = New Ticket()
-                    ticket.AddHeaderLine("TESLACEL")
-                    ticket.AddHeaderLine("Pino Suarez #2014")
-                    ticket.AddHeaderLine("DURANGO, DGO")
-                    ticket.AddSubHeaderLine(DateTime.Now.ToShortDateString() & " " + DateTime.Now.ToShortTimeString())
-                    ticket.AddItem("1", "Orden de Pago", "")
-                    ticket.AddFooterLine("Total: $" & ventas.sumTot)
-                    ticket.AddFooterLine("Recibido: $" & txtPagar.Text)
-                    ticket.AddFooterLine("Cambio: $" & Val(txtPagar.Text) - Val(ventas.sumTot))
-                    ticket.AddFooterLine("VUELVA PRONTO")
-                    ticket.PrintTicket("XP-58 (copy 1)")
+                    Dim ticket1 As Tickets = New Tickets
+                    ticket1.Logo("../../Resources/logo nuevo.png")
+                    ticket1.Titulo("TESLACEL")
+                    ticket1.Encabezado("PINO SUAREZ #2014")
+                    ticket1.Encabezado("DURANGO,DGO CP:34220")
+                    ticket1.Encabezado("HORARIO 10:00 - 20:00")
+                    ticket1.Encabezado("TELEFONO: 618 195 1338")
+                    ticket1.Encabezado("FECHA: " & Date.Today.ToShortDateString)
+                    ticket1.Articulo("CODE", "1", "Orden de Pago", ventas.sumTot, ventas.sumTot)
+                    ticket1.NumArticulos("1")
+                    ticket1.Total(ventas.sumTot)
+                    ticket1.Pago("RECIBI: ", txtPagar.Text)
+                    ticket1.Pago("CAMBIO: ", Val(txtPagar.Text) - Val(ventas.sumTot))
+                    ticket1.Pie("GRACIAS POR SU COMPRA, VUELVA PRONTO")
+                    ticket1.Imprimir("(XP-58 (copy 1))", True)
                     MsgBox("Venta Realizada")
                     chBEfectivo.Checked = False
                     cbElectronico.Checked = False
                     Me.Close()
-
                     ventas.Close()
                     txtPagar.Clear()
                 ElseIf chBEfectivo.Checked = False And cbElectronico.Checked = False Then
                     MsgBox("Selecciona una Forma de Pago")
                 ElseIf chBEfectivo.Checked = False And cbElectronico.Checked = True Then
                     consultas.insSale(24, 1, Date.Today.ToString("yyyy-MM-dd"), "Electrónico ", ventas.sumTot)
-                    Dim ticket As Ticket = New Ticket()
-                    ticket.AddHeaderLine("TESLACEL")
-                    ticket.AddHeaderLine("Pino Suarez #2014")
-                    ticket.AddHeaderLine("DURANGO, DGO")
-                    ticket.AddSubHeaderLine(DateTime.Now.ToShortDateString() & " " + DateTime.Now.ToShortTimeString())
-                    ticket.AddItem("1", "Orden de Pago", "")
-                    ticket.AddFooterLine("Total: $" & ventas.sumTot)
-                    ticket.AddFooterLine("Pago Electrónico")
-                    ticket.AddFooterLine("-----")
-                    ticket.AddFooterLine("VUELVA PRONTO")
-                    ticket.PrintTicket("XP-58 (copy 1)")
+                    Dim ticket1 As Tickets = New Tickets
+                    ticket1.Logo("../../Resources/logo nuevo.png")
+                    ticket1.Titulo("TESLACEL")
+                    ticket1.Encabezado("PINO SUAREZ #2014")
+                    ticket1.Encabezado("DURANGO,DGO CP:34220")
+                    ticket1.Encabezado("HORARIO 10:00 - 20:00")
+                    ticket1.Encabezado("TELEFONO: 618 195 1338")
+                    ticket1.Encabezado("FECHA: " & Date.Today.ToShortDateString)
+                    ticket1.Articulo("CODE", "1", "Orden de Pago", ventas.sumTot, ventas.sumTot)
+                    ticket1.NumArticulos("1")
+                    ticket1.Total(ventas.sumTot)
+                    ticket1.Pago("RECIBI: ", "Pago Electrónico")
+                    ticket1.Pago("CAMBIO: ", "N/A")
+                    ticket1.Pie("GRACIAS POR SU COMPRA, VUELVA PRONTO")
+                    ticket1.Imprimir("(XP-58 (copy 1))", True)
                     MsgBox("Venta Realizada")
                     txtPagar.Clear()
                     chBEfectivo.Checked = False
@@ -82,21 +89,35 @@ Public Class Conf_Venta
                         cerrar = False
                     End If
                     If cerrar = False Then
-                        Dim ticket As Ticket = New Ticket()
-                        ticket.AddHeaderLine("TESLACEL")
-                        ticket.AddHeaderLine("Pino Suarez #2014")
-                        ticket.AddHeaderLine("DURANGO, DGO")
-                        ticket.AddSubHeaderLine(DateTime.Now.ToShortDateString() & " " + DateTime.Now.ToShortTimeString())
 
+                        Dim ticket1 As Tickets = New Tickets
+                        ticket1.Logo("../../Resources/logo nuevo.png")
+                        ticket1.Titulo("TESLACEL")
+                        ticket1.Encabezado("PINO SUAREZ #2014")
+                        ticket1.Encabezado("DURANGO,DGO CP:34220")
+                        ticket1.Encabezado("HORARIO 10:00 - 20:00")
+                        ticket1.Encabezado("TELEFONO: 618 195 1338")
+                        ticket1.Encabezado("FECHA: " & Date.Today.ToShortDateString)
                         For i As Integer = 0 To ventas.dtTodo.Rows.Count - 1 Step +1
-                            ticket.AddItem(ventas.dtTodo(i)("cantidad"), ventas.dtTodo(i)("name"), ventas.dtTodo(i)("price"))
+                            ticket1.Articulo("CODE", ventas.dtTodo(i)("cantidad").ToString, ventas.dtTodo(i)("name").ToString, ventas.dtTodo(i)("price").ToString, ventas.dtTodo(i)("total").ToString)
                         Next
-                        ticket.AddFooterLine("Total: $" & ventas.sumTot)
-                        ticket.AddFooterLine("Recibido: $" & txtPagar.Text)
-                        ticket.AddFooterLine("Cambio: $" & Val(txtPagar.Text) - Val(ventas.sumTot))
-                        ticket.AddFooterLine("VUELVA PRONTO")
-                        ticket.PrintTicket("XP-58 (copy 1)")
+                        ticket1.NumArticulos(ventas.dtTodo.Rows.Count)
+                        ticket1.Total(ventas.sumTot)
+                        ticket1.Pago("RECIBI: ", txtPagar.Text)
+                        ticket1.Pago("CAMBIO: ", Val(txtPagar.Text) - Val(ventas.sumTot))
+                        If ventas.garantia = True Then
+                            ticket1.Pie("GARANTIA: SI  COBERTURA:" & ventas.cobertura & " MESES")
+                        End If
+                        ticket1.Pie("GRACIAS POR SU COMPRA, VUELVA PRONTO")
+                        ticket1.Imprimir("(XP-58 (copy 1))", True)
+
                         MsgBox("Venta Realizada")
+
+
+
+
+
+
                     End If
                     chBEfectivo.Checked = False
                     cbElectronico.Checked = False
@@ -133,20 +154,25 @@ Public Class Conf_Venta
                         cerrar = False
                     End If
                     If cerrar = False Then
-                        Dim ticket As Ticket = New Ticket()
-                        ticket.AddHeaderLine("TESLACEL")
-                        ticket.AddHeaderLine("Pino Suarez #2014")
-                        ticket.AddHeaderLine("DURANGO, DGO")
-                        ticket.AddSubHeaderLine(DateTime.Now.ToShortDateString() & " " + DateTime.Now.ToShortTimeString())
+
+                        Dim ticket1 As Tickets = New Tickets
+                        ticket1.Logo("../../Resources/logo nuevo.png")
+                        ticket1.Titulo("TESLACEL")
+                        ticket1.Encabezado("PINO SUAREZ #2014")
+                        ticket1.Encabezado("DURANGO,DGO CP:34220")
+                        ticket1.Encabezado("RFC: HEEWD2323DS2")
+                        ticket1.Encabezado("FECHA: " & Date.Today.ToShortDateString)
                         For i As Integer = 0 To ventas.dtTodo.Rows.Count - 1 Step +1
-                            ticket.AddItem(ventas.dtTodo(i)("cantidad"), ventas.dtTodo(i)("name"), ventas.dtTodo(i)("price"))
+                            ticket1.Articulo("CODE", ventas.dtTodo(i)("cantidad").ToString, ventas.dtTodo(i)("name").ToString, ventas.dtTodo(i)("price").ToString, ventas.dtTodo(i)("total").ToString)
                         Next
-                        ticket.AddFooterLine("Total: $" & ventas.sumTot)
-                        ticket.AddFooterLine("Pago Electrónico")
-                        ticket.AddFooterLine("-----")
-                        ticket.AddFooterLine("VUELVA PRONTO")
-                        ticket.PrintTicket("XP-58 (copy 1)")
-                        MsgBox("Venta Realizada")
+                        ticket1.NumArticulos(ventas.dtTodo.Rows.Count)
+                        ticket1.Total(ventas.sumTot)
+                        ticket1.Pago("PAGO ELEC : ", ventas.sumTot)
+                        If ventas.garantia = True Then
+                            ticket1.Pie("GARANTIA: SI  COBERTURA:" & ventas.cobertura & " MESES")
+                        End If
+                        ticket1.Pie("GRACIAS POR SU COMPRA, VUELVA PRONTO")
+                        ticket1.Imprimir("(XP-58 (copy 1))", True)
                     End If
                     chBEfectivo.Checked = False
                     cbElectronico.Checked = False

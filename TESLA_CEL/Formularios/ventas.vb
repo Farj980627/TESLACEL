@@ -1,94 +1,35 @@
 ﻿Imports LibPrintTicket
+Imports WL
+
 Public Class ventas
     Dim carrito, carrito2, vacio As New DataTable
     Dim cantidad As New DataColumn("cantidad", GetType(System.String))
     Dim total As New DataColumn("total", GetType(System.String))
-    Dim producto, price As String
+    Dim producto, price, model, color, barcode As String
     Public Shared sumTot As String
     Public Shared dtTodo As New DataTable
     Public Shared orden As Boolean = False
-    Private Sub txtProducto_Click(sender As Object, e As EventArgs) Handles txtProducto.Click
-        txtProducto.Clear()
-    End Sub
+    Public Shared garantia As Boolean = False
+    Public Shared cobertura As String = ""
 
-    Private Sub txtProducto_Leave(sender As Object, e As EventArgs) Handles txtProducto.Leave
-        If txtProducto.Text = "" Then
-            txtProducto.Text = "PRODUCTO"
-        End If
-    End Sub
 
-    Private Sub txtProducto_KeyDown(sender As Object, e As KeyEventArgs) Handles txtProducto.KeyDown
-        '  Try
-        'If e.KeyCode = Keys.Enter Then
-        'If carrito.Columns.Contains("cantidad") Then
-        'If txtCantidad.Text = "" Then
-        'carrito2 = carrito
-        'producto = consultas.getProductosByProduct(txtProducto.Text)(0)(0).ToString
-        'price = consultas.getProductosByProduct(txtProducto.Text)(0)(1).ToString
-        'Dim columnas As Integer = carrito2.Rows.Count + 1
-        'For i As Integer = columnas - 1 To columnas - 1 Step +1
-        'carrito2.Rows.Add(producto, price, "1", 0)
-        'Dim tot As String = carrito2.Rows(columnas - 1)("cantidad") * carrito2.Rows(columnas - 1)("price")
-        'carrito2.Rows(columnas - 1)("total") = tot
-        'Next
-        'For i As Integer = 0 To carrito2.Rows.Count - 1 Step +1
-        'Dim sumas As Double
-        'sumas = sumas + carrito2(i)("total")
-        'lblTotal.Text = sumas
-        'Next
-        'dgvProducto.DataSource = carrito2
-        'dtTodo = carrito2
-        'carrito = carrito2
-        'Else
-        'carrito2 = carrito
-        'producto = consultas.getProductosByProduct(txtProducto.Text)(0)(0).ToString
-        'price = consultas.getProductosByProduct(txtProducto.Text)(0)(1).ToString
-        'Dim columnas As Integer = carrito2.Rows.Count + 1
-        'For i As Integer = columnas - 1 To columnas - 1 Step +1
-        'carrito2.Rows.Add(producto, price, txtCantidad.Text, 0)
-        'Dim tot As String = carrito2.Rows(columnas - 1)("cantidad") * carrito2.Rows(columnas - 1)("price")
-        'carrito2.Rows(columnas - 1)("total") = tot
-        'Next
-        'dgvProducto.DataSource = carrito2
-        'For i As Integer = 0 To carrito2.Rows.Count - 1 Step +1
-        'Dim sumas As Double
-        'sumas = sumas + carrito2(i)("total")
-        'lblTotal.Text = sumas
-        'Next
-        'dtTodo = carrito2
-        'carrito = carrito2
-        'End If
-        'Else
-        'carrito = consultas.getProductosByProduct(txtProducto.Text)
-        'carrito.Columns.Add(cantidad)
-        'carrito.Columns.Add(total)
-        'End If
-        'If carrito.Rows.Count = 1 Then
-        'If txtCantidad.Text = "" Then
-        'carrito(0)("cantidad") = "1"
-        'carrito(0)("total") = carrito(0)("cantidad") * carrito(0)("price")
-        'dgvProducto.DataSource = carrito
-        'lblTotal.Text = carrito(0)("total")
-        'dtTodo = carrito
-        'Else
-        'carrito(0)("cantidad") = txtCantidad.Text
-        'carrito(0)("total") = carrito(0)("cantidad") * carrito(0)("price")
-        'dgvProducto.DataSource = carrito
-        'lblTotal.Text = carrito(0)("total")
-        'dtTodo = carrito
-        'End If
-        'End If
-        '
-        ' End If
-        ' Catch ex As Exception
 
-        ' End Try
-    End Sub
 
     Private Sub btnConfirmar_Click(sender As Object, e As EventArgs) Handles btnConfirmar.Click
         If dgvProducto.Rows.Count = 0 Then
             MsgBox("No se a agregado ningun producto")
         Else
+            If chbSeñal.Checked = True Then
+                garantia = True
+            End If
+            If garantia = True Then
+                If txtCobertura.Text = "" Then
+                    MsgBox("Especifica la cobertura")
+                Else
+                    cobertura = txtCobertura.Text
+                End If
+
+            End If
             sumTot = lblTotal.Text
             dgvProducto.DataSource = ""
             Conf_Venta.ShowDialog()
@@ -103,8 +44,8 @@ Public Class ventas
     Private Sub txtOrden_KeyDown(sender As Object, e As KeyEventArgs) Handles txtOrden.KeyDown
         Try
             If e.KeyCode = Keys.Enter Then
-                carrito = consultas.getOrden(txtOrden.Text)
-                sumTot = Val(carrito(0)("total")) - Val(carrito(0)("advance_payment"))
+                carrito = consultas.getOrdenAll(txtOrden.Text)
+                sumTot = Val(carrito(0)("costoestimado")) - Val(carrito(0)("anticipo"))
                 orden = True
                 Conf_Venta.ShowDialog()
             End If
@@ -140,7 +81,7 @@ Public Class ventas
             dgvProducto.DataSource = vacio
             txtCantidad.Text = ""
             txtCodigo.Text = "CODIGO DE BARRAS"
-            txtProducto.Text = "PRODUCTO"
+
             carrito.Columns.Remove("cantidad")
             carrito.Columns.Remove("total")
             lblTotal.Text = "0"
@@ -155,20 +96,16 @@ Public Class ventas
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         Try
+            If Soporte.existicket = False Then
+                MsgBox("No existe una orden generada previamente")
+            Else
+                consultas.insSale(24, 1, Date.Today.ToString("yyyy-MM-dd"), "Anticipo Orden", Soporte.anticipo)
+                Soporte.ticketOrden.Imprimir("(XP-58 (copy 1))", True)
+                Soporte.ticketOrden.Limpiar()
+                Soporte.existicket = False
+            End If
 
-            Dim ticket As Ticket = New Ticket()
-            ticket.AddHeaderLine("TESLACEL")
-            ticket.AddHeaderLine("Pino Suarez #2014")
-            ticket.AddHeaderLine("DURANGO, DGO")
-            ticket.AddSubHeaderLine(DateTime.Now.ToShortDateString() & " " + DateTime.Now.ToShortTimeString())
-            Dim des As String = ""
-            des = consultas.getLaastOrder(0)("description")
-            ticket.AddItem("1", des, "")
-            ticket.AddFooterLine("Total: $" & consultas.getLaastOrder(0)("total"))
-            ticket.AddFooterLine("Anticipo: $" & consultas.getLaastOrder(0)("advance_payment"))
-            ticket.AddFooterLine("Codigo de Orden: " & consultas.getLaastOrder(0)("code"))
-            ticket.AddFooterLine("VUELVA PRONTO")
-            ticket.PrintTicket("XP-58 (copy 1)")
+
         Catch ex As Exception
 
         End Try
@@ -179,7 +116,7 @@ Public Class ventas
             dgvProducto.DataSource = vacio
             txtCantidad.Text = ""
             txtCodigo.Text = "CODIGO DE BARRAS"
-            txtProducto.Text = "PRODUCTO"
+
             carrito.Columns.Remove("cantidad")
             carrito.Columns.Remove("total")
             lblTotal.Text = "0"
@@ -204,9 +141,12 @@ Public Class ventas
                             carrito2 = carrito
                             producto = consultas.getProductoByBarCode(txtCodigo.Text)(0)(0).ToString
                             price = consultas.getProductoByBarCode(txtCodigo.Text)(0)(1).ToString
+                            model = consultas.getProductoByBarCode(txtCodigo.Text)(0)(2).ToString
+                            color = consultas.getProductoByBarCode(txtCodigo.Text)(0)(3).ToString
+                            barcode = consultas.getProductoByBarCode(txtCodigo.Text)(0)(4).ToString
                             Dim columnas As Integer = carrito2.Rows.Count + 1
                             For i As Integer = columnas - 1 To columnas - 1 Step +1
-                                carrito2.Rows.Add(producto, price, "1", 0)
+                                carrito2.Rows.Add(producto, price, model, color, barcode, "1", 0)
                                 Dim tot As String = carrito2.Rows(columnas - 1)("cantidad") * carrito2.Rows(columnas - 1)("price")
                                 carrito2.Rows(columnas - 1)("total") = tot
                             Next
@@ -222,9 +162,12 @@ Public Class ventas
                             carrito2 = carrito
                             producto = consultas.getProductoByBarCode(txtCodigo.Text)(0)(0).ToString
                             price = consultas.getProductoByBarCode(txtCodigo.Text)(0)(1).ToString
+                            model = consultas.getProductoByBarCode(txtCodigo.Text)(0)(2).ToString
+                            color = consultas.getProductoByBarCode(txtCodigo.Text)(0)(3).ToString
+                            barcode = consultas.getProductoByBarCode(txtCodigo.Text)(0)(4).ToString
                             Dim columnas As Integer = carrito2.Rows.Count + 1
                             For i As Integer = columnas - 1 To columnas - 1 Step +1
-                                carrito2.Rows.Add(producto, price, txtCantidad.Text, 0)
+                                carrito2.Rows.Add(producto, price, model, color, barcode, txtCantidad.Text, 0)
                                 Dim tot As String = carrito2.Rows(columnas - 1)("cantidad") * carrito2.Rows(columnas - 1)("price")
                                 carrito2.Rows(columnas - 1)("total") = tot
                             Next
@@ -258,7 +201,9 @@ Public Class ventas
                         End If
                     End If
                 End If
+                txtCodigo.Clear()
             End If
+
         Catch ex As Exception
 
         End Try
