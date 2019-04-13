@@ -118,4 +118,31 @@
 
         End Try
     End Sub
+
+    Private Sub txtPrecio_KeyPress_1(sender As Object, e As KeyPressEventArgs) Handles txtPrecio.KeyPress
+        If Not Char.IsDigit(e.KeyChar) And e.KeyChar <> vbBack Then
+
+            e.Handled = True
+            MessageBox.Show("Introduzca sólo valores númericos")
+        End If
+
+    End Sub
+
+    Private Sub txtMinimo_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtMinimo.KeyPress
+        If Not Char.IsDigit(e.KeyChar) And e.KeyChar <> vbBack Then
+
+            e.Handled = True
+            MessageBox.Show("Introduzca sólo valores númericos")
+        End If
+
+    End Sub
+
+    Private Sub txtCantidad_KeyPress_1(sender As Object, e As KeyPressEventArgs) Handles txtCantidad.KeyPress
+        If Not Char.IsDigit(e.KeyChar) And e.KeyChar <> vbBack Then
+
+            e.Handled = True
+            MessageBox.Show("Introduzca sólo valores númericos")
+        End If
+
+    End Sub
 End Class

@@ -105,6 +105,24 @@
         txtBarcode.Clear()
     End Sub
 
+    Private Sub txtMinimo_KeyPress_1(sender As Object, e As KeyPressEventArgs) Handles txtMinimo.KeyPress
+        If Not Char.IsDigit(e.KeyChar) And e.KeyChar <> vbBack Then
+
+            e.Handled = True
+            MessageBox.Show("Introduzca sólo valores númericos")
+        End If
+
+    End Sub
+
+    Private Sub txtCantidad_KeyPress_1(sender As Object, e As KeyPressEventArgs) Handles txtCantidad.KeyPress
+        If Not Char.IsDigit(e.KeyChar) And e.KeyChar <> vbBack Then
+
+            e.Handled = True
+            MessageBox.Show("Introduzca sólo valores númericos")
+        End If
+
+    End Sub
+
     Private Sub txtCantidad_KeyPress(sender As Object, e As KeyPressEventArgs)
         Try
             If Not Char.IsDigit(e.KeyChar) And e.KeyChar <> vbBack Then

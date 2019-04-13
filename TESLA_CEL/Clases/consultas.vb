@@ -116,7 +116,7 @@ Public Class consultas
     Public Shared Function getReportsAll() As DataTable
         Dim con As MySqlConnection = conexion.conection
         Dim dt As New DataTable
-        Dim cmd As MySqlCommand = New MySqlCommand(String.Format("SELECT pr.name, sl.quantity, sl.date, sl.type, sl.total FROM sales sl JOIN products pr WHERE sl.id_product = pr.id_product"), con)
+        Dim cmd As MySqlCommand = New MySqlCommand(String.Format("SELECT pr.name, sl.quantity, sl.date, sl.type, sl.total FROM sales sl JOIN products pr WHERE sl.id_product = pr.id_product ORDER BY   id_sale"), con)
         Dim adap As New MySqlDataAdapter(cmd)
         adap.Fill(dt)
         con.Close()
@@ -186,21 +186,13 @@ Public Class consultas
         cmd.ExecuteNonQuery()
         con.Close()
     End Sub
-    Public Shared Sub insOrden(fecha, cliente, telefono, equipo, marca, modelo, color, estado, chip, memoria, pila, cargador, falla, imei, microfono, altavoz, cc, camaras, wifi, señal, buzzer, sensor, costoestimado, anticipo, garantia, fechaentrega, horaentrega, code)
+    Public Shared Sub insOrden(fecha, cliente, telefono, equipo, marca, modelo, color, estado, chip, memoria, pila, cargador, falla, imei, observaciones, microfono, altavoz, cc, camaras, wifi, señal, buzzer, sensor, costoestimado, anticipo, garantia, fechaentrega, horaentrega, code)
         Dim con As MySqlConnection = conexion.conection
-        Dim cmd As MySqlCommand = New MySqlCommand(String.Format("INSERT INTO support(fecha, cliente, telefono, equipo, marca, modelo, color, estado, chip, memoria, pila, cargador, falla, imei, microfono, altavoz, cc, camaras, wifi, señal, buzzer, sensor, costoestimado, anticipo, garantia, fechaentrega, horaentrega, code) VALUES('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}','{10}','{11}','{12}','{13}','{14}','{15}','{16}','{17}','{18}','{19}','{20}','{21}','{22}','{23}','{24}','{25}','{26}','{27}')", fecha, cliente, telefono, equipo, marca, modelo, color, estado, chip, memoria, pila, cargador, falla, imei, microfono, altavoz, cc, camaras, wifi, señal, buzzer, sensor, costoestimado, anticipo, garantia, fechaentrega, horaentrega, code), con)
+        Dim cmd As MySqlCommand = New MySqlCommand(String.Format("INSERT INTO support(fecha, cliente, telefono, equipo, marca, modelo, color, estado, chip, memoria, pila, cargador, falla, imei,observaciones, microfono, altavoz, cc, camaras, wifi, señal, buzzer, sensor, costoestimado, anticipo, garantia, fechaentrega, horaentrega, code) VALUES('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}','{10}','{11}','{12}','{13}','{14}','{15}','{16}','{17}','{18}','{19}','{20}','{21}','{22}','{23}','{24}','{25}','{26}','{27}','{28}')", fecha, cliente, telefono, equipo, marca, modelo, color, estado, chip, memoria, pila, cargador, falla, imei, observaciones, microfono, altavoz, cc, camaras, wifi, señal, buzzer, sensor, costoestimado, anticipo, garantia, fechaentrega, horaentrega, code), con)
         cmd.ExecuteNonQuery()
         con.Close()
     End Sub
-    'Public Shared Function getOrden(pcode) As DataTable
-    'Dim con As MySqlConnection = conexion.conection
-    'Dim dt As New DataTable
-    'Dim cmd As MySqlCommand = New MySqlCommand(String.Format("SELECT * FROM support WHERE code = '{0}'", pcode), con)
-    'Dim adap As New MySqlDataAdapter(cmd)
-    '   adap.Fill(dt)
-    '  con.Close()
-    'Return dt
-    'End Function
+
     Public Shared Sub updInventario(cantidad, pname)
         Dim con As MySqlConnection = conexion.conection
         Dim cmd As MySqlCommand = New MySqlCommand(String.Format("UPDATE products SET quantity='{0}' WHERE id_product='{1}'", cantidad, pname), con)
@@ -309,7 +301,7 @@ Public Class consultas
     Public Shared Function getProductosByDate(pdateInicio, pdateFinal) As DataTable
         Dim con As MySqlConnection = conexion.conection
         Dim dt As New DataTable
-        Dim cmd As MySqlCommand = New MySqlCommand(String.Format("SELECT type,name,brand,model,color,price,barcode,quantity,min,date FROM products WHERE date >= '{0}' AND date= <= '{1}'", pdateInicio, pdateFinal), con)
+        Dim cmd As MySqlCommand = New MySqlCommand(String.Format("SELECT type,name,brand,model,color,price,barcode,quantity,min,date FROM products WHERE date >= '{0}' AND date <= '{1}'", pdateInicio, pdateFinal), con)
         Dim adap As New MySqlDataAdapter(cmd)
         adap.Fill(dt)
         con.Close()
@@ -318,7 +310,7 @@ Public Class consultas
     Public Shared Function getOrdenAll(pnumero) As DataTable
         Dim con As MySqlConnection = conexion.conection
         Dim dt As New DataTable
-        Dim cmd As MySqlCommand = New MySqlCommand(String.Format("SELECT * FROM support WHERE code = '{0}'", pnumero), con)
+        Dim cmd As MySqlCommand = New MySqlCommand(String.Format("SELECT * FROM support WHERE code = " + pnumero + ""), con)
         Dim adap As New MySqlDataAdapter(cmd)
         adap.Fill(dt)
         con.Close()

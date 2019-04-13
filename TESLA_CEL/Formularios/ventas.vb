@@ -1,7 +1,7 @@
 ﻿Imports LibPrintTicket
 Imports WL
-
 Public Class ventas
+    Dim dtOrden As New DataTable
     Dim carrito, carrito2, vacio As New DataTable
     Dim cantidad As New DataColumn("cantidad", GetType(System.String))
     Dim total As New DataColumn("total", GetType(System.String))
@@ -11,9 +11,7 @@ Public Class ventas
     Public Shared orden As Boolean = False
     Public Shared garantia As Boolean = False
     Public Shared cobertura As String = ""
-
-
-
+    Public Shared numeroOrden As String = ""
 
     Private Sub btnConfirmar_Click(sender As Object, e As EventArgs) Handles btnConfirmar.Click
         If dgvProducto.Rows.Count = 0 Then
@@ -21,18 +19,28 @@ Public Class ventas
         Else
             If chbSeñal.Checked = True Then
                 garantia = True
+            Else
+                garantia = False
             End If
             If garantia = True Then
                 If txtCobertura.Text = "" Then
                     MsgBox("Especifica la cobertura")
                 Else
                     cobertura = txtCobertura.Text
+                    sumTot = lblTotal.Text
+                    dgvProducto.DataSource = ""
+                    chbSeñal.Checked = False
+                    txtCobertura.Text = ""
+                    Conf_Venta.ShowDialog()
                 End If
-
+            Else
+                sumTot = lblTotal.Text
+                dgvProducto.DataSource = ""
+                chbSeñal.Checked = False
+                txtCobertura.Text = ""
+                Conf_Venta.ShowDialog()
             End If
-            sumTot = lblTotal.Text
-            dgvProducto.DataSource = ""
-            Conf_Venta.ShowDialog()
+
         End If
 
     End Sub
@@ -46,6 +54,7 @@ Public Class ventas
             If e.KeyCode = Keys.Enter Then
                 carrito = consultas.getOrdenAll(txtOrden.Text)
                 sumTot = Val(carrito(0)("costoestimado")) - Val(carrito(0)("anticipo"))
+                numeroOrden = carrito(0)("code")
                 orden = True
                 Conf_Venta.ShowDialog()
             End If
@@ -81,7 +90,6 @@ Public Class ventas
             dgvProducto.DataSource = vacio
             txtCantidad.Text = ""
             txtCodigo.Text = "CODIGO DE BARRAS"
-
             carrito.Columns.Remove("cantidad")
             carrito.Columns.Remove("total")
             lblTotal.Text = "0"
@@ -96,16 +104,119 @@ Public Class ventas
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         Try
-            If Soporte.existicket = False Then
-                MsgBox("No existe una orden generada previamente")
+            Dim ticketOrden As Tickets = New Tickets
+            dtOrden = consultas.getLaastOrder
+            If dtOrden(0)("anticipo").ToString = "0" Or dtOrden(0)("anticipo").ToString = "" Then
+
             Else
                 consultas.insSale(24, 1, Date.Today.ToString("yyyy-MM-dd"), "Anticipo Orden", Soporte.anticipo)
-                Soporte.ticketOrden.Imprimir("(XP-58 (copy 1))", True)
-                Soporte.ticketOrden.Limpiar()
-                Soporte.existicket = False
             End If
 
-
+            ticketOrden.Logo("../../Resources/logo nuevo.png")
+            ticketOrden.Titulo("TESLACEL")
+            ticketOrden.Encabezado("PINO SUAREZ #2014")
+            ticketOrden.Encabezado("DURANGO,DGO CP:34270")
+            ticketOrden.Encabezado("HORARIO 10:00 - 20:00")
+            ticketOrden.Encabezado("TELEFONO: 618 195 1338")
+            ticketOrden.Encabezado("RFC: HEGE940315HE6")
+            ticketOrden.Encabezado("FECHA: " & Date.Today.ToShortDateString)
+            ticketOrden.Encabezado("# ORDEN: " & dtOrden(0)("code"))
+            ticketOrden.Encabezado("CLIENTE: " & dtOrden(0)("cliente"))
+            ticketOrden.Encabezado("TELEFONO CLIENTE: " & dtOrden(0)("telefono"))
+            ticketOrden.Encabezado("EQUIPO: " & dtOrden(0)("equipo"))
+            ticketOrden.Encabezado("MODELO: " & dtOrden(0)("modelo"))
+            ticketOrden.Encabezado("MARCA: " & dtOrden(0)("marca"))
+            ticketOrden.Encabezado("COLOR: " & dtOrden(0)("color"))
+            If dtOrden(0)("chip").ToString = "No" Then
+                ticketOrden.Encabezado("CHIP: NO")
+            Else
+                ticketOrden.Encabezado("CHIP: SI")
+            End If
+            If dtOrden(0)("memoria").ToString = "No" Then
+                ticketOrden.Encabezado("MEMORIA: NO")
+            Else
+                ticketOrden.Encabezado("MEMORIA: SI")
+            End If
+            If dtOrden(0)("pila").ToString = "No" Then
+                ticketOrden.Encabezado("PILA: NO")
+            Else
+                ticketOrden.Encabezado("PILA: SI")
+            End If
+            If dtOrden(0)("cargador").ToString = "No" Then
+                ticketOrden.Encabezado("CARGADOR: NO")
+            Else
+                ticketOrden.Encabezado("CARGADOR: SI")
+            End If
+            ticketOrden.Encabezado("FALLA: " & dtOrden(0)("falla"))
+            ticketOrden.Encabezado("IMEI: " & dtOrden(0)("imei"))
+            ticketOrden.Encabezado("OBSERVACIONES: " & dtOrden(0)("observaciones"))
+            ticketOrden.Encabezado("FUNCIONES REVISADAS")
+            If dtOrden(0)("microfono").ToString = "No" Then
+                ticketOrden.Encabezado("MICROFONO: NO")
+            Else
+                ticketOrden.Encabezado("MICROFONO: SI")
+            End If
+            If dtOrden(0)("altavoz").ToString = "No" Then
+                ticketOrden.Encabezado("ALTAVOZ: NO")
+            Else
+                ticketOrden.Encabezado("ALTAVOZ: SI")
+            End If
+            If dtOrden(0)("cc").ToString = "No" Then
+                ticketOrden.Encabezado("C.C: NO")
+            Else
+                ticketOrden.Encabezado("C.C: SI")
+            End If
+            If dtOrden(0)("camaras").ToString = "No" Then
+                ticketOrden.Encabezado("CAMARAS: NO")
+            Else
+                ticketOrden.Encabezado("CAMARAS: SI")
+            End If
+            If dtOrden(0)("wifi").ToString = "No" Then
+                ticketOrden.Encabezado("WI-FI: NO")
+            Else
+                ticketOrden.Encabezado("WI-FI: SI")
+            End If
+            If dtOrden(0)("señal").ToString = "No" Then
+                ticketOrden.Encabezado("SEÑAL: NO")
+            Else
+                ticketOrden.Encabezado("SEÑAL: SI")
+            End If
+            If dtOrden(0)("buzzer").ToString = "No" Then
+                ticketOrden.Encabezado("BUZZER: NO")
+            Else
+                ticketOrden.Encabezado("BUZZER: SI")
+            End If
+            If dtOrden(0)("sensor").ToString = "No" Then
+                ticketOrden.Encabezado("SENSOR: NO")
+            Else
+                ticketOrden.Encabezado("SENSOR: SI")
+            End If
+            ticketOrden.Encabezado("GARANTIA: " & dtOrden(0)("garantia"))
+            ticketOrden.Encabezado("FECHA ENTREGA: " & dtOrden(0)("fechaentrega"))
+            ticketOrden.Articulo("", "1", "ORDEN", dtOrden(0)("costoestimado").ToString, dtOrden(0)("costoestimado").ToString)
+            ticketOrden.Total(dtOrden(0)("costoestimado"))
+            ticketOrden.Pago("ANTICIPO", dtOrden(0)("anticipo").ToString)
+            ticketOrden.Pie("1.- El cliente se hace responsable de la procedencia del equipo.")
+            ticketOrden.Pie("2.- Toda resvisión genera honorarios minimos de $30 pesos.")
+            ticketOrden.Pie("3.- Después de 30 días no nos hacemos responsables por ningún equipo.")
+            ticketOrden.Pie("4.- No nos hacemos responsables por equipos que vengan apagados que puedan presentar fallas aleatorias.")
+            ticketOrden.Pie("5.- No respondemos por ningún equipo después de 60 días (Basados en el artículo de la cámara de comercio, pudiendo disponer del equipo para los intereses que más le convengan al propietario del taller).")
+            ticketOrden.Pie("6.- Todo equipo ya reparado que no sea retirado después de 10 días de comunicado su reparación se le sumara una multa de $80 pesos a la semana a la cantidad total que se estableció, por gastos de almacenamiento, hasta llegar a 60 días.")
+            ticketOrden.Pie("7.- No nos hacemos responsables por memorias o chips olvidados en el taller.")
+            ticketOrden.Pie("8.- Algunos equipos son reparados en otra de nuestras sucursales por motivos de espacio y seguridad.")
+            ticketOrden.Pie("9.- No respondemos por equipo mojados que al ser intervenidos empeoren su estado o se apaguen (Todo equipo mojado tiene secuelas).")
+            ticketOrden.Pie("GARANTIA: *El plazo de garantía es de 15 días (empieza a contar el día que se da aviso que el equipo está listo). 
+            *El trámite de garantía es de 1 a 3 días hábiles. 
+            *La garantía cubre únicamente defectos de fabrica de la pieza reparada o remplazada. 
+            *En equipos golpeados y mojados no hay garantía. 
+            *Secuelas de golpes y humedad no entran como garantía. 
+            *La garantía se vuelve NULA si se pierde la póliza de garantía, el equipo es abierto por personas ajenas al taller tesla, sello de garantía alterado o roto, equipos golpeados o mojados. 
+            *En caso de ser un cristal la pieza remplazada, esta no debe estar rallada ni estrellada.")
+            ticketOrden.Pie("DESPUES DE 30 DIAS NO NOS HACEMOS RESPONSABLES DE NINGUN APARATO")
+            ticketOrden.Pie("________________________________________________________________________________________________________________________________")
+            ticketOrden.Pie("Al firmar acepta nuestros terminos y condiciones.")
+            ticketOrden.Imprimir()
+            ticketOrden.Imprimir()
         Catch ex As Exception
 
         End Try
