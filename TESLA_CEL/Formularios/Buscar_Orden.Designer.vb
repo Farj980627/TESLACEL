@@ -76,10 +76,16 @@ Partial Class Buscar_Orden
         Me.Label2 = New System.Windows.Forms.Label()
         Me.txtNum = New System.Windows.Forms.TextBox()
         Me.Label28 = New System.Windows.Forms.Label()
-        Me.btnBuscarFechas = New System.Windows.Forms.Button()
-        Me.bntSalir = New System.Windows.Forms.PictureBox()
         Me.txtObservaciones = New System.Windows.Forms.TextBox()
         Me.Label29 = New System.Windows.Forms.Label()
+        Me.Label14 = New System.Windows.Forms.Label()
+        Me.txtCelular = New System.Windows.Forms.TextBox()
+        Me.PictureBox2 = New System.Windows.Forms.PictureBox()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.bntSalir = New System.Windows.Forms.PictureBox()
+        Me.btnBuscarFechas = New System.Windows.Forms.Button()
+        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.bntSalir, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -404,7 +410,7 @@ Partial Class Buscar_Orden
         Me.txtIMEI.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.txtIMEI.Font = New System.Drawing.Font("Berlin Sans FB", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtIMEI.ForeColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(77, Byte), Integer), CType(CType(111, Byte), Integer))
-        Me.txtIMEI.Location = New System.Drawing.Point(132, 298)
+        Me.txtIMEI.Location = New System.Drawing.Point(122, 308)
         Me.txtIMEI.Name = "txtIMEI"
         Me.txtIMEI.ReadOnly = True
         Me.txtIMEI.Size = New System.Drawing.Size(896, 30)
@@ -416,7 +422,7 @@ Partial Class Buscar_Orden
         Me.Label13.AutoSize = True
         Me.Label13.Font = New System.Drawing.Font("Berlin Sans FB", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label13.ForeColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(247, Byte), Integer), CType(CType(249, Byte), Integer))
-        Me.Label13.Location = New System.Drawing.Point(56, 297)
+        Me.Label13.Location = New System.Drawing.Point(46, 307)
         Me.Label13.Name = "Label13"
         Me.Label13.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.Label13.Size = New System.Drawing.Size(72, 31)
@@ -430,7 +436,7 @@ Partial Class Buscar_Orden
         Me.txtFalla.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.txtFalla.Font = New System.Drawing.Font("Berlin Sans FB", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtFalla.ForeColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(77, Byte), Integer), CType(CType(111, Byte), Integer))
-        Me.txtFalla.Location = New System.Drawing.Point(132, 260)
+        Me.txtFalla.Location = New System.Drawing.Point(122, 270)
         Me.txtFalla.Multiline = True
         Me.txtFalla.Name = "txtFalla"
         Me.txtFalla.ReadOnly = True
@@ -443,7 +449,7 @@ Partial Class Buscar_Orden
         Me.Label12.AutoSize = True
         Me.Label12.Font = New System.Drawing.Font("Berlin Sans FB", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label12.ForeColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(247, Byte), Integer), CType(CType(249, Byte), Integer))
-        Me.Label12.Location = New System.Drawing.Point(29, 260)
+        Me.Label12.Location = New System.Drawing.Point(19, 270)
         Me.Label12.Name = "Label12"
         Me.Label12.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.Label12.Size = New System.Drawing.Size(99, 31)
@@ -459,7 +465,7 @@ Partial Class Buscar_Orden
         Me.cbCargador.ForeColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(77, Byte), Integer), CType(CType(111, Byte), Integer))
         Me.cbCargador.FormattingEnabled = True
         Me.cbCargador.Items.AddRange(New Object() {"No", "Si"})
-        Me.cbCargador.Location = New System.Drawing.Point(961, 213)
+        Me.cbCargador.Location = New System.Drawing.Point(951, 223)
         Me.cbCargador.Name = "cbCargador"
         Me.cbCargador.Size = New System.Drawing.Size(67, 38)
         Me.cbCargador.TabIndex = 124
@@ -469,7 +475,7 @@ Partial Class Buscar_Orden
         Me.Label11.AutoSize = True
         Me.Label11.Font = New System.Drawing.Font("Berlin Sans FB", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label11.ForeColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(247, Byte), Integer), CType(CType(249, Byte), Integer))
-        Me.Label11.Location = New System.Drawing.Point(817, 216)
+        Me.Label11.Location = New System.Drawing.Point(807, 226)
         Me.Label11.Name = "Label11"
         Me.Label11.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.Label11.Size = New System.Drawing.Size(140, 26)
@@ -485,7 +491,7 @@ Partial Class Buscar_Orden
         Me.cbPila.ForeColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(77, Byte), Integer), CType(CType(111, Byte), Integer))
         Me.cbPila.FormattingEnabled = True
         Me.cbPila.Items.AddRange(New Object() {"No", "Si"})
-        Me.cbPila.Location = New System.Drawing.Point(733, 213)
+        Me.cbPila.Location = New System.Drawing.Point(723, 223)
         Me.cbPila.Name = "cbPila"
         Me.cbPila.Size = New System.Drawing.Size(73, 38)
         Me.cbPila.TabIndex = 122
@@ -495,7 +501,7 @@ Partial Class Buscar_Orden
         Me.Label10.AutoSize = True
         Me.Label10.Font = New System.Drawing.Font("Berlin Sans FB", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label10.ForeColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(247, Byte), Integer), CType(CType(249, Byte), Integer))
-        Me.Label10.Location = New System.Drawing.Point(665, 216)
+        Me.Label10.Location = New System.Drawing.Point(655, 226)
         Me.Label10.Name = "Label10"
         Me.Label10.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.Label10.Size = New System.Drawing.Size(65, 26)
@@ -511,7 +517,7 @@ Partial Class Buscar_Orden
         Me.cbMemoria.ForeColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(77, Byte), Integer), CType(CType(111, Byte), Integer))
         Me.cbMemoria.FormattingEnabled = True
         Me.cbMemoria.Items.AddRange(New Object() {"No", "Si"})
-        Me.cbMemoria.Location = New System.Drawing.Point(588, 213)
+        Me.cbMemoria.Location = New System.Drawing.Point(578, 223)
         Me.cbMemoria.Name = "cbMemoria"
         Me.cbMemoria.Size = New System.Drawing.Size(70, 38)
         Me.cbMemoria.TabIndex = 120
@@ -521,7 +527,7 @@ Partial Class Buscar_Orden
         Me.Label9.AutoSize = True
         Me.Label9.Font = New System.Drawing.Font("Berlin Sans FB", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label9.ForeColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(247, Byte), Integer), CType(CType(249, Byte), Integer))
-        Me.Label9.Location = New System.Drawing.Point(465, 216)
+        Me.Label9.Location = New System.Drawing.Point(455, 226)
         Me.Label9.Name = "Label9"
         Me.Label9.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.Label9.Size = New System.Drawing.Size(120, 26)
@@ -537,7 +543,7 @@ Partial Class Buscar_Orden
         Me.cbChip.ForeColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(77, Byte), Integer), CType(CType(111, Byte), Integer))
         Me.cbChip.FormattingEnabled = True
         Me.cbChip.Items.AddRange(New Object() {"No", "Si"})
-        Me.cbChip.Location = New System.Drawing.Point(381, 213)
+        Me.cbChip.Location = New System.Drawing.Point(371, 223)
         Me.cbChip.Name = "cbChip"
         Me.cbChip.Size = New System.Drawing.Size(78, 38)
         Me.cbChip.TabIndex = 118
@@ -547,7 +553,7 @@ Partial Class Buscar_Orden
         Me.Label8.AutoSize = True
         Me.Label8.Font = New System.Drawing.Font("Berlin Sans FB", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label8.ForeColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(247, Byte), Integer), CType(CType(249, Byte), Integer))
-        Me.Label8.Location = New System.Drawing.Point(311, 216)
+        Me.Label8.Location = New System.Drawing.Point(301, 226)
         Me.Label8.Name = "Label8"
         Me.Label8.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.Label8.Size = New System.Drawing.Size(68, 26)
@@ -563,7 +569,7 @@ Partial Class Buscar_Orden
         Me.cbEstado.ForeColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(77, Byte), Integer), CType(CType(111, Byte), Integer))
         Me.cbEstado.FormattingEnabled = True
         Me.cbEstado.Items.AddRange(New Object() {"Apagado", "Encendido"})
-        Me.cbEstado.Location = New System.Drawing.Point(145, 213)
+        Me.cbEstado.Location = New System.Drawing.Point(135, 223)
         Me.cbEstado.Name = "cbEstado"
         Me.cbEstado.Size = New System.Drawing.Size(155, 38)
         Me.cbEstado.TabIndex = 116
@@ -573,7 +579,7 @@ Partial Class Buscar_Orden
         Me.Label7.AutoSize = True
         Me.Label7.Font = New System.Drawing.Font("Berlin Sans FB", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label7.ForeColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(247, Byte), Integer), CType(CType(249, Byte), Integer))
-        Me.Label7.Location = New System.Drawing.Point(29, 216)
+        Me.Label7.Location = New System.Drawing.Point(19, 226)
         Me.Label7.Name = "Label7"
         Me.Label7.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.Label7.Size = New System.Drawing.Size(102, 26)
@@ -587,7 +593,7 @@ Partial Class Buscar_Orden
         Me.txtColor.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.txtColor.Font = New System.Drawing.Font("Berlin Sans FB", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtColor.ForeColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(77, Byte), Integer), CType(CType(111, Byte), Integer))
-        Me.txtColor.Location = New System.Drawing.Point(691, 176)
+        Me.txtColor.Location = New System.Drawing.Point(681, 186)
         Me.txtColor.Name = "txtColor"
         Me.txtColor.ReadOnly = True
         Me.txtColor.Size = New System.Drawing.Size(337, 30)
@@ -599,7 +605,7 @@ Partial Class Buscar_Orden
         Me.Label6.AutoSize = True
         Me.Label6.Font = New System.Drawing.Font("Berlin Sans FB", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label6.ForeColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(247, Byte), Integer), CType(CType(249, Byte), Integer))
-        Me.Label6.Location = New System.Drawing.Point(580, 176)
+        Me.Label6.Location = New System.Drawing.Point(570, 186)
         Me.Label6.Name = "Label6"
         Me.Label6.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.Label6.Size = New System.Drawing.Size(115, 31)
@@ -613,7 +619,7 @@ Partial Class Buscar_Orden
         Me.txtModelo.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.txtModelo.Font = New System.Drawing.Font("Berlin Sans FB", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtModelo.ForeColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(77, Byte), Integer), CType(CType(111, Byte), Integer))
-        Me.txtModelo.Location = New System.Drawing.Point(178, 176)
+        Me.txtModelo.Location = New System.Drawing.Point(168, 186)
         Me.txtModelo.Name = "txtModelo"
         Me.txtModelo.ReadOnly = True
         Me.txtModelo.Size = New System.Drawing.Size(337, 30)
@@ -625,7 +631,7 @@ Partial Class Buscar_Orden
         Me.Label5.AutoSize = True
         Me.Label5.Font = New System.Drawing.Font("Berlin Sans FB", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label5.ForeColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(247, Byte), Integer), CType(CType(249, Byte), Integer))
-        Me.Label5.Location = New System.Drawing.Point(46, 173)
+        Me.Label5.Location = New System.Drawing.Point(36, 183)
         Me.Label5.Name = "Label5"
         Me.Label5.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.Label5.Size = New System.Drawing.Size(138, 31)
@@ -639,7 +645,7 @@ Partial Class Buscar_Orden
         Me.txtMarca.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.txtMarca.Font = New System.Drawing.Font("Berlin Sans FB", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtMarca.ForeColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(77, Byte), Integer), CType(CType(111, Byte), Integer))
-        Me.txtMarca.Location = New System.Drawing.Point(691, 140)
+        Me.txtMarca.Location = New System.Drawing.Point(681, 150)
         Me.txtMarca.Name = "txtMarca"
         Me.txtMarca.ReadOnly = True
         Me.txtMarca.Size = New System.Drawing.Size(337, 30)
@@ -651,7 +657,7 @@ Partial Class Buscar_Orden
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Berlin Sans FB", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label4.ForeColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(247, Byte), Integer), CType(CType(249, Byte), Integer))
-        Me.Label4.Location = New System.Drawing.Point(575, 140)
+        Me.Label4.Location = New System.Drawing.Point(565, 150)
         Me.Label4.Name = "Label4"
         Me.Label4.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.Label4.Size = New System.Drawing.Size(120, 31)
@@ -665,7 +671,7 @@ Partial Class Buscar_Orden
         Me.txtEquipo.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.txtEquipo.Font = New System.Drawing.Font("Berlin Sans FB", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtEquipo.ForeColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(77, Byte), Integer), CType(CType(111, Byte), Integer))
-        Me.txtEquipo.Location = New System.Drawing.Point(178, 140)
+        Me.txtEquipo.Location = New System.Drawing.Point(168, 150)
         Me.txtEquipo.Name = "txtEquipo"
         Me.txtEquipo.ReadOnly = True
         Me.txtEquipo.Size = New System.Drawing.Size(337, 30)
@@ -677,7 +683,7 @@ Partial Class Buscar_Orden
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Berlin Sans FB", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.ForeColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(247, Byte), Integer), CType(CType(249, Byte), Integer))
-        Me.Label3.Location = New System.Drawing.Point(60, 140)
+        Me.Label3.Location = New System.Drawing.Point(50, 150)
         Me.Label3.Name = "Label3"
         Me.Label3.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.Label3.Size = New System.Drawing.Size(124, 31)
@@ -691,7 +697,7 @@ Partial Class Buscar_Orden
         Me.txtTelefono.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.txtTelefono.Font = New System.Drawing.Font("Berlin Sans FB", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtTelefono.ForeColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(77, Byte), Integer), CType(CType(111, Byte), Integer))
-        Me.txtTelefono.Location = New System.Drawing.Point(192, 101)
+        Me.txtTelefono.Location = New System.Drawing.Point(182, 111)
         Me.txtTelefono.Name = "txtTelefono"
         Me.txtTelefono.ReadOnly = True
         Me.txtTelefono.Size = New System.Drawing.Size(836, 30)
@@ -703,7 +709,7 @@ Partial Class Buscar_Orden
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Berlin Sans FB", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(247, Byte), Integer), CType(CType(249, Byte), Integer))
-        Me.Label1.Location = New System.Drawing.Point(38, 101)
+        Me.Label1.Location = New System.Drawing.Point(28, 111)
         Me.Label1.Name = "Label1"
         Me.Label1.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.Label1.Size = New System.Drawing.Size(160, 31)
@@ -717,7 +723,7 @@ Partial Class Buscar_Orden
         Me.txtCliente.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.txtCliente.Font = New System.Drawing.Font("Berlin Sans FB", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtCliente.ForeColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(77, Byte), Integer), CType(CType(111, Byte), Integer))
-        Me.txtCliente.Location = New System.Drawing.Point(165, 65)
+        Me.txtCliente.Location = New System.Drawing.Point(155, 75)
         Me.txtCliente.Name = "txtCliente"
         Me.txtCliente.ReadOnly = True
         Me.txtCliente.Size = New System.Drawing.Size(863, 30)
@@ -729,7 +735,7 @@ Partial Class Buscar_Orden
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Berlin Sans FB", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(247, Byte), Integer), CType(CType(249, Byte), Integer))
-        Me.Label2.Location = New System.Drawing.Point(41, 65)
+        Me.Label2.Location = New System.Drawing.Point(31, 75)
         Me.Label2.Name = "Label2"
         Me.Label2.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.Label2.Size = New System.Drawing.Size(129, 31)
@@ -762,38 +768,13 @@ Partial Class Buscar_Orden
         Me.Label28.Text = "NUMERO DE ORDEN:"
         Me.Label28.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
-        'btnBuscarFechas
-        '
-        Me.btnBuscarFechas.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnBuscarFechas.BackColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(247, Byte), Integer), CType(CType(249, Byte), Integer))
-        Me.btnBuscarFechas.Font = New System.Drawing.Font("Berlin Sans FB", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnBuscarFechas.ForeColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(77, Byte), Integer), CType(CType(111, Byte), Integer))
-        Me.btnBuscarFechas.Image = Global.TESLA_CEL.My.Resources.Resources.buscar_color
-        Me.btnBuscarFechas.Location = New System.Drawing.Point(812, 3)
-        Me.btnBuscarFechas.Name = "btnBuscarFechas"
-        Me.btnBuscarFechas.Size = New System.Drawing.Size(173, 57)
-        Me.btnBuscarFechas.TabIndex = 159
-        Me.btnBuscarFechas.Text = "Buscar "
-        Me.btnBuscarFechas.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
-        Me.btnBuscarFechas.UseVisualStyleBackColor = False
-        '
-        'bntSalir
-        '
-        Me.bntSalir.Image = Global.TESLA_CEL.My.Resources.Resources.salir_color
-        Me.bntSalir.Location = New System.Drawing.Point(1021, 3)
-        Me.bntSalir.Name = "bntSalir"
-        Me.bntSalir.Size = New System.Drawing.Size(46, 43)
-        Me.bntSalir.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.bntSalir.TabIndex = 160
-        Me.bntSalir.TabStop = False
-        '
         'txtObservaciones
         '
         Me.txtObservaciones.BackColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(247, Byte), Integer), CType(CType(249, Byte), Integer))
         Me.txtObservaciones.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.txtObservaciones.Font = New System.Drawing.Font("Berlin Sans FB", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtObservaciones.ForeColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(77, Byte), Integer), CType(CType(111, Byte), Integer))
-        Me.txtObservaciones.Location = New System.Drawing.Point(263, 334)
+        Me.txtObservaciones.Location = New System.Drawing.Point(253, 344)
         Me.txtObservaciones.Multiline = True
         Me.txtObservaciones.Name = "txtObservaciones"
         Me.txtObservaciones.ReadOnly = True
@@ -806,7 +787,7 @@ Partial Class Buscar_Orden
         Me.Label29.AutoSize = True
         Me.Label29.Font = New System.Drawing.Font("Berlin Sans FB", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label29.ForeColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(247, Byte), Integer), CType(CType(249, Byte), Integer))
-        Me.Label29.Location = New System.Drawing.Point(28, 343)
+        Me.Label29.Location = New System.Drawing.Point(18, 353)
         Me.Label29.Name = "Label29"
         Me.Label29.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.Label29.Size = New System.Drawing.Size(229, 31)
@@ -814,12 +795,88 @@ Partial Class Buscar_Orden
         Me.Label29.Text = "OBSERVACIONES:"
         Me.Label29.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
+        'Label14
+        '
+        Me.Label14.AutoSize = True
+        Me.Label14.Font = New System.Drawing.Font("Berlin Sans FB", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label14.ForeColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(247, Byte), Integer), CType(CType(249, Byte), Integer))
+        Me.Label14.Location = New System.Drawing.Point(30, 3)
+        Me.Label14.Name = "Label14"
+        Me.Label14.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me.Label14.Size = New System.Drawing.Size(96, 23)
+        Me.Label14.TabIndex = 164
+        Me.Label14.Text = "CELULAR:"
+        Me.Label14.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'txtCelular
+        '
+        Me.txtCelular.BackColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(247, Byte), Integer), CType(CType(249, Byte), Integer))
+        Me.txtCelular.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.txtCelular.Font = New System.Drawing.Font("Berlin Sans FB", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtCelular.ForeColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(77, Byte), Integer), CType(CType(111, Byte), Integer))
+        Me.txtCelular.Location = New System.Drawing.Point(132, 3)
+        Me.txtCelular.Name = "txtCelular"
+        Me.txtCelular.Size = New System.Drawing.Size(207, 30)
+        Me.txtCelular.TabIndex = 163
+        Me.txtCelular.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        '
+        'PictureBox2
+        '
+        Me.PictureBox2.Image = Global.TESLA_CEL.My.Resources.Resources.adelante
+        Me.PictureBox2.Location = New System.Drawing.Point(307, 39)
+        Me.PictureBox2.Name = "PictureBox2"
+        Me.PictureBox2.Size = New System.Drawing.Size(32, 30)
+        Me.PictureBox2.TabIndex = 166
+        Me.PictureBox2.TabStop = False
+        Me.PictureBox2.Visible = False
+        '
+        'PictureBox1
+        '
+        Me.PictureBox1.Image = Global.TESLA_CEL.My.Resources.Resources.atras
+        Me.PictureBox1.Location = New System.Drawing.Point(132, 39)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(28, 30)
+        Me.PictureBox1.TabIndex = 165
+        Me.PictureBox1.TabStop = False
+        Me.PictureBox1.Visible = False
+        '
+        'bntSalir
+        '
+        Me.bntSalir.Image = Global.TESLA_CEL.My.Resources.Resources.salir_color
+        Me.bntSalir.Location = New System.Drawing.Point(1021, 3)
+        Me.bntSalir.Name = "bntSalir"
+        Me.bntSalir.Size = New System.Drawing.Size(46, 43)
+        Me.bntSalir.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.bntSalir.TabIndex = 160
+        Me.bntSalir.TabStop = False
+        '
+        'btnBuscarFechas
+        '
+        Me.btnBuscarFechas.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnBuscarFechas.BackColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(247, Byte), Integer), CType(CType(249, Byte), Integer))
+        Me.btnBuscarFechas.Font = New System.Drawing.Font("Berlin Sans FB", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnBuscarFechas.ForeColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(77, Byte), Integer), CType(CType(111, Byte), Integer))
+        Me.btnBuscarFechas.Image = Global.TESLA_CEL.My.Resources.Resources.buscar_color
+        Me.btnBuscarFechas.Location = New System.Drawing.Point(812, 3)
+        Me.btnBuscarFechas.Name = "btnBuscarFechas"
+        Me.btnBuscarFechas.Size = New System.Drawing.Size(173, 57)
+        Me.btnBuscarFechas.TabIndex = 159
+        Me.btnBuscarFechas.Text = "Buscar "
+        Me.btnBuscarFechas.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.btnBuscarFechas.UseVisualStyleBackColor = False
+        '
         'Buscar_Orden
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(44, Byte), Integer), CType(CType(77, Byte), Integer), CType(CType(111, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(1069, 609)
+        Me.Controls.Add(Me.PictureBox2)
+        Me.Controls.Add(Me.PictureBox1)
+        Me.Controls.Add(Me.Label14)
+        Me.Controls.Add(Me.txtCelular)
         Me.Controls.Add(Me.txtObservaciones)
         Me.Controls.Add(Me.Label29)
         Me.Controls.Add(Me.bntSalir)
@@ -878,9 +935,10 @@ Partial Class Buscar_Orden
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.txtCliente)
         Me.Controls.Add(Me.Label2)
-        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "Buscar_Orden"
         Me.Text = "Buscar_Orden"
+        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.bntSalir, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
@@ -945,4 +1003,8 @@ Partial Class Buscar_Orden
     Friend WithEvents bntSalir As PictureBox
     Friend WithEvents txtObservaciones As TextBox
     Friend WithEvents Label29 As Label
+    Friend WithEvents Label14 As Label
+    Friend WithEvents txtCelular As TextBox
+    Friend WithEvents PictureBox1 As PictureBox
+    Friend WithEvents PictureBox2 As PictureBox
 End Class

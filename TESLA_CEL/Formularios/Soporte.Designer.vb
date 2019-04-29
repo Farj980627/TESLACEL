@@ -717,7 +717,7 @@ Partial Class Soporte
         Me.Label28.AutoSize = True
         Me.Label28.Font = New System.Drawing.Font("Berlin Sans FB", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label28.ForeColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(247, Byte), Integer), CType(CType(249, Byte), Integer))
-        Me.Label28.Location = New System.Drawing.Point(371, 564)
+        Me.Label28.Location = New System.Drawing.Point(312, 564)
         Me.Label28.Name = "Label28"
         Me.Label28.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.Label28.Size = New System.Drawing.Size(268, 31)
@@ -730,7 +730,7 @@ Partial Class Soporte
         Me.txtCodigo.AutoSize = True
         Me.txtCodigo.Font = New System.Drawing.Font("Berlin Sans FB", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtCodigo.ForeColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(247, Byte), Integer), CType(CType(249, Byte), Integer))
-        Me.txtCodigo.Location = New System.Drawing.Point(657, 564)
+        Me.txtCodigo.Location = New System.Drawing.Point(580, 561)
         Me.txtCodigo.Name = "txtCodigo"
         Me.txtCodigo.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.txtCodigo.Size = New System.Drawing.Size(101, 31)

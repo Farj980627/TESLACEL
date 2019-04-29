@@ -25,14 +25,16 @@ Partial Class Eliminar_Prod
         Me.Label1 = New System.Windows.Forms.Label()
         Me.cbCategoria = New System.Windows.Forms.ComboBox()
         Me.cbProducto = New System.Windows.Forms.ComboBox()
-        Me.btnEliminar = New System.Windows.Forms.Button()
-        Me.bntSalir = New System.Windows.Forms.PictureBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
-        Me.cbModelo = New System.Windows.Forms.ComboBox()
         Me.Label5 = New System.Windows.Forms.Label()
-        Me.cbColor = New System.Windows.Forms.ComboBox()
+        Me.bntSalir = New System.Windows.Forms.PictureBox()
+        Me.btnEliminar = New System.Windows.Forms.Button()
+        Me.txtModelo = New System.Windows.Forms.TextBox()
+        Me.txtColor = New System.Windows.Forms.TextBox()
+        Me.txtID = New System.Windows.Forms.TextBox()
+        Me.Label13 = New System.Windows.Forms.Label()
         CType(Me.bntSalir, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -70,30 +72,6 @@ Partial Class Eliminar_Prod
         Me.cbProducto.Name = "cbProducto"
         Me.cbProducto.Size = New System.Drawing.Size(286, 38)
         Me.cbProducto.TabIndex = 15
-        '
-        'btnEliminar
-        '
-        Me.btnEliminar.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(77, Byte), Integer), CType(CType(111, Byte), Integer))
-        Me.btnEliminar.Font = New System.Drawing.Font("Berlin Sans FB", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnEliminar.ForeColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(247, Byte), Integer), CType(CType(249, Byte), Integer))
-        Me.btnEliminar.Image = Global.TESLA_CEL.My.Resources.Resources.eliminar_color
-        Me.btnEliminar.Location = New System.Drawing.Point(671, 469)
-        Me.btnEliminar.Name = "btnEliminar"
-        Me.btnEliminar.Size = New System.Drawing.Size(229, 58)
-        Me.btnEliminar.TabIndex = 16
-        Me.btnEliminar.Text = "ELIMINAR"
-        Me.btnEliminar.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage
-        Me.btnEliminar.UseVisualStyleBackColor = False
-        '
-        'bntSalir
-        '
-        Me.bntSalir.Image = Global.TESLA_CEL.My.Resources.Resources.salir_color
-        Me.bntSalir.Location = New System.Drawing.Point(1021, 3)
-        Me.bntSalir.Name = "bntSalir"
-        Me.bntSalir.Size = New System.Drawing.Size(46, 43)
-        Me.bntSalir.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.bntSalir.TabIndex = 17
-        Me.bntSalir.TabStop = False
         '
         'Label2
         '
@@ -134,17 +112,6 @@ Partial Class Eliminar_Prod
         Me.Label4.Text = "MODELO"
         Me.Label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
-        'cbModelo
-        '
-        Me.cbModelo.BackColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(247, Byte), Integer), CType(CType(249, Byte), Integer))
-        Me.cbModelo.Font = New System.Drawing.Font("Berlin Sans FB", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cbModelo.ForeColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(77, Byte), Integer), CType(CType(111, Byte), Integer))
-        Me.cbModelo.FormattingEnabled = True
-        Me.cbModelo.Location = New System.Drawing.Point(190, 360)
-        Me.cbModelo.Name = "cbModelo"
-        Me.cbModelo.Size = New System.Drawing.Size(286, 38)
-        Me.cbModelo.TabIndex = 20
-        '
         'Label5
         '
         Me.Label5.AutoSize = True
@@ -158,16 +125,79 @@ Partial Class Eliminar_Prod
         Me.Label5.Text = "COLOR"
         Me.Label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
-        'cbColor
+        'bntSalir
         '
-        Me.cbColor.BackColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(247, Byte), Integer), CType(CType(249, Byte), Integer))
-        Me.cbColor.Font = New System.Drawing.Font("Berlin Sans FB", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cbColor.ForeColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(77, Byte), Integer), CType(CType(111, Byte), Integer))
-        Me.cbColor.FormattingEnabled = True
-        Me.cbColor.Location = New System.Drawing.Point(190, 447)
-        Me.cbColor.Name = "cbColor"
-        Me.cbColor.Size = New System.Drawing.Size(286, 38)
-        Me.cbColor.TabIndex = 22
+        Me.bntSalir.Image = Global.TESLA_CEL.My.Resources.Resources.salir_color
+        Me.bntSalir.Location = New System.Drawing.Point(1021, 3)
+        Me.bntSalir.Name = "bntSalir"
+        Me.bntSalir.Size = New System.Drawing.Size(46, 43)
+        Me.bntSalir.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.bntSalir.TabIndex = 17
+        Me.bntSalir.TabStop = False
+        '
+        'btnEliminar
+        '
+        Me.btnEliminar.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(77, Byte), Integer), CType(CType(111, Byte), Integer))
+        Me.btnEliminar.Font = New System.Drawing.Font("Berlin Sans FB", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnEliminar.ForeColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(247, Byte), Integer), CType(CType(249, Byte), Integer))
+        Me.btnEliminar.Image = Global.TESLA_CEL.My.Resources.Resources.eliminar_color
+        Me.btnEliminar.Location = New System.Drawing.Point(671, 469)
+        Me.btnEliminar.Name = "btnEliminar"
+        Me.btnEliminar.Size = New System.Drawing.Size(229, 58)
+        Me.btnEliminar.TabIndex = 16
+        Me.btnEliminar.Text = "ELIMINAR"
+        Me.btnEliminar.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage
+        Me.btnEliminar.UseVisualStyleBackColor = False
+        '
+        'txtModelo
+        '
+        Me.txtModelo.BackColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(247, Byte), Integer), CType(CType(249, Byte), Integer))
+        Me.txtModelo.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.txtModelo.Font = New System.Drawing.Font("Berlin Sans FB", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtModelo.ForeColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(77, Byte), Integer), CType(CType(111, Byte), Integer))
+        Me.txtModelo.Location = New System.Drawing.Point(190, 360)
+        Me.txtModelo.Name = "txtModelo"
+        Me.txtModelo.Size = New System.Drawing.Size(286, 30)
+        Me.txtModelo.TabIndex = 42
+        Me.txtModelo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        '
+        'txtColor
+        '
+        Me.txtColor.BackColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(247, Byte), Integer), CType(CType(249, Byte), Integer))
+        Me.txtColor.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.txtColor.Font = New System.Drawing.Font("Berlin Sans FB", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtColor.ForeColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(77, Byte), Integer), CType(CType(111, Byte), Integer))
+        Me.txtColor.Location = New System.Drawing.Point(190, 447)
+        Me.txtColor.Name = "txtColor"
+        Me.txtColor.Size = New System.Drawing.Size(286, 30)
+        Me.txtColor.TabIndex = 43
+        Me.txtColor.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        '
+        'txtID
+        '
+        Me.txtID.BackColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(247, Byte), Integer), CType(CType(249, Byte), Integer))
+        Me.txtID.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.txtID.Font = New System.Drawing.Font("Berlin Sans FB", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtID.ForeColor = System.Drawing.Color.FromArgb(CType(CType(44, Byte), Integer), CType(CType(77, Byte), Integer), CType(CType(111, Byte), Integer))
+        Me.txtID.Location = New System.Drawing.Point(743, 192)
+        Me.txtID.Name = "txtID"
+        Me.txtID.Size = New System.Drawing.Size(157, 30)
+        Me.txtID.TabIndex = 55
+        Me.txtID.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        '
+        'Label13
+        '
+        Me.Label13.AutoSize = True
+        Me.Label13.BackColor = System.Drawing.Color.FromArgb(CType(CType(44, Byte), Integer), CType(CType(77, Byte), Integer), CType(CType(111, Byte), Integer))
+        Me.Label13.Font = New System.Drawing.Font("Berlin Sans FB", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label13.ForeColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(247, Byte), Integer), CType(CType(249, Byte), Integer))
+        Me.Label13.Location = New System.Drawing.Point(700, 150)
+        Me.Label13.Name = "Label13"
+        Me.Label13.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me.Label13.Size = New System.Drawing.Size(229, 31)
+        Me.Label13.TabIndex = 54
+        Me.Label13.Text = "ELIMINAR POR ID"
+        Me.Label13.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'Eliminar_Prod
         '
@@ -175,10 +205,12 @@ Partial Class Eliminar_Prod
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(77, Byte), Integer), CType(CType(111, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(1069, 609)
+        Me.Controls.Add(Me.txtID)
+        Me.Controls.Add(Me.Label13)
+        Me.Controls.Add(Me.txtColor)
+        Me.Controls.Add(Me.txtModelo)
         Me.Controls.Add(Me.Label5)
-        Me.Controls.Add(Me.cbColor)
         Me.Controls.Add(Me.Label4)
-        Me.Controls.Add(Me.cbModelo)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.bntSalir)
@@ -186,7 +218,6 @@ Partial Class Eliminar_Prod
         Me.Controls.Add(Me.cbProducto)
         Me.Controls.Add(Me.cbCategoria)
         Me.Controls.Add(Me.Label1)
-        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "Eliminar_Prod"
         Me.Text = "Eliminar_Prod"
         CType(Me.bntSalir, System.ComponentModel.ISupportInitialize).EndInit()
@@ -203,7 +234,9 @@ Partial Class Eliminar_Prod
     Friend WithEvents Label2 As Label
     Friend WithEvents Label3 As Label
     Friend WithEvents Label4 As Label
-    Friend WithEvents cbModelo As ComboBox
     Friend WithEvents Label5 As Label
-    Friend WithEvents cbColor As ComboBox
+    Friend WithEvents txtModelo As TextBox
+    Friend WithEvents txtColor As TextBox
+    Friend WithEvents txtID As TextBox
+    Friend WithEvents Label13 As Label
 End Class

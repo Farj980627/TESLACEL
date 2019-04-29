@@ -24,6 +24,7 @@
 
     Private Sub Login_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Me.ActiveControl = Label1
+
     End Sub
 
     Private Sub txtUsuario_Click(sender As Object, e As EventArgs) Handles txtUsuario.Click

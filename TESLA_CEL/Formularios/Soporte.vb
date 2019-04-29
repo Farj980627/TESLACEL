@@ -32,6 +32,11 @@ Public Class Soporte
         End If
     End Sub
 
+    Private Sub txtCodigo_Click(sender As Object, e As EventArgs) Handles txtCodigo.Click
+        newCode = DateTime.Today.ToString("ddMM") & DateTime.Now.ToString("hmss")
+        txtCodigo.Text = newCode
+    End Sub
+
     Public Shared ticketOrden As Tickets = New Tickets
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         Buscar_Orden.ShowDialog()
@@ -43,7 +48,7 @@ Public Class Soporte
     Private Sub Soporte_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Try
             dtpFecha.Value = Date.Today
-            newCode = "300" & consultas.getContador
+            newCode = DateTime.Today.ToString("ddMM") & DateTime.Now.ToString("hmss")
             txtCodigo.Text = newCode
             cbCargador.SelectedIndex = 0
             cbChip.SelectedIndex = 0
@@ -60,54 +65,54 @@ Public Class Soporte
     Private Sub btnBuscarFechas_Click(sender As Object, e As EventArgs) Handles btnBuscarFechas.Click
         Try
 
-            If chbAltavoz.Checked = True Then
-                alta = "Si"
-            Else
-                alta = "No"
-            End If
-            If chbBuzzer.Checked = True Then
-                buzz = "Si"
-            Else
-                buzz = "No"
-            End If
-            If chBCamaras.Checked = True Then
-                camaras = "Si"
-            Else
-                camaras = "No"
-            End If
-            If chbCC.Checked = True Then
-                cc = "Si"
-            Else
-                cc = "No"
-            End If
-            If chbMicrofono.Checked = True Then
-                mic = "Si"
-            Else
-                mic = "No"
-            End If
-            If chbSensor.Checked = True Then
-                sensor = "Si"
-            Else
-                sensor = "No"
-            End If
-            If chbSeñal.Checked = True Then
-                señal = "Si"
-            Else
-                señal = "No"
-            End If
-            If chbWifi.Checked = True Then
-                wifi = "Si"
-            Else
-                wifi = "No"
-            End If
+            'If chbAltavoz.Checked = True Then
+            '    alta = "Si"
+            'Else
+            '    alta = "No"
+            'End If
+            'If chbBuzzer.Checked = True Then
+            '    buzz = "Si"
+            'Else
+            '    buzz = "No"
+            'End If
+            'If chBCamaras.Checked = True Then
+            '    camaras = "Si"
+            'Else
+            '    camaras = "No"
+            'End If
+            'If chbCC.Checked = True Then
+            '    cc = "Si"
+            'Else
+            '    cc = "No"
+            'End If
+            'If chbMicrofono.Checked = True Then
+            '    mic = "Si"
+            'Else
+            '    mic = "No"
+            'End If
+            'If chbSensor.Checked = True Then
+            '    sensor = "Si"
+            'Else
+            '    sensor = "No"
+            'End If
+            'If chbSeñal.Checked = True Then
+            '    señal = "Si"
+            'Else
+            '    señal = "No"
+            'End If
+            'If chbWifi.Checked = True Then
+            '    wifi = "Si"
+            'Else
+            '    wifi = "No"
+            'End If
             consultas.insOrden(Date.Today.ToString("yyyy-MM-dd"), txtCliente.Text, txtTelefono.Text, txtEquipo.Text,
             txtMarca.Text, txtModelo.Text, txtColor.Text, cbEstado.Text, cbChip.Text, cbMemoria.Text, cbPila.Text, cbCargador.Text,
             txtFalla.Text, txtIMEI.Text, txtObservaciones.Text, mic, alta, cc, camaras, wifi, señal, buzz, sensor, txtCoste.Text, txtAnticipo.Text, txtGarantia.Text,
             dtpFecha.Value.Date.ToString("yyyy-MM-dd"), txtEntrega.Text, txtCodigo.Text)
 
-            anticipo = txtAnticipo.Text
+            'anticipo = txtAnticipo.Text
 
-            ' ticketOrden.Logo("../../Resources/logo nuevo.png")
+            'ticketOrden.Logo("logo nuevo.png")
             'ticketOrden.Titulo("TESLACEL")
             'ticketOrden.Encabezado("PINO SUAREZ #2014")
             'ticketOrden.Encabezado("DURANGO,DGO CP:34270")
@@ -123,68 +128,68 @@ Public Class Soporte
             'ticketOrden.Encabezado("MARCA: " & txtMarca.Text)
             'ticketOrden.Encabezado("COLOR: " & txtColor.Text)
             'If cbChip.SelectedIndex = 0 Then
-            'ticketOrden.Encabezado("CHIP: NO")
+            '    ticketOrden.Encabezado("CHIP: NO")
             'Else
-            'ticketOrden.Encabezado("CHIP: SI")
+            '    ticketOrden.Encabezado("CHIP: SI")
             'End If
             'If cbMemoria.SelectedIndex = 0 Then
-            'ticketOrden.Encabezado("MEMORIA: NO")
+            '    ticketOrden.Encabezado("MEMORIA: NO")
             'Else
-            'ticketOrden.Encabezado("MEMORIA: SI")
+            '    ticketOrden.Encabezado("MEMORIA: SI")
             'End If
             'If cbPila.SelectedIndex = 0 Then
-            'ticketOrden.Encabezado("PILA: NO")
+            '    ticketOrden.Encabezado("PILA: NO")
             'Else
-            'ticketOrden.Encabezado("PILA: SI")
+            '    ticketOrden.Encabezado("PILA: SI")
             'End If
             'If cbCargador.SelectedIndex = 0 Then
-            'ticketOrden.Encabezado("CARGADOR: NO")
+            '    ticketOrden.Encabezado("CARGADOR: NO")
             'Else
-            'ticketOrden.Encabezado("CARGADOR: SI")
+            '    ticketOrden.Encabezado("CARGADOR: SI")
             'End If
             'ticketOrden.Encabezado("FALLA: " & txtFalla.Text)
             'ticketOrden.Encabezado("IMEI: " & txtIMEI.Text)
             'ticketOrden.Encabezado("OBSERVACIONES: " & txtObservaciones.Text)
             'ticketOrden.Encabezado("FUNCIONES REVISADAS")
             'If chbMicrofono.Checked = False Then
-            'ticketOrden.Encabezado("MICROFONO: NO")
+            '    ticketOrden.Encabezado("MICROFONO: NO")
             'Else
-            'ticketOrden.Encabezado("MICROFONO: SI")
+            '    ticketOrden.Encabezado("MICROFONO: SI")
             'End If
             'If chbAltavoz.Checked = False Then
-            'ticketOrden.Encabezado("ALTAVOZ: NO")
+            '    ticketOrden.Encabezado("ALTAVOZ: NO")
             'Else
-            'ticketOrden.Encabezado("ALTAVOZ: SI")
+            '    ticketOrden.Encabezado("ALTAVOZ: SI")
             'End If
             'If chbCC.Checked = False Then
-            ' ticketOrden.Encabezado("C.C: NO")
-            ' Else
-            'ticketOrden.Encabezado("C.C: SI")
+            '    ticketOrden.Encabezado("C.C: NO")
+            'Else
+            '    ticketOrden.Encabezado("C.C: SI")
             'End If
             'If chBCamaras.Checked = False Then
-            'ticketOrden.Encabezado("CAMARAS: NO")
+            '    ticketOrden.Encabezado("CAMARAS: NO")
             'Else
-            ' ticketOrden.Encabezado("CAMARAS: SI")
+            '    ticketOrden.Encabezado("CAMARAS: SI")
             'End If
             'If chbWifi.Checked = False Then
-            'ticketOrden.Encabezado("WI-FI: NO")
+            '    ticketOrden.Encabezado("WI-FI: NO")
             'Else
-            'ticketOrden.Encabezado("WI-FI: SI")
+            '    ticketOrden.Encabezado("WI-FI: SI")
             'End If
             'If chbSeñal.Checked = False Then
-            'ticketOrden.Encabezado("SEÑAL: NO")
+            '    ticketOrden.Encabezado("SEÑAL: NO")
             'Else
-            'ticketOrden.Encabezado("SEÑAL: SI")
+            '    ticketOrden.Encabezado("SEÑAL: SI")
             'End If
             'If chbBuzzer.Checked = False Then
-            'ticketOrden.Encabezado("BUZZER: NO")
+            '    ticketOrden.Encabezado("BUZZER: NO")
             'Else
-            'ticketOrden.Encabezado("BUZZER: SI")
+            '    ticketOrden.Encabezado("BUZZER: SI")
             'End If
             'If chbSensor.Checked = False Then
-            'ticketOrden.Encabezado("SENSOR: NO")
+            '    ticketOrden.Encabezado("SENSOR: NO")
             'Else
-            'ticketOrden.Encabezado("SENSOR: SI")
+            '    ticketOrden.Encabezado("SENSOR: SI")
             'End If
             'ticketOrden.Encabezado("GARANTIA: " & txtGarantia.Text)
             'ticketOrden.Encabezado("FECHA ENTREGA: " & dtpFecha.Value.Date.ToShortDateString)
@@ -212,10 +217,9 @@ Public Class Soporte
             'ticketOrden.Pie("Al firmar acepta nuestros terminos y condiciones.")
             'existicket = True
 
-
-            consultas.insContador()
-            newCode = "300" & consultas.getContador
+            newCode = DateTime.Today.ToString("ddMM") & DateTime.Now.ToString("hmss")
             txtCodigo.Text = newCode
+
 
             cbCargador.SelectedIndex = 0
             cbChip.SelectedIndex = 0

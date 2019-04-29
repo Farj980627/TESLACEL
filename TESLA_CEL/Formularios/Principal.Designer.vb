@@ -24,9 +24,6 @@ Partial Class Principal
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Principal))
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
-        Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
-        Me.lblTitulo = New System.Windows.Forms.Label()
-        Me.contenedor = New System.Windows.Forms.Panel()
         Me.btnSalir = New System.Windows.Forms.Button()
         Me.btnVentas = New System.Windows.Forms.Button()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
@@ -34,9 +31,12 @@ Partial Class Principal
         Me.btnReportes = New System.Windows.Forms.Button()
         Me.btnSoporte = New System.Windows.Forms.Button()
         Me.btnUsuarios = New System.Windows.Forms.Button()
+        Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
+        Me.lblTitulo = New System.Windows.Forms.Label()
+        Me.contenedor = New System.Windows.Forms.Panel()
         Me.TableLayoutPanel1.SuspendLayout()
-        Me.TableLayoutPanel2.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.TableLayoutPanel2.SuspendLayout()
         Me.SuspendLayout()
         '
         'TableLayoutPanel1
@@ -65,44 +65,6 @@ Partial Class Principal
         Me.TableLayoutPanel1.Size = New System.Drawing.Size(236, 652)
         Me.TableLayoutPanel1.TabIndex = 0
         '
-        'TableLayoutPanel2
-        '
-        Me.TableLayoutPanel2.BackColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(247, Byte), Integer), CType(CType(249, Byte), Integer))
-        Me.TableLayoutPanel2.ColumnCount = 2
-        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel2.Controls.Add(Me.lblTitulo, 0, 0)
-        Me.TableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Top
-        Me.TableLayoutPanel2.Location = New System.Drawing.Point(236, 0)
-        Me.TableLayoutPanel2.Name = "TableLayoutPanel2"
-        Me.TableLayoutPanel2.RowCount = 1
-        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 43.0!))
-        Me.TableLayoutPanel2.Size = New System.Drawing.Size(1069, 43)
-        Me.TableLayoutPanel2.TabIndex = 1
-        '
-        'lblTitulo
-        '
-        Me.lblTitulo.AutoSize = True
-        Me.lblTitulo.Font = New System.Drawing.Font("Berlin Sans FB", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblTitulo.ForeColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(77, Byte), Integer), CType(CType(111, Byte), Integer))
-        Me.lblTitulo.Location = New System.Drawing.Point(3, 0)
-        Me.lblTitulo.Name = "lblTitulo"
-        Me.lblTitulo.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.lblTitulo.Size = New System.Drawing.Size(263, 31)
-        Me.lblTitulo.TabIndex = 1
-        Me.lblTitulo.Text = "ACCESO AL SISTEMA"
-        Me.lblTitulo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'contenedor
-        '
-        Me.contenedor.BackColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(247, Byte), Integer), CType(CType(249, Byte), Integer))
-        Me.contenedor.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.contenedor.Location = New System.Drawing.Point(236, 43)
-        Me.contenedor.Name = "contenedor"
-        Me.contenedor.Size = New System.Drawing.Size(1069, 609)
-        Me.contenedor.TabIndex = 2
-        '
         'btnSalir
         '
         Me.btnSalir.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(77, Byte), Integer), CType(CType(111, Byte), Integer))
@@ -113,7 +75,7 @@ Partial Class Principal
         Me.btnSalir.Name = "btnSalir"
         Me.btnSalir.Size = New System.Drawing.Size(230, 59)
         Me.btnSalir.TabIndex = 8
-        Me.btnSalir.Text = "Cerrar Sesion"
+        Me.btnSalir.Text = "Cerrar Sesión"
         Me.btnSalir.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.btnSalir.UseVisualStyleBackColor = False
         '
@@ -197,6 +159,44 @@ Partial Class Principal
         Me.btnUsuarios.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.btnUsuarios.UseVisualStyleBackColor = False
         '
+        'TableLayoutPanel2
+        '
+        Me.TableLayoutPanel2.BackColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(247, Byte), Integer), CType(CType(249, Byte), Integer))
+        Me.TableLayoutPanel2.ColumnCount = 2
+        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.TableLayoutPanel2.Controls.Add(Me.lblTitulo, 0, 0)
+        Me.TableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Top
+        Me.TableLayoutPanel2.Location = New System.Drawing.Point(236, 0)
+        Me.TableLayoutPanel2.Name = "TableLayoutPanel2"
+        Me.TableLayoutPanel2.RowCount = 1
+        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
+        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 43.0!))
+        Me.TableLayoutPanel2.Size = New System.Drawing.Size(1069, 43)
+        Me.TableLayoutPanel2.TabIndex = 1
+        '
+        'lblTitulo
+        '
+        Me.lblTitulo.AutoSize = True
+        Me.lblTitulo.Font = New System.Drawing.Font("Berlin Sans FB", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblTitulo.ForeColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(77, Byte), Integer), CType(CType(111, Byte), Integer))
+        Me.lblTitulo.Location = New System.Drawing.Point(3, 0)
+        Me.lblTitulo.Name = "lblTitulo"
+        Me.lblTitulo.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me.lblTitulo.Size = New System.Drawing.Size(263, 31)
+        Me.lblTitulo.TabIndex = 1
+        Me.lblTitulo.Text = "ACCESO AL SISTEMA"
+        Me.lblTitulo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'contenedor
+        '
+        Me.contenedor.BackColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(247, Byte), Integer), CType(CType(249, Byte), Integer))
+        Me.contenedor.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.contenedor.Location = New System.Drawing.Point(236, 43)
+        Me.contenedor.Name = "contenedor"
+        Me.contenedor.Size = New System.Drawing.Size(1069, 609)
+        Me.contenedor.TabIndex = 2
+        '
         'Principal
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -206,13 +206,12 @@ Partial Class Principal
         Me.Controls.Add(Me.contenedor)
         Me.Controls.Add(Me.TableLayoutPanel2)
         Me.Controls.Add(Me.TableLayoutPanel1)
-        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "Principal"
         Me.Text = "Principal"
         Me.TableLayoutPanel1.ResumeLayout(False)
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TableLayoutPanel2.ResumeLayout(False)
         Me.TableLayoutPanel2.PerformLayout()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub

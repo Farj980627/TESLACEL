@@ -30,6 +30,8 @@ Partial Class Actualizar_Prod
         Me.btnActualizar = New System.Windows.Forms.Button()
         Me.Label11 = New System.Windows.Forms.Label()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.txtID = New System.Windows.Forms.TextBox()
+        Me.Label13 = New System.Windows.Forms.Label()
         Me.cbCatDestino = New System.Windows.Forms.ComboBox()
         Me.dtpFecha = New System.Windows.Forms.DateTimePicker()
         Me.Label2 = New System.Windows.Forms.Label()
@@ -51,6 +53,7 @@ Partial Class Actualizar_Prod
         Me.txtNombre = New System.Windows.Forms.TextBox()
         Me.Label12 = New System.Windows.Forms.Label()
         CType(Me.bntSalir, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
         '
         'Label1
@@ -84,7 +87,7 @@ Partial Class Actualizar_Prod
         Me.cbProducto.Font = New System.Drawing.Font("Berlin Sans FB", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cbProducto.ForeColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(247, Byte), Integer), CType(CType(249, Byte), Integer))
         Me.cbProducto.FormattingEnabled = True
-        Me.cbProducto.Location = New System.Drawing.Point(415, 43)
+        Me.cbProducto.Location = New System.Drawing.Point(262, 43)
         Me.cbProducto.Name = "cbProducto"
         Me.cbProducto.Size = New System.Drawing.Size(286, 38)
         Me.cbProducto.TabIndex = 16
@@ -96,7 +99,7 @@ Partial Class Actualizar_Prod
         Me.btnAceptar.Font = New System.Drawing.Font("Berlin Sans FB", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnAceptar.ForeColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(247, Byte), Integer), CType(CType(249, Byte), Integer))
         Me.btnAceptar.Image = Global.TESLA_CEL.My.Resources.Resources.aceptar_color
-        Me.btnAceptar.Location = New System.Drawing.Point(742, 38)
+        Me.btnAceptar.Location = New System.Drawing.Point(554, 38)
         Me.btnAceptar.Name = "btnAceptar"
         Me.btnAceptar.Size = New System.Drawing.Size(188, 47)
         Me.btnAceptar.TabIndex = 30
@@ -136,7 +139,7 @@ Partial Class Actualizar_Prod
         Me.Label11.BackColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(247, Byte), Integer), CType(CType(249, Byte), Integer))
         Me.Label11.Font = New System.Drawing.Font("Berlin Sans FB", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label11.ForeColor = System.Drawing.Color.FromArgb(CType(CType(44, Byte), Integer), CType(CType(77, Byte), Integer), CType(CType(111, Byte), Integer))
-        Me.Label11.Location = New System.Drawing.Point(409, 9)
+        Me.Label11.Location = New System.Drawing.Point(256, 9)
         Me.Label11.Name = "Label11"
         Me.Label11.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.Label11.Size = New System.Drawing.Size(156, 31)
@@ -147,10 +150,41 @@ Partial Class Actualizar_Prod
         'Panel1
         '
         Me.Panel1.BackColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(247, Byte), Integer), CType(CType(249, Byte), Integer))
+        Me.Panel1.Controls.Add(Me.txtID)
+        Me.Panel1.Controls.Add(Me.Label13)
+        Me.Panel1.Controls.Add(Me.cbProducto)
+        Me.Panel1.Controls.Add(Me.Label11)
+        Me.Panel1.Controls.Add(Me.btnAceptar)
         Me.Panel1.Location = New System.Drawing.Point(1, 0)
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(1066, 98)
         Me.Panel1.TabIndex = 42
+        '
+        'txtID
+        '
+        Me.txtID.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(77, Byte), Integer), CType(CType(111, Byte), Integer))
+        Me.txtID.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.txtID.Font = New System.Drawing.Font("Berlin Sans FB", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtID.ForeColor = System.Drawing.Color.FromArgb(CType(CType(86, Byte), Integer), CType(CType(247, Byte), Integer), CType(CType(249, Byte), Integer))
+        Me.txtID.Location = New System.Drawing.Point(813, 46)
+        Me.txtID.Name = "txtID"
+        Me.txtID.Size = New System.Drawing.Size(142, 30)
+        Me.txtID.TabIndex = 53
+        Me.txtID.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        '
+        'Label13
+        '
+        Me.Label13.AutoSize = True
+        Me.Label13.BackColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(247, Byte), Integer), CType(CType(249, Byte), Integer))
+        Me.Label13.Font = New System.Drawing.Font("Berlin Sans FB", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label13.ForeColor = System.Drawing.Color.FromArgb(CType(CType(44, Byte), Integer), CType(CType(77, Byte), Integer), CType(CType(111, Byte), Integer))
+        Me.Label13.Location = New System.Drawing.Point(792, 9)
+        Me.Label13.Name = "Label13"
+        Me.Label13.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me.Label13.Size = New System.Drawing.Size(163, 31)
+        Me.Label13.TabIndex = 42
+        Me.Label13.Text = "ACT. POR ID"
+        Me.Label13.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'cbCatDestino
         '
@@ -428,18 +462,16 @@ Partial Class Actualizar_Prod
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.txtNombre)
         Me.Controls.Add(Me.Label12)
-        Me.Controls.Add(Me.Label11)
         Me.Controls.Add(Me.btnActualizar)
-        Me.Controls.Add(Me.btnAceptar)
         Me.Controls.Add(Me.bntSalir)
-        Me.Controls.Add(Me.cbProducto)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.cbCatOrigen)
         Me.Controls.Add(Me.Panel1)
-        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "Actualizar_Prod"
         Me.Text = "Actualizar_Prod"
         CType(Me.bntSalir, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.Panel1.ResumeLayout(False)
+        Me.Panel1.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -473,4 +505,6 @@ Partial Class Actualizar_Prod
     Friend WithEvents Label3 As Label
     Friend WithEvents txtNombre As TextBox
     Friend WithEvents Label12 As Label
+    Friend WithEvents txtID As TextBox
+    Friend WithEvents Label13 As Label
 End Class

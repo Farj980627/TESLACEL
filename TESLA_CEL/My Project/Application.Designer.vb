@@ -32,7 +32,7 @@ Namespace My
         
         <Global.System.Diagnostics.DebuggerStepThroughAttribute()>  _
         Protected Overrides Sub OnCreateMainForm()
-            Me.MainForm = Global.TESLA_CEL.Login
+            Me.MainForm = Global.TESLA_CEL.Principal
         End Sub
     End Class
 End Namespace

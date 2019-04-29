@@ -25,11 +25,11 @@ Partial Class Registar_Proveedor
         Me.Label2 = New System.Windows.Forms.Label()
         Me.txtProductType = New System.Windows.Forms.TextBox()
         Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.btnCancelar = New System.Windows.Forms.Button()
-        Me.btnAgregar = New System.Windows.Forms.Button()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.cbProductType = New System.Windows.Forms.ComboBox()
         Me.btnEliminar = New System.Windows.Forms.Button()
+        Me.btnCancelar = New System.Windows.Forms.Button()
+        Me.cbProductType = New System.Windows.Forms.ComboBox()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.btnAgregar = New System.Windows.Forms.Button()
         Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -66,10 +66,25 @@ Partial Class Registar_Proveedor
         Me.Panel1.Controls.Add(Me.cbProductType)
         Me.Panel1.Controls.Add(Me.Label1)
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Right
-        Me.Panel1.Location = New System.Drawing.Point(495, 0)
+        Me.Panel1.Location = New System.Drawing.Point(490, 0)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(556, 562)
+        Me.Panel1.Size = New System.Drawing.Size(561, 562)
         Me.Panel1.TabIndex = 51
+        '
+        'btnEliminar
+        '
+        Me.btnEliminar.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnEliminar.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(77, Byte), Integer), CType(CType(111, Byte), Integer))
+        Me.btnEliminar.Font = New System.Drawing.Font("Berlin Sans FB", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnEliminar.ForeColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(247, Byte), Integer), CType(CType(249, Byte), Integer))
+        Me.btnEliminar.Image = Global.TESLA_CEL.My.Resources.Resources.eliminar_color
+        Me.btnEliminar.Location = New System.Drawing.Point(273, 150)
+        Me.btnEliminar.Name = "btnEliminar"
+        Me.btnEliminar.Size = New System.Drawing.Size(234, 58)
+        Me.btnEliminar.TabIndex = 9
+        Me.btnEliminar.Text = "Eliminar "
+        Me.btnEliminar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.btnEliminar.UseVisualStyleBackColor = False
         '
         'btnCancelar
         '
@@ -85,19 +100,17 @@ Partial Class Registar_Proveedor
         Me.btnCancelar.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage
         Me.btnCancelar.UseVisualStyleBackColor = False
         '
-        'btnAgregar
+        'cbProductType
         '
-        Me.btnAgregar.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(77, Byte), Integer), CType(CType(111, Byte), Integer))
-        Me.btnAgregar.Font = New System.Drawing.Font("Berlin Sans FB", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnAgregar.ForeColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(247, Byte), Integer), CType(CType(249, Byte), Integer))
-        Me.btnAgregar.Image = Global.TESLA_CEL.My.Resources.Resources.suma_color
-        Me.btnAgregar.Location = New System.Drawing.Point(171, 150)
-        Me.btnAgregar.Name = "btnAgregar"
-        Me.btnAgregar.Size = New System.Drawing.Size(229, 58)
-        Me.btnAgregar.TabIndex = 49
-        Me.btnAgregar.Text = "AGREGAR"
-        Me.btnAgregar.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage
-        Me.btnAgregar.UseVisualStyleBackColor = False
+        Me.cbProductType.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(77, Byte), Integer), CType(CType(111, Byte), Integer))
+        Me.cbProductType.Font = New System.Drawing.Font("Berlin Sans FB", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cbProductType.ForeColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(247, Byte), Integer), CType(CType(249, Byte), Integer))
+        Me.cbProductType.FormattingEnabled = True
+        Me.cbProductType.Location = New System.Drawing.Point(146, 73)
+        Me.cbProductType.Name = "cbProductType"
+        Me.cbProductType.Size = New System.Drawing.Size(356, 38)
+        Me.cbProductType.TabIndex = 7
+        Me.cbProductType.Text = "PROVEEDOR"
         '
         'Label1
         '
@@ -112,32 +125,19 @@ Partial Class Registar_Proveedor
         Me.Label1.Text = "TIPO DE PRODUCTO"
         Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
-        'cbProductType
+        'btnAgregar
         '
-        Me.cbProductType.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(77, Byte), Integer), CType(CType(111, Byte), Integer))
-        Me.cbProductType.Font = New System.Drawing.Font("Berlin Sans FB", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cbProductType.ForeColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(247, Byte), Integer), CType(CType(249, Byte), Integer))
-        Me.cbProductType.FormattingEnabled = True
-        Me.cbProductType.Location = New System.Drawing.Point(146, 73)
-        Me.cbProductType.Name = "cbProductType"
-        Me.cbProductType.Size = New System.Drawing.Size(356, 38)
-        Me.cbProductType.TabIndex = 7
-        Me.cbProductType.Text = "PROVEEDOR"
-        '
-        'btnEliminar
-        '
-        Me.btnEliminar.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnEliminar.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(77, Byte), Integer), CType(CType(111, Byte), Integer))
-        Me.btnEliminar.Font = New System.Drawing.Font("Berlin Sans FB", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnEliminar.ForeColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(247, Byte), Integer), CType(CType(249, Byte), Integer))
-        Me.btnEliminar.Image = Global.TESLA_CEL.My.Resources.Resources.eliminar_color
-        Me.btnEliminar.Location = New System.Drawing.Point(273, 150)
-        Me.btnEliminar.Name = "btnEliminar"
-        Me.btnEliminar.Size = New System.Drawing.Size(229, 58)
-        Me.btnEliminar.TabIndex = 9
-        Me.btnEliminar.Text = "Eliminar "
-        Me.btnEliminar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
-        Me.btnEliminar.UseVisualStyleBackColor = False
+        Me.btnAgregar.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(77, Byte), Integer), CType(CType(111, Byte), Integer))
+        Me.btnAgregar.Font = New System.Drawing.Font("Berlin Sans FB", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnAgregar.ForeColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(247, Byte), Integer), CType(CType(249, Byte), Integer))
+        Me.btnAgregar.Image = Global.TESLA_CEL.My.Resources.Resources.suma_color
+        Me.btnAgregar.Location = New System.Drawing.Point(171, 150)
+        Me.btnAgregar.Name = "btnAgregar"
+        Me.btnAgregar.Size = New System.Drawing.Size(229, 58)
+        Me.btnAgregar.TabIndex = 49
+        Me.btnAgregar.Text = "AGREGAR"
+        Me.btnAgregar.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage
+        Me.btnAgregar.UseVisualStyleBackColor = False
         '
         'Registar_Proveedor
         '
@@ -149,7 +149,6 @@ Partial Class Registar_Proveedor
         Me.Controls.Add(Me.btnAgregar)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.txtProductType)
-        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "Registar_Proveedor"
         Me.Text = "Registar_Proveedor"
         Me.Panel1.ResumeLayout(False)

@@ -55,10 +55,10 @@ Public Class consultas
         con.Close()
     End Sub
 
-    Public Shared Function getProductosToUpdate(pproducto, ptype) As DataTable
+    Public Shared Function getProductosToUpdate(pproducto, ptype, pidpro) As DataTable
         Dim con As MySqlConnection = conexion.conection
         Dim dt As New DataTable
-        Dim cmd As MySqlCommand = New MySqlCommand(String.Format("SELECT * FROM products WHERE name = '{0}' AND type = '{1}'", pproducto, ptype), con)
+        Dim cmd As MySqlCommand = New MySqlCommand(String.Format("SELECT * FROM products WHERE name = '{0}' AND type = '{1}' AND id_product = '{2}'", pproducto, ptype, pidpro), con)
         Dim adap As New MySqlDataAdapter(cmd)
         adap.Fill(dt)
         con.Close()
@@ -72,16 +72,16 @@ Public Class consultas
         con.Close()
     End Sub
 
-    Public Shared Sub delProducto(ptype, pname, pmodel, pcolor)
+    Public Shared Sub delProducto(pid)
         Dim con As MySqlConnection = conexion.conection
-        Dim cmd As MySqlCommand = New MySqlCommand(String.Format("DELETE FROM products WHERE type='{0}' AND name='{1}' AND model='{2}' AND color='{3}'", ptype, pname, pmodel, pcolor), con)
+        Dim cmd As MySqlCommand = New MySqlCommand(String.Format("DELETE FROM products WHERE id_product='{0}'", pid), con)
         cmd.ExecuteNonQuery()
         con.Close()
     End Sub
     Public Shared Function getProductoByBarCode(pbarcode) As DataTable
         Dim con As MySqlConnection = conexion.conection
         Dim dt As New DataTable
-        Dim cmd As MySqlCommand = New MySqlCommand(String.Format("SELECT name,price,model,color,barcode FROM products  WHERE barcode = '{0}'", pbarcode), con)
+        Dim cmd As MySqlCommand = New MySqlCommand(String.Format("SELECT id_product,name,price,model,color,barcode FROM products  WHERE barcode = '{0}'", pbarcode), con)
         Dim adap As New MySqlDataAdapter(cmd)
         adap.Fill(dt)
         con.Close()
@@ -90,7 +90,7 @@ Public Class consultas
     Public Shared Function getProductosByProduct(pid) As DataTable
         Dim con As MySqlConnection = conexion.conection
         Dim dt As New DataTable
-        Dim cmd As MySqlCommand = New MySqlCommand(String.Format("SELECT name,price,model,color FROM products  WHERE id_product = '{0}'", pid), con)
+        Dim cmd As MySqlCommand = New MySqlCommand(String.Format("SELECT id_product,name,price,model,color,barcode FROM products  WHERE id_product = '{0}'", pid), con)
         Dim adap As New MySqlDataAdapter(cmd)
         adap.Fill(dt)
         con.Close()
@@ -107,16 +107,16 @@ Public Class consultas
         con.Close()
         Return id
     End Function
-    Public Shared Sub insSale(pid_pro, pquantity, pdate, ptipo, ptotal)
+    Public Shared Sub insSale(pid_pro, pquantity, pdate, phour, ptipo, ptotal)
         Dim con As MySqlConnection = conexion.conection
-        Dim cmd As MySqlCommand = New MySqlCommand(String.Format("INSERT INTO sales(id_product,quantity,date,type, total) VALUES('{0}','{1}','{2}','{3}','{4}')", pid_pro, pquantity, pdate, ptipo, ptotal), con)
+        Dim cmd As MySqlCommand = New MySqlCommand(String.Format("INSERT INTO sales(id_product,quantity,date,hour,type, total) VALUES('{0}','{1}','{2}','{3}','{4}','{5}')", pid_pro, pquantity, pdate, phour, ptipo, ptotal), con)
         cmd.ExecuteNonQuery()
         con.Close()
     End Sub
     Public Shared Function getReportsAll() As DataTable
         Dim con As MySqlConnection = conexion.conection
         Dim dt As New DataTable
-        Dim cmd As MySqlCommand = New MySqlCommand(String.Format("SELECT pr.name, sl.quantity, sl.date, sl.type, sl.total FROM sales sl JOIN products pr WHERE sl.id_product = pr.id_product ORDER BY   id_sale"), con)
+        Dim cmd As MySqlCommand = New MySqlCommand(String.Format("SELECT pr.name,pr.model,pr.color,pr.barcode, sl.quantity, sl.date,sl.hour, sl.type, sl.total FROM sales sl JOIN products pr WHERE sl.id_product = pr.id_product ORDER BY   id_sale"), con)
         Dim adap As New MySqlDataAdapter(cmd)
         adap.Fill(dt)
         con.Close()
@@ -125,7 +125,7 @@ Public Class consultas
     Public Shared Function getDayliReport(pdate) As DataTable
         Dim con As MySqlConnection = conexion.conection
         Dim dt As New DataTable
-        Dim cmd As MySqlCommand = New MySqlCommand(String.Format("SELECT pr.name, sl.quantity, sl.date, sl.type, sl.total FROM sales sl JOIN products pr WHERE sl.id_product = pr.id_product AND sl.date='{0}' ", pdate), con)
+        Dim cmd As MySqlCommand = New MySqlCommand(String.Format("SELECT pr.name,pr.model,pr.color,pr.barcode, sl.quantity, sl.date,sl.hour, sl.type, sl.total FROM sales sl JOIN products pr WHERE sl.id_product = pr.id_product AND sl.date='{0}' ", pdate), con)
         Dim adap As New MySqlDataAdapter(cmd)
         adap.Fill(dt)
         con.Close()
@@ -134,7 +134,7 @@ Public Class consultas
     Public Shared Function getDateReport(pdate1, pdate2) As DataTable
         Dim con As MySqlConnection = conexion.conection
         Dim dt As New DataTable
-        Dim cmd As MySqlCommand = New MySqlCommand(String.Format("SELECT pr.name, sl.quantity, sl.date, sl.type, sl.total FROM sales sl JOIN products pr WHERE sl.id_product = pr.id_product AND sl.date >='{0}' AND sl.date <='{1}' ", pdate1, pdate2), con)
+        Dim cmd As MySqlCommand = New MySqlCommand(String.Format("SELECT pr.name, pr.model,pr.color,pr.barcode, sl.quantity, sl.date,sl.hour, sl.type, sl.total FROM sales sl JOIN products pr WHERE sl.id_product = pr.id_product AND sl.date >='{0}' AND sl.date <='{1}' ", pdate1, pdate2), con)
         Dim adap As New MySqlDataAdapter(cmd)
         adap.Fill(dt)
         con.Close()
@@ -143,7 +143,7 @@ Public Class consultas
     Public Shared Function getProductReport(pproduct) As DataTable
         Dim con As MySqlConnection = conexion.conection
         Dim dt As New DataTable
-        Dim cmd As MySqlCommand = New MySqlCommand(String.Format("SELECT pr.name, sl.quantity, sl.date, sl.type, sl.total FROM sales sl JOIN products pr WHERE sl.id_product = pr.id_product AND pr.name like '{0}%'", pproduct), con)
+        Dim cmd As MySqlCommand = New MySqlCommand(String.Format("SELECT pr.name, pr.model,pr.color,pr.barcode, sl.quantity, sl.date,sl.hour, sl.type, sl.total FROM sales sl JOIN products pr WHERE sl.id_product = pr.id_product AND pr.name like '{0}%'", pproduct), con)
         Dim adap As New MySqlDataAdapter(cmd)
         adap.Fill(dt)
         con.Close()
@@ -153,7 +153,7 @@ Public Class consultas
     Public Shared Function getDateTypeReport(pdate1, pdate2, ptipo) As DataTable
         Dim con As MySqlConnection = conexion.conection
         Dim dt As New DataTable
-        Dim cmd As MySqlCommand = New MySqlCommand(String.Format("SELECT pr.name, sl.quantity, sl.date, sl.type, sl.total FROM sales sl JOIN products pr WHERE  sl.id_product = pr.id_product AND sl.date >='{0}' AND sl.date <='{1}' AND sl.type= '{2}'", pdate1, pdate2, ptipo), con)
+        Dim cmd As MySqlCommand = New MySqlCommand(String.Format("SELECT pr.name,pr.model,pr.color,pr.barcode, sl.quantity, sl.date,sl.hour, sl.type, sl.total FROM sales sl JOIN products pr WHERE  sl.id_product = pr.id_product AND sl.date >='{0}' AND sl.date <='{1}' AND sl.type= '{2}'", pdate1, pdate2, ptipo), con)
         Dim adap As New MySqlDataAdapter(cmd)
         adap.Fill(dt)
         con.Close()
@@ -256,30 +256,13 @@ Public Class consultas
     Public Shared Function getProductosByCategoria(ptype) As DataTable
         Dim con As MySqlConnection = conexion.conection
         Dim dt As New DataTable
-        Dim cmd As MySqlCommand = New MySqlCommand(String.Format("SELECT name FROM products  WHERE type = '{0}'", ptype), con)
+        Dim cmd As MySqlCommand = New MySqlCommand(String.Format("SELECT id_product,name FROM products  WHERE type = '{0}'", ptype), con)
         Dim adap As New MySqlDataAdapter(cmd)
         adap.Fill(dt)
         con.Close()
         Return dt
     End Function
-    Public Shared Function getProductosByCategoriaModelo(ptype, pname) As DataTable
-        Dim con As MySqlConnection = conexion.conection
-        Dim dt As New DataTable
-        Dim cmd As MySqlCommand = New MySqlCommand(String.Format("SELECT model FROM products  WHERE type = '{0}' AND name='{1}'", ptype, pname), con)
-        Dim adap As New MySqlDataAdapter(cmd)
-        adap.Fill(dt)
-        con.Close()
-        Return dt
-    End Function
-    Public Shared Function getProductosByCategoriaModeloNombre(ptype, pname, pmodel) As DataTable
-        Dim con As MySqlConnection = conexion.conection
-        Dim dt As New DataTable
-        Dim cmd As MySqlCommand = New MySqlCommand(String.Format("SELECT color FROM products  WHERE type = '{0}' AND name='{1}' AND model = '{2}'", ptype, pname, pmodel), con)
-        Dim adap As New MySqlDataAdapter(cmd)
-        adap.Fill(dt)
-        con.Close()
-        Return dt
-    End Function
+
     Public Shared Function getProductosAll() As DataTable
         Dim con As MySqlConnection = conexion.conection
         Dim dt As New DataTable
@@ -292,7 +275,34 @@ Public Class consultas
     Public Shared Function getProductosByProductosParaInv(pnombre) As DataTable
         Dim con As MySqlConnection = conexion.conection
         Dim dt As New DataTable
-        Dim cmd As MySqlCommand = New MySqlCommand(String.Format("SELECT * FROM products WHERE name = '{0}'", pnombre), con)
+        Dim cmd As MySqlCommand = New MySqlCommand(String.Format("SELECT * FROM products WHERE name LIKE '%{0}%'", pnombre), con)
+        Dim adap As New MySqlDataAdapter(cmd)
+        adap.Fill(dt)
+        con.Close()
+        Return dt
+    End Function
+    Public Shared Function getProductosByCategoriaParaInv(pnombre) As DataTable
+        Dim con As MySqlConnection = conexion.conection
+        Dim dt As New DataTable
+        Dim cmd As MySqlCommand = New MySqlCommand(String.Format("SELECT * FROM products WHERE type LIKE '%{0}%'", pnombre), con)
+        Dim adap As New MySqlDataAdapter(cmd)
+        adap.Fill(dt)
+        con.Close()
+        Return dt
+    End Function
+    Public Shared Function getProductosByBarcodeParaInv(pbarcode) As DataTable
+        Dim con As MySqlConnection = conexion.conection
+        Dim dt As New DataTable
+        Dim cmd As MySqlCommand = New MySqlCommand(String.Format("SELECT * FROM products WHERE barcode LIKE '%{0}%'", pbarcode), con)
+        Dim adap As New MySqlDataAdapter(cmd)
+        adap.Fill(dt)
+        con.Close()
+        Return dt
+    End Function
+    Public Shared Function getProductosByModeloParaInv(pmodel) As DataTable
+        Dim con As MySqlConnection = conexion.conection
+        Dim dt As New DataTable
+        Dim cmd As MySqlCommand = New MySqlCommand(String.Format("SELECT * FROM products WHERE model LIKE '%{0}%'", pmodel), con)
         Dim adap As New MySqlDataAdapter(cmd)
         adap.Fill(dt)
         con.Close()
@@ -301,7 +311,16 @@ Public Class consultas
     Public Shared Function getProductosByDate(pdateInicio, pdateFinal) As DataTable
         Dim con As MySqlConnection = conexion.conection
         Dim dt As New DataTable
-        Dim cmd As MySqlCommand = New MySqlCommand(String.Format("SELECT type,name,brand,model,color,price,barcode,quantity,min,date FROM products WHERE date >= '{0}' AND date <= '{1}'", pdateInicio, pdateFinal), con)
+        Dim cmd As MySqlCommand = New MySqlCommand(String.Format("SELECT * FROM products WHERE date >= '{0}' AND date <= '{1}'", pdateInicio, pdateFinal), con)
+        Dim adap As New MySqlDataAdapter(cmd)
+        adap.Fill(dt)
+        con.Close()
+        Return dt
+    End Function
+    Public Shared Function getProductosByID(pid) As DataTable
+        Dim con As MySqlConnection = conexion.conection
+        Dim dt As New DataTable
+        Dim cmd As MySqlCommand = New MySqlCommand(String.Format("SELECT * FROM products WHERE id_product='{0}'", pid), con)
         Dim adap As New MySqlDataAdapter(cmd)
         adap.Fill(dt)
         con.Close()
@@ -311,6 +330,15 @@ Public Class consultas
         Dim con As MySqlConnection = conexion.conection
         Dim dt As New DataTable
         Dim cmd As MySqlCommand = New MySqlCommand(String.Format("SELECT * FROM support WHERE code = " + pnumero + ""), con)
+        Dim adap As New MySqlDataAdapter(cmd)
+        adap.Fill(dt)
+        con.Close()
+        Return dt
+    End Function
+    Public Shared Function getOrdenAllCelular(pnumero) As DataTable
+        Dim con As MySqlConnection = conexion.conection
+        Dim dt As New DataTable
+        Dim cmd As MySqlCommand = New MySqlCommand(String.Format("SELECT * FROM support WHERE telefono = " + pnumero + ""), con)
         Dim adap As New MySqlDataAdapter(cmd)
         adap.Fill(dt)
         con.Close()

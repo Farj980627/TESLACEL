@@ -47,6 +47,9 @@
   <PropertyGroup>
     <OptionInfer>On</OptionInfer>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>telefono-inteligente.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="LibPrintTicket">
       <HintPath>..\..\..\..\Downloads\LibPrintTicket\LibPrintTicket\Release\LibPrintTicket.dll</HintPath>
@@ -318,6 +321,11 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\impresora color.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\adelante.png" />
+    <None Include="Resources\atras.png" />
+    <Content Include="telefono-inteligente.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>
