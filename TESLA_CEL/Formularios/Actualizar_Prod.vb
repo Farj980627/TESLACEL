@@ -199,6 +199,7 @@
 
     Private Sub txtID_KeyDown(sender As Object, e As KeyEventArgs) Handles txtID.KeyDown
         If e.KeyCode = Keys.Enter Then
+            cbCatDestino.Text = consultas.getProductosByID(txtID.Text)(0)("type")
             txtBarcode.Text = consultas.getProductosByID(txtID.Text)(0)("barcode")
             txtCantidad.Text = consultas.getProductosByID(txtID.Text)(0)("quantity")
             txtColor.Text = consultas.getProductosByID(txtID.Text)(0)("color")

@@ -232,6 +232,7 @@ Public Class ventas
             ticketOrden.Encabezado("MODELO: " & dtOrden(0)("modelo"))
             ticketOrden.Encabezado("MARCA: " & dtOrden(0)("marca"))
             ticketOrden.Encabezado("COLOR: " & dtOrden(0)("color"))
+            ticketOrden.Encabezado("ESTADO: " & dtOrden(0)("estado"))
             If dtOrden(0)("chip").ToString = "No" Then
                 ticketOrden.Encabezado("CHIP: NO")
             Else
@@ -298,6 +299,7 @@ Public Class ventas
             End If
             ticketOrden.Encabezado("GARANTIA: " & dtOrden(0)("garantia"))
             ticketOrden.Encabezado("FECHA ENTREGA: " & dtOrden(0)("fechaentrega"))
+            ticketOrden.Encabezado("HORA ENTREGA: " & dtOrden(0)("horaentrega"))
             ticketOrden.Articulo("", "1", "ORDEN", dtOrden(0)("costoestimado").ToString, dtOrden(0)("costoestimado").ToString)
             ticketOrden.Total(dtOrden(0)("costoestimado"))
             ticketOrden.Pago("ANTICIPO", dtOrden(0)("anticipo").ToString)

@@ -1,4 +1,6 @@
-﻿Public Class Reportes
+﻿Imports WL
+Public Class Reportes
+
     Dim suma As String
     Sub totalreporte()
         suma = ""
@@ -25,7 +27,7 @@
 
 
     Private Sub bntDiario_Click(sender As Object, e As EventArgs) Handles bntDiario.Click
-
+        btnCorte.Visible = True
         dgvProducto.DataSource = consultas.getDayliReport(Date.Today.ToString("yyyy-MM-dd"))
         totalreporte()
     End Sub
@@ -79,5 +81,37 @@
     Private Sub Reportes_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         dtpFin.Value = Date.Today
         dtpInicio.Value = Date.Today
+    End Sub
+    Private Sub btnCorte_Click(sender As Object, e As EventArgs) Handles btnCorte.Click
+        Try
+            Dim dtCorte As New DataTable
+            dtCorte = dgvProducto.DataSource
+
+            Dim ticketCorte As Tickets = New Tickets
+            ticketCorte.Logo("logo nuevo.png")
+            ticketCorte.Titulo("TESLACEL")
+            ticketCorte.Encabezado("PINO SUAREZ #2014")
+            ticketCorte.Encabezado("DURANGO,DGO CP:34270")
+            ticketCorte.Encabezado("HORARIO 10:00 - 20:00")
+            ticketCorte.Encabezado("TELEFONO: 618 195 1338")
+            ticketCorte.Encabezado("RFC: HEGE940315HE6")
+            ticketCorte.Encabezado("FECHA: " & Date.Today.ToShortDateString)
+            ticketCorte.Encabezado("HORA: " & DateTime.Now.ToShortTimeString)
+            ticketCorte.Encabezado("CORTE DEL DIA")
+
+
+            For Each row As DataRow In dtCorte.Rows
+
+                ticketCorte.Articulo("", "1", row("name").ToString & " " & row("model").ToString, row("total").ToString, "")
+
+            Next
+            ticketCorte.Total(lblTotal.Text)
+            ticketCorte.VistaPrevia()
+            btnCorte.Visible = False
+
+
+        Catch ex As Exception
+
+        End Try
     End Sub
 End Class

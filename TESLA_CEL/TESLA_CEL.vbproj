@@ -93,6 +93,12 @@
   <ItemGroup>
     <Compile Include="Clases\conexion.vb" />
     <Compile Include="Clases\consultas.vb" />
+    <Compile Include="Formularios\Actualizar_Orden.Designer.vb">
+      <DependentUpon>Actualizar_Orden.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Actualizar_Orden.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Formularios\Actualizar_Prod.Designer.vb">
       <DependentUpon>Actualizar_Prod.vb</DependentUpon>
     </Compile>
@@ -189,6 +195,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Formularios\Actualizar_Orden.resx">
+      <DependentUpon>Actualizar_Orden.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Actualizar_Prod.resx">
       <DependentUpon>Actualizar_Prod.vb</DependentUpon>
     </EmbeddedResource>
@@ -325,6 +334,7 @@
   <ItemGroup>
     <None Include="Resources\adelante.png" />
     <None Include="Resources\atras.png" />
+    <None Include="Resources\tijeras.png" />
     <Content Include="telefono-inteligente.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />

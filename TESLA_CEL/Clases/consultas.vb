@@ -116,7 +116,7 @@ Public Class consultas
     Public Shared Function getReportsAll() As DataTable
         Dim con As MySqlConnection = conexion.conection
         Dim dt As New DataTable
-        Dim cmd As MySqlCommand = New MySqlCommand(String.Format("SELECT pr.name,pr.model,pr.color,pr.barcode, sl.quantity, sl.date,sl.hour, sl.type, sl.total FROM sales sl JOIN products pr WHERE sl.id_product = pr.id_product ORDER BY   id_sale"), con)
+        Dim cmd As MySqlCommand = New MySqlCommand(String.Format("SELECT pr.name,pr.type,pr.model,pr.color,pr.barcode, sl.quantity, sl.date,sl.hour, sl.type, sl.total FROM sales sl JOIN products pr WHERE sl.id_product = pr.id_product ORDER BY   id_sale"), con)
         Dim adap As New MySqlDataAdapter(cmd)
         adap.Fill(dt)
         con.Close()
@@ -125,7 +125,7 @@ Public Class consultas
     Public Shared Function getDayliReport(pdate) As DataTable
         Dim con As MySqlConnection = conexion.conection
         Dim dt As New DataTable
-        Dim cmd As MySqlCommand = New MySqlCommand(String.Format("SELECT pr.name,pr.model,pr.color,pr.barcode, sl.quantity, sl.date,sl.hour, sl.type, sl.total FROM sales sl JOIN products pr WHERE sl.id_product = pr.id_product AND sl.date='{0}' ", pdate), con)
+        Dim cmd As MySqlCommand = New MySqlCommand(String.Format("SELECT pr.name,pr.type,pr.model,pr.color,pr.barcode, sl.quantity, sl.date,sl.hour, sl.type, sl.total FROM sales sl JOIN products pr WHERE sl.id_product = pr.id_product AND sl.date='{0}' ", pdate), con)
         Dim adap As New MySqlDataAdapter(cmd)
         adap.Fill(dt)
         con.Close()
@@ -134,7 +134,7 @@ Public Class consultas
     Public Shared Function getDateReport(pdate1, pdate2) As DataTable
         Dim con As MySqlConnection = conexion.conection
         Dim dt As New DataTable
-        Dim cmd As MySqlCommand = New MySqlCommand(String.Format("SELECT pr.name, pr.model,pr.color,pr.barcode, sl.quantity, sl.date,sl.hour, sl.type, sl.total FROM sales sl JOIN products pr WHERE sl.id_product = pr.id_product AND sl.date >='{0}' AND sl.date <='{1}' ", pdate1, pdate2), con)
+        Dim cmd As MySqlCommand = New MySqlCommand(String.Format("SELECT pr.name,pr.type, pr.model,pr.color,pr.barcode, sl.quantity, sl.date,sl.hour, sl.type, sl.total FROM sales sl JOIN products pr WHERE sl.id_product = pr.id_product AND sl.date >='{0}' AND sl.date <='{1}' ", pdate1, pdate2), con)
         Dim adap As New MySqlDataAdapter(cmd)
         adap.Fill(dt)
         con.Close()
@@ -143,7 +143,7 @@ Public Class consultas
     Public Shared Function getProductReport(pproduct) As DataTable
         Dim con As MySqlConnection = conexion.conection
         Dim dt As New DataTable
-        Dim cmd As MySqlCommand = New MySqlCommand(String.Format("SELECT pr.name, pr.model,pr.color,pr.barcode, sl.quantity, sl.date,sl.hour, sl.type, sl.total FROM sales sl JOIN products pr WHERE sl.id_product = pr.id_product AND pr.name like '{0}%'", pproduct), con)
+        Dim cmd As MySqlCommand = New MySqlCommand(String.Format("SELECT pr.name,pr.type, pr.model,pr.color,pr.barcode, sl.quantity, sl.date,sl.hour, sl.type, sl.total FROM sales sl JOIN products pr WHERE sl.id_product = pr.id_product AND pr.name like '{0}%'", pproduct), con)
         Dim adap As New MySqlDataAdapter(cmd)
         adap.Fill(dt)
         con.Close()
@@ -153,22 +153,11 @@ Public Class consultas
     Public Shared Function getDateTypeReport(pdate1, pdate2, ptipo) As DataTable
         Dim con As MySqlConnection = conexion.conection
         Dim dt As New DataTable
-        Dim cmd As MySqlCommand = New MySqlCommand(String.Format("SELECT pr.name,pr.model,pr.color,pr.barcode, sl.quantity, sl.date,sl.hour, sl.type, sl.total FROM sales sl JOIN products pr WHERE  sl.id_product = pr.id_product AND sl.date >='{0}' AND sl.date <='{1}' AND sl.type= '{2}'", pdate1, pdate2, ptipo), con)
+        Dim cmd As MySqlCommand = New MySqlCommand(String.Format("SELECT pr.name,pr.type,pr.model,pr.color,pr.barcode, sl.quantity, sl.date,sl.hour, sl.type, sl.total FROM sales sl JOIN products pr WHERE  sl.id_product = pr.id_product AND sl.date >='{0}' AND sl.date <='{1}' AND sl.type= '{2}'", pdate1, pdate2, ptipo), con)
         Dim adap As New MySqlDataAdapter(cmd)
         adap.Fill(dt)
         con.Close()
         Return dt
-    End Function
-    Public Shared Function getContador() As String
-        Dim con As MySqlConnection = conexion.conection
-        Dim cont As String = 0
-        Dim cmd As MySqlCommand = New MySqlCommand(String.Format("SELECT id_contador FROM contador ORDER BY id_contador DESC LIMIT 1"), con)
-        Dim reader As MySqlDataReader = cmd.ExecuteReader
-        If reader.Read Then
-            cont = reader(0).ToString
-        End If
-        con.Close()
-        Return cont
     End Function
     Public Shared Function getLaastOrder() As DataTable
         Dim con As MySqlConnection = conexion.conection
@@ -188,7 +177,7 @@ Public Class consultas
     End Sub
     Public Shared Sub insOrden(fecha, cliente, telefono, equipo, marca, modelo, color, estado, chip, memoria, pila, cargador, falla, imei, observaciones, microfono, altavoz, cc, camaras, wifi, señal, buzzer, sensor, costoestimado, anticipo, garantia, fechaentrega, horaentrega, code)
         Dim con As MySqlConnection = conexion.conection
-        Dim cmd As MySqlCommand = New MySqlCommand(String.Format("INSERT INTO support(fecha, cliente, telefono, equipo, marca, modelo, color, estado, chip, memoria, pila, cargador, falla, imei,observaciones, microfono, altavoz, cc, camaras, wifi, señal, buzzer, sensor, costoestimado, anticipo, garantia, fechaentrega, horaentrega, code) VALUES('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}','{10}','{11}','{12}','{13}','{14}','{15}','{16}','{17}','{18}','{19}','{20}','{21}','{22}','{23}','{24}','{25}','{26}','{27}','{28}')", fecha, cliente, telefono, equipo, marca, modelo, color, estado, chip, memoria, pila, cargador, falla, imei, observaciones, microfono, altavoz, cc, camaras, wifi, señal, buzzer, sensor, costoestimado, anticipo, garantia, fechaentrega, horaentrega, code), con)
+        Dim cmd As MySqlCommand = New MySqlCommand(String.Format("INSERT INTO support(fecha, cliente, telefono, equipo, marca, modelo, color, estado, chip, memoria, pila, cargador, falla, imei,observaciones, microfono, altavoz, cc, camaras, wifi, señal, buzzer, sensor, costoestimado, anticipo, garantia, fechaentrega, horaentrega,actualizaciones, code) VALUES('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}','{10}','{11}','{12}','{13}','{14}','{15}','{16}','{17}','{18}','{19}','{20}','{21}','{22}','{23}','{24}','{25}','{26}','{27}','','{28}')", fecha, cliente, telefono, equipo, marca, modelo, color, estado, chip, memoria, pila, cargador, falla, imei, observaciones, microfono, altavoz, cc, camaras, wifi, señal, buzzer, sensor, costoestimado, anticipo, garantia, fechaentrega, horaentrega, code), con)
         cmd.ExecuteNonQuery()
         con.Close()
     End Sub
@@ -245,7 +234,7 @@ Public Class consultas
     Public Shared Function getCantidadInventario(barcode) As String
         Dim con As MySqlConnection = conexion.conection
         Dim cant As String = 0
-        Dim cmd As MySqlCommand = New MySqlCommand(String.Format("SELECT quantity FROM products WHERE barcode=" + barcode + " "), con)
+        Dim cmd As MySqlCommand = New MySqlCommand(String.Format("SELECT quantity FROM products WHERE barcode='{0}' ", barcode), con)
         Dim reader As MySqlDataReader = cmd.ExecuteReader
         If reader.Read Then
             cant = reader(0).ToString
@@ -344,4 +333,10 @@ Public Class consultas
         con.Close()
         Return dt
     End Function
+    Public Shared Sub updActualizaciones(pcode, pactualizacion)
+        Dim con As MySqlConnection = conexion.conection
+        Dim cmd As MySqlCommand = New MySqlCommand(String.Format("UPDATE support SET actualizaciones='{0}' WHERE code='{1}'", pactualizacion, pcode), con)
+        cmd.ExecuteNonQuery()
+        con.Close()
+    End Sub
 End Class
