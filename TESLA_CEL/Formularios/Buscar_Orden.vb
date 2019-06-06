@@ -10,6 +10,7 @@
             Else
                 txtCliente.Text = newDt(0)("cliente")
                 txtTelefono.Text = newDt(0)("telefono")
+                txtEntrada.Text = newDt(0)("fecha")
                 txtEquipo.Text = newDt(0)("equipo")
                 txtMarca.Text = newDt(0)("marca")
                 txtModelo.Text = newDt(0)("modelo")
@@ -97,6 +98,7 @@
 
                 txtCliente.Text = newDt(0)("cliente")
                 txtTelefono.Text = newDt(0)("telefono")
+                txtEntrada.Text = newDt(0)("fecha")
                 txtEquipo.Text = newDt(0)("equipo")
                 txtMarca.Text = newDt(0)("marca")
                 txtModelo.Text = newDt(0)("modelo")
@@ -159,6 +161,7 @@
 
                 txtCliente.Text = newDt(0)("cliente")
                 txtTelefono.Text = newDt(0)("telefono")
+                txtEntrada.Text = newDt(0)("fecha")
                 txtEquipo.Text = newDt(0)("equipo")
                 txtMarca.Text = newDt(0)("marca")
                 txtModelo.Text = newDt(0)("modelo")
@@ -227,6 +230,7 @@
         If min <= max - 1 Then
             txtCliente.Text = newDt(min)("cliente")
             txtTelefono.Text = newDt(min)("telefono")
+            txtEntrada.Text = newDt(min)("fecha")
             txtEquipo.Text = newDt(min)("equipo")
             txtMarca.Text = newDt(min)("marca")
             txtModelo.Text = newDt(min)("modelo")
@@ -296,6 +300,7 @@
         If min >= 0 Then
             txtCliente.Text = newDt(min)("cliente")
             txtTelefono.Text = newDt(min)("telefono")
+            txtEntrada.Text = newDt(min)("fecha")
             txtEquipo.Text = newDt(min)("equipo")
             txtMarca.Text = newDt(min)("marca")
             txtModelo.Text = newDt(min)("modelo")

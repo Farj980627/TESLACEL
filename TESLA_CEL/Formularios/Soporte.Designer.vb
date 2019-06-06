@@ -782,14 +782,14 @@ Partial Class Soporte
         '
         Me.btnBuscarFechas.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.btnBuscarFechas.BackColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(247, Byte), Integer), CType(CType(249, Byte), Integer))
-        Me.btnBuscarFechas.Font = New System.Drawing.Font("Berlin Sans FB", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnBuscarFechas.Font = New System.Drawing.Font("Berlin Sans FB", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnBuscarFechas.ForeColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(77, Byte), Integer), CType(CType(111, Byte), Integer))
         Me.btnBuscarFechas.Image = Global.TESLA_CEL.My.Resources.Resources.generar_color
         Me.btnBuscarFechas.Location = New System.Drawing.Point(790, 546)
         Me.btnBuscarFechas.Name = "btnBuscarFechas"
         Me.btnBuscarFechas.Size = New System.Drawing.Size(277, 61)
         Me.btnBuscarFechas.TabIndex = 29
-        Me.btnBuscarFechas.Text = "Guardar Orden"
+        Me.btnBuscarFechas.Text = "Guardar e Imprimir"
         Me.btnBuscarFechas.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.btnBuscarFechas.UseVisualStyleBackColor = False
         '

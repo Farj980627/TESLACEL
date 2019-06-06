@@ -16,7 +16,7 @@ Public Class Reportes
     End Sub
     Private Sub btnMostrar_Click(sender As Object, e As EventArgs) Handles btnMostrar.Click
         Try
-
+            btnCorte.Visible = True
             dgvProducto.DataSource = consultas.getReportsAll
             totalreporte()
         Catch ex As Exception
@@ -34,6 +34,7 @@ Public Class Reportes
 
     Private Sub btnBuscarFechas_Click(sender As Object, e As EventArgs) Handles btnBuscarFechas.Click
         Try
+            btnCorte.Visible = True
             If dtpFin.Value < dtpInicio.Value Then
                 MsgBox("La Fecha de inicio es mayor que la final")
             Else
@@ -65,6 +66,7 @@ Public Class Reportes
 
     Private Sub txtNombre_TextChanged(sender As Object, e As EventArgs) Handles txtNombre.TextChanged
         Try
+            btnCorte.Visible = True
             dgvProducto.DataSource = consultas.getProductReport(txtNombre.Text)
             totalreporte()
         Catch ex As Exception

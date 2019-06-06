@@ -95,10 +95,10 @@ Partial Class Principal
         '
         'PictureBox1
         '
-        Me.PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), System.Drawing.Image)
+        Me.PictureBox1.Image = Global.TESLA_CEL.My.Resources.Resources.logo_nuevo
         Me.PictureBox1.Location = New System.Drawing.Point(3, 3)
         Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(230, 123)
+        Me.PictureBox1.Size = New System.Drawing.Size(230, 139)
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PictureBox1.TabIndex = 0
         Me.PictureBox1.TabStop = False
@@ -217,7 +217,6 @@ Partial Class Principal
     End Sub
 
     Friend WithEvents TableLayoutPanel1 As TableLayoutPanel
-    Friend WithEvents PictureBox1 As PictureBox
     Friend WithEvents TableLayoutPanel2 As TableLayoutPanel
     Friend WithEvents contenedor As Panel
     Friend WithEvents btnVentas As Button
@@ -227,4 +226,5 @@ Partial Class Principal
     Friend WithEvents btnSalir As Button
     Friend WithEvents btnUsuarios As Button
     Friend WithEvents lblTitulo As Label
+    Friend WithEvents PictureBox1 As PictureBox
 End Class

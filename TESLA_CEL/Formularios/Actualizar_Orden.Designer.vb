@@ -39,6 +39,12 @@ Partial Class Actualizar_Orden
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
+        Me.Label7 = New System.Windows.Forms.Label()
+        Me.txtTelefonosearch = New System.Windows.Forms.TextBox()
+        Me.PictureBox2 = New System.Windows.Forms.PictureBox()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Label28
@@ -62,7 +68,7 @@ Partial Class Actualizar_Orden
         Me.txtNum.ForeColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(77, Byte), Integer), CType(CType(111, Byte), Integer))
         Me.txtNum.Location = New System.Drawing.Point(290, 9)
         Me.txtNum.Name = "txtNum"
-        Me.txtNum.Size = New System.Drawing.Size(154, 30)
+        Me.txtNum.Size = New System.Drawing.Size(197, 30)
         Me.txtNum.TabIndex = 159
         Me.txtNum.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
@@ -265,12 +271,61 @@ Partial Class Actualizar_Orden
         Me.Label3.Text = "EQUIPO: "
         Me.Label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
+        'Label7
+        '
+        Me.Label7.AutoSize = True
+        Me.Label7.Font = New System.Drawing.Font("Berlin Sans FB", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label7.ForeColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(247, Byte), Integer), CType(CType(249, Byte), Integer))
+        Me.Label7.Location = New System.Drawing.Point(566, 8)
+        Me.Label7.Name = "Label7"
+        Me.Label7.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me.Label7.Size = New System.Drawing.Size(153, 31)
+        Me.Label7.TabIndex = 177
+        Me.Label7.Text = "TELEFONO:"
+        Me.Label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'txtTelefonosearch
+        '
+        Me.txtTelefonosearch.BackColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(247, Byte), Integer), CType(CType(249, Byte), Integer))
+        Me.txtTelefonosearch.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.txtTelefonosearch.Font = New System.Drawing.Font("Berlin Sans FB", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtTelefonosearch.ForeColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(77, Byte), Integer), CType(CType(111, Byte), Integer))
+        Me.txtTelefonosearch.Location = New System.Drawing.Point(725, 8)
+        Me.txtTelefonosearch.Name = "txtTelefonosearch"
+        Me.txtTelefonosearch.Size = New System.Drawing.Size(273, 30)
+        Me.txtTelefonosearch.TabIndex = 176
+        Me.txtTelefonosearch.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        '
+        'PictureBox2
+        '
+        Me.PictureBox2.Image = Global.TESLA_CEL.My.Resources.Resources.proximo
+        Me.PictureBox2.Location = New System.Drawing.Point(583, 493)
+        Me.PictureBox2.Name = "PictureBox2"
+        Me.PictureBox2.Size = New System.Drawing.Size(32, 35)
+        Me.PictureBox2.TabIndex = 179
+        Me.PictureBox2.TabStop = False
+        Me.PictureBox2.Visible = False
+        '
+        'PictureBox1
+        '
+        Me.PictureBox1.Image = Global.TESLA_CEL.My.Resources.Resources.atras
+        Me.PictureBox1.Location = New System.Drawing.Point(408, 493)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(28, 35)
+        Me.PictureBox1.TabIndex = 178
+        Me.PictureBox1.TabStop = False
+        Me.PictureBox1.Visible = False
+        '
         'Actualizar_Orden
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(77, Byte), Integer), CType(CType(111, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(1051, 562)
+        Me.Controls.Add(Me.PictureBox2)
+        Me.Controls.Add(Me.PictureBox1)
+        Me.Controls.Add(Me.Label7)
+        Me.Controls.Add(Me.txtTelefonosearch)
         Me.Controls.Add(Me.Label6)
         Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.Label4)
@@ -290,6 +345,8 @@ Partial Class Actualizar_Orden
         Me.Controls.Add(Me.txtNum)
         Me.Name = "Actualizar_Orden"
         Me.Text = "Actualizar_Orden"
+        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -312,4 +369,8 @@ Partial Class Actualizar_Orden
     Friend WithEvents Label5 As Label
     Friend WithEvents Label4 As Label
     Friend WithEvents Label3 As Label
+    Friend WithEvents Label7 As Label
+    Friend WithEvents txtTelefonosearch As TextBox
+    Friend WithEvents PictureBox2 As PictureBox
+    Friend WithEvents PictureBox1 As PictureBox
 End Class
