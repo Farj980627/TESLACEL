@@ -89,14 +89,11 @@
     <Prefer32Bit>true</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="LibPrintTicket">
-      <HintPath>..\..\..\..\Downloads\LibPrintTicket\LibPrintTicket\Release\LibPrintTicket.dll</HintPath>
-    </Reference>
     <Reference Include="libreria">
-      <HintPath>..\..\..\..\Desktop\Ticket VS2010\Ticket VS2010\Ticket\Ticket\Ticket\bin\Debug\libreria.dll</HintPath>
+      <HintPath>..\..\..\Ticket VS2010\Ticket VS2010\Ticket\Ticket\Ticket\bin\Debug\libreria.dll</HintPath>
     </Reference>
     <Reference Include="MySql.Data">
-      <HintPath>..\..\..\..\Documents\Visual Studio 2017\Projects\ExcelToDataGV\ExcelToDataGV\bin\Debug\MySql.Data.dll</HintPath>
+      <HintPath>..\..\..\MySql.Data.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -112,7 +109,7 @@
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Net.Http" />
     <Reference Include="wd220net4">
-      <HintPath>..\..\..\..\Desktop\Ticket VS2010\Ticket VS2010\Ticket\Ticket\Ticket\bin\Debug\wd220net4.dll</HintPath>
+      <HintPath>..\..\..\Ticket VS2010\Ticket VS2010\Ticket\Ticket\Ticket\bin\Debug\wd220net4.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
